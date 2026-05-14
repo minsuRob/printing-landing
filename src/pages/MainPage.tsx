@@ -261,9 +261,9 @@ const MainPage: React.FC = () => {
                   <Link to="/checkout" className="w-full sm:w-auto bg-white text-primary px-12 py-5 rounded-xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all">
                     바로 구매하기
                   </Link>
-                  <button className="w-full sm:w-auto bg-transparent border-2 border-white/40 text-white px-12 py-5 rounded-xl font-bold text-lg hover:bg-white/10 transition-all">
+                  <Link to="/production-guide" className="w-full sm:w-auto bg-transparent border-2 border-white/40 text-white px-12 py-5 rounded-xl font-bold text-lg hover:bg-white/10 transition-all flex items-center justify-center">
                     제작 가이드 다운로드
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>

@@ -12,9 +12,9 @@ const Navbar = () => {
     { label: '홈', href: '/' },
     { label: '티셔츠', href: '/tshirt-printing' },
     { label: '신발', href: '/sneaker-printing' },
-    { label: '가방', href: '/bag-printing' },
     { label: '마스크', href: '/mask-printing' },
     { label: '모자', href: '/hat-printing' },
+    { label: '제작 가이드', href: '/production-guide' },
   ];
 
   return (
