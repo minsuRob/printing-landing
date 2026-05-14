@@ -8,6 +8,9 @@ import BagDetail from './pages/BagDetail';
 import HatDetail from './pages/HatDetail';
 import ProductionGuide from './pages/ProductionGuide';
 import Portfolio from './pages/Portfolio';
+import About from './pages/About';
+import Terms from './pages/Terms';
+import Support from './pages/Support';
 import Checkout from './pages/Checkout';
 
 function App() {
@@ -23,6 +26,9 @@ function App() {
           <Route path="/hat-printing" element={<HatDetail />} />
           <Route path="/production-guide" element={<ProductionGuide />} />
           <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/support" element={<Support />} />
           <Route path="/checkout" element={<Checkout />} />
         </Routes>
       </main>
