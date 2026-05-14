@@ -29,7 +29,7 @@ const Navbar = () => {
               <img 
                 alt="Shinui Deco Printing Logo" 
                 className="h-12 w-auto object-contain" 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuATZsC3Bccgfi-HNceu7_VPoPe2Pk8xigUQ7OvhQdrwLe5e_F6nh9auF40s5mZh-CRi6wsm5dvD2KBq143jWhw4Lc9JwCrdeN9TzDxnuBURrI2dTOPes4T7pQCmU-G3-zHH3le498oxOyC0f62Zq4J51V1UvbNObTBB5D_22UjVlmenoMnnMPlvFsa4gRnp9pTOY3GPp4SmhXmtBqxIDi77uh4ifabghwDJKWleVOLYo3KzesLzgl82TqrvNQWewoMBIlN6Cgkq6Q" 
+                src="/printing-landing/assets/logo.png" 
               />
             </a>
             {/* Desktop Nav */}

@@ -13,12 +13,12 @@ const PRODUCT = {
   badge: '프리미엄 에디션',
   desc: '고해상도 홀로그램 만다라 디자인과 최상급 글리터 원단의 만남. 당신만의 빛나는 스타일을 완성하세요.',
   // 기존 이미지 동일
-  mainImg: './assets/tshirt.png',
+  mainImg: '/printing-landing/assets/tshirt.png',
   thumbs: [
-    './assets/tshirt-thumb1.png',
-    './assets/tshirt-thumb2.png',
+    '/printing-landing/assets/tshirt.png',
+    '/printing-landing/assets/tshirt.png',
   ],
-  washImg: './assets/tshirt-wash.png',
+  washImg: '/printing-landing/assets/tshirt.png',
 };
 
 const TEXTURES = [

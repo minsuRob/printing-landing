@@ -20,7 +20,7 @@ const BagDetail = () => {
       id: 'bag-001',
       name: '글리터 커스텀 캔버스 백',
       price: 25000,
-      image: './assets/bag.png',
+      image: '/printing-landing/assets/bag.png',
       category: '가방/모자',
       texture: selectedTexture,
     });
@@ -46,7 +46,7 @@ const BagDetail = () => {
               <img
                 alt="글리터 커스텀 캔버스 백"
                 className="w-full h-full object-cover"
-                src="./assets/bag.png"
+                src="/printing-landing/assets/bag.png"
               />
             </div>
             {/* 기존 2열 디테일 그리드 동일 */}
@@ -55,14 +55,14 @@ const BagDetail = () => {
                 <img
                   alt="디테일 1"
                   className="w-full h-48 md:h-64 object-cover"
-                  src="./assets/bag.png"
+                  src="/printing-landing/assets/bag.png"
                 />
               </div>
               <div className="rounded-xl overflow-hidden border border-outline-variant/30">
                 <img
                   alt="디테일 2"
                   className="w-full h-48 md:h-64 object-cover"
-                  src="./assets/bag.png"
+                  src="/printing-landing/assets/bag.png"
                 />
               </div>
             </div>
@@ -168,12 +168,12 @@ const BagDetail = () => {
                 <img
                   alt="캔버스 패브릭 텍스처"
                   className="rounded-2xl w-full"
-                  src="./assets/bag.png"
+                  src="/printing-landing/assets/bag.png"
                 />
                 <img
                   alt="글리터 열전사 필름 클로즈업"
                   className="rounded-2xl w-full"
-                  src="./assets/bag.png"
+                  src="/printing-landing/assets/bag.png"
                 />
               </div>
             </div>
@@ -187,9 +187,9 @@ const BagDetail = () => {
             </div>
             <div className="flex gap-6 overflow-x-auto pb-4">
               {[
-                { name: '커스텀 네임 택', price: '₩8,000', img: './assets/bag.png' },
-                { name: '프리미엄 세탁 망', price: '₩3,500', img: './assets/bag.png' },
-                { name: '캔버스 전용 클리너', price: '₩12,000', img: './assets/bag.png' },
+                { name: '커스텀 네임 택', price: '₩8,000', img: '/printing-landing/assets/bag.png' },
+                { name: '프리미엄 세탁 망', price: '₩3,500', img: '/printing-landing/assets/bag.png' },
+                { name: '캔버스 전용 클리너', price: '₩12,000', img: '/printing-landing/assets/bag.png' },
               ].map(r => (
                 <div key={r.name} className="min-w-[280px] group bg-surface-container-lowest border border-outline-variant/30 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow">
                   <div className="h-48 overflow-hidden">

@@ -11,28 +11,28 @@ const PRODUCTS = [
     name: '스파클 레드 시퀸 마스크',
     price: 12000,
     // 기존 이미지 동일
-    img: './assets/mask.png',
+    img: '/printing-landing/assets/mask.png',
   },
   {
     id: 'mask-002',
     label: 'Special Texture',
     name: '에메랄드 스케일 마스크',
     price: 15000,
-    img: './assets/mask.png',
+    img: '/printing-landing/assets/mask.png',
   },
   {
     id: 'mask-003',
     label: 'Tech Wear',
     name: '카본 실버 패턴 마스크',
     price: 13500,
-    img: './assets/mask.png',
+    img: '/printing-landing/assets/mask.png',
   },
   {
     id: 'mask-004',
     label: 'Material Spectrum',
     name: '메탈릭 퍼플 아트 마스크',
     price: 14000,
-    img: './assets/mask.png',
+    img: '/printing-landing/assets/mask.png',
   },
 ];
 
@@ -75,7 +75,7 @@ const MaskDetail = () => {
               <img
                 alt="Premium Mask Collection Overview"
                 className="w-full h-auto object-cover"
-                src="./assets/mask.png"
+                src="/printing-landing/assets/mask.png"
               />
             </div>
 
@@ -137,7 +137,7 @@ const MaskDetail = () => {
                   <img
                     alt="Material Palette"
                     className="w-full h-auto"
-                    src="./assets/mask.png"
+                    src="/printing-landing/assets/mask.png"
                   />
                 </div>
               </div>

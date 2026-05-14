@@ -14,7 +14,7 @@ const MainPage: React.FC = () => {
             <img 
               alt="Professional heat press machine cinematic background" 
               className="w-full h-full object-cover object-center scale-105" 
-              src="https://lh3.googleusercontent.com/aida/ADBb0uhbLTzktTOr2RS_zdioF4KGTak6_vHAZwaIgKtsF1h9KaRy8hTcUCeiRY1fviuvYioPgLdJD9xFqUP8qCwPw5iam5mkm2CrVnwH20AXX6l5pQLiES-tR2XMQldM1W79tnIurK4OwRraFYRVIDghgunvlZtib00CSWrk0k05lI5BNY6EZNsiD0WFfnEKXpuwygOyu2SfewkwtAKR11TbpUZyLh2CIv48-4jD0CgWPLXNHZqIJplF4wp1OQ" 
+              src="/printing-landing/assets/hero.jpg" 
             />
             <div className="absolute inset-0 video-overlay"></div>
             {/* Neon Accents */}
@@ -48,7 +48,7 @@ const MainPage: React.FC = () => {
                   <img 
                     alt="Shoes Category" 
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuATZsC3Bccgfi-HNceu7_VPoPe2Pk8xigUQ7OvhQdrwLe5e_F6nh9auF40s5mZh-CRi6wsm5dvD2KBq143jWhw4Lc9JwCrdeN9TzDxnuBURrI2dTOPes4T7pQCmU-G3-zHH3le498oxOyC0f62Zq4J51V1UvbNObTBB5D_22UjVlmenoMnnMPlvFsa4gRnp9pTOY3GPp4SmhXmtBqxIDi77uh4ifabghwDJKWleVOLYo3KzesLzgl82TqrvNQWewoMBIlN6Cgkq6Q" 
+                    src="/printing-landing/assets/cat-sneaker.jpg" 
                   />
                   <div className="gallery-overlay absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300 backdrop-blur-sm">
                     <span className="bg-on-primary text-primary px-6 py-2 rounded-full font-button text-sm shadow-lg">전체보기</span>
@@ -75,7 +75,7 @@ const MainPage: React.FC = () => {
                   <img 
                     alt="Masks Category" 
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
-                    src="https://lh3.googleusercontent.com/aida/ADBb0uh1re0lHgQmWxXjJOALEUh223xesfKHshacSx9vnCpTwh_ENieI-Bjt3YYb-Z7pkn6LOJ06fNdWPrpzOuVGzMaHSfisDQGnakV4ygusaI_DEnkk1MFcuktXl9bJeYtjLh4OOmQ_EqSfoGXlZHo-CuWM9VBPJeGp82zKAy-jg5PcYmNLK4kqqW9OAzSQsuCaaHQTTBvHc7c_EuPmjOWNT5MkJf22A2WPZxxTT1e_xmelzydKpjLy9sJZKQdQ77zE9Ilz9Yy0d2hP" 
+                    src="/printing-landing/assets/cat-mask.jpg" 
                   />
                   <div className="gallery-overlay absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300 backdrop-blur-sm">
                     <span className="bg-on-primary text-primary px-6 py-2 rounded-full font-button text-sm shadow-lg">전체보기</span>
@@ -102,7 +102,7 @@ const MainPage: React.FC = () => {
                   <img 
                     alt="T-shirts Category" 
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
-                    src="https://lh3.googleusercontent.com/aida/ADBb0uhFq3ZttCWNGu2G2nOTwrk3-ZFHx7Q-aO3X7-QOjGfsuI-7DBaQL_v4gISy77YRlxHfWAUW4_3ky7l79gmJZ51tQOh6Eby7Jq-SwhkZxdOF98jseULyosRnh2WSY_vyfuzqmRFcYrciTadwARKPplbtC81xUpD7AcfcAAk3wmlDsRqL-OPvy9zSuNJSNLj5BfLgdwlngJpRdcpIVglQJzH_qsUwlZ-6tGSnfqIl8G-OoHh_a8UavId4W2gWOrMANlfMGoRfPKY" 
+                    src="/printing-landing/assets/cat-tshirt.jpg" 
                   />
                   <div className="gallery-overlay absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300 backdrop-blur-sm">
                     <span className="bg-on-primary text-primary px-6 py-2 rounded-full font-button text-sm shadow-lg">전체보기</span>
@@ -129,7 +129,7 @@ const MainPage: React.FC = () => {
                   <img 
                     alt="Hats Category" 
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
-                    src="https://lh3.googleusercontent.com/aida/ADBb0ujkC4C3KOV64pHOKZRBp9qo8Es5UWOq21ShxIoiQmpthz2hCEBdICGFndMQ2XwI7j4sP97MPbAVqa-jY4pkFvPx2RbwU2Bc2_k6ZB088qO3rTs2aM-BY92zd0RKDGOhMn4sBv7CGgL1uUwT43iXiOos106ZbWgtSURcx-jQIH0fYKXIsDa8WfMnQwBl36_YrZ01fK3SkIIrH_GWEMNS2yX2sehqjpZ0LSAwHPs8ZiNPQTSpjKmoByoqHwsvnbAvlkyyFCknI0M" 
+                    src="/printing-landing/assets/cat-hat.jpg" 
                   />
                   <div className="gallery-overlay absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300 backdrop-blur-sm">
                     <span className="bg-on-primary text-primary px-6 py-2 rounded-full font-button text-sm shadow-lg">전체보기</span>
@@ -156,7 +156,7 @@ const MainPage: React.FC = () => {
                   <img 
                     alt="Bags Category" 
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
-                    src="https://lh3.googleusercontent.com/aida/ADBb0uj9JSlkHVXew02SGFpkqsBDVp7LlV4GVXVthU_QHbElcZvFn7Ro96p7q_vFLZTC5eAKYXgLJTxZEe_B4XtiA1wNKy7uzBO0WHsZKr0559cGFNdmtZDnBlOV2CFTwnfZEVYO_YXnr5CRwRpx0jzeMIC0fxhVMjKxlokuQPfHPkobG1jimKLUuILJvzI3qe5hx6Vyp3cbi3wkwBb9cOYu4bRNihTuFDy_zScJn0AhjLMFiDIK5EtM5lyr" 
+                    src="/printing-landing/assets/cat-bag.jpg" 
                   />
                   <div className="gallery-overlay absolute inset-0 bg-primary/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300 backdrop-blur-sm">
                     <span className="bg-on-primary text-primary px-6 py-2 rounded-full font-button text-sm shadow-lg">전체보기</span>
@@ -227,7 +227,7 @@ const MainPage: React.FC = () => {
                 <img 
                   alt="Detailed Glitter Transfers" 
                   className="w-full h-full object-cover" 
-                  src="https://lh3.googleusercontent.com/aida/ADBb0uiKn9ydHBefiE-sRID6prtx-vloQqGwk6wfmNndgBg7DlqiYHwhG-GlUiSyn5Dehs8FB5C_yyXFXLZv68_E5mkXM8wuZ_sh-uAozb_Cr8d6Dwvs5qmv8UQkgFaMm4tCFgAA6MeooptIKM2WadN5BUhitu0UaCBv1M-7WROXNsJVenjTNFMe-pmEBdAzis5ohpAfikpoKbnDubdQP1vet8Jk4vY7wzeBVl1vggHJ1NEx6foD9flm062CRvy55wt9di6M8jxEUB3x" 
+                  src="/printing-landing/assets/sparkle-detail.jpg" 
                 />
               </div>
               <div className="w-full md:w-1/2 p-12 order-1 md:order-2">
