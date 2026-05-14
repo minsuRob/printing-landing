@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 const PORTFOLIO_ITEMS = [
-  { id: 1, title: '시그니처 레드 글리터 티셔츠', category: 'T-shirt', img: '/printing-landing/assets/cat-tshirt.jpg', client: 'Street Brand A' },
+  { id: 1, title: '프리미엄 필름 컬러 가이드', category: 'T-shirt', img: '/printing-landing/assets/film-color-chart.jpg', client: '신의데코 표준 규격' },
   { id: 2, title: '메탈릭 실버 커스텀 스니커즈', category: 'Sneaker', img: '/printing-landing/assets/cat-sneaker.jpg', client: 'Individual Order' },
   { id: 3, title: '홀로그램 포인트 마스크', category: 'Mask', img: '/printing-landing/assets/cat-mask.jpg', client: 'Fashion Group B' },
   { id: 4, title: '골드 로고 캔버스 에코백', category: 'Bag', img: '/printing-landing/assets/cat-bag.jpg', client: 'Gift Shop C' },
