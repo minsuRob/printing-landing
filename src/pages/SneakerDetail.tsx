@@ -18,7 +18,7 @@ const SneakerDetail = () => {
   const [selectedTexture, setSelectedTexture] = useState('Metallic Red');
   // 기존 메인 이미지 동일
   const [mainImg, setMainImg] = useState(
-    '/printing-landing/assets/sneaker.png'
+    '/printing-landing/assets/sneaker-run-1.jpg'
   );
   const { addItem } = useCart();
 
@@ -33,10 +33,10 @@ const SneakerDetail = () => {
 
   // 기존 썸네일 이미지들 동일
   const thumbs = [
-    '/printing-landing/assets/sneaker.png',
-    '/printing-landing/assets/sneaker.png',
-    '/printing-landing/assets/sneaker.png',
-    '/printing-landing/assets/sneaker.png',
+    '/printing-landing/assets/sneaker-run-1.jpg',
+    '/printing-landing/assets/sneaker-run-2.jpg',
+    '/printing-landing/assets/sneaker-run-3.jpg',
+    '/printing-landing/assets/sneaker-run-4.jpg',
   ];
 
   return (
@@ -181,7 +181,7 @@ const SneakerDetail = () => {
                 <img
                   alt="열전사 필름 제작 공정"
                   className="w-full"
-                  src="/printing-landing/assets/sneaker.png"
+                  src="/printing-landing/assets/sneaker-run-2.jpg"
                 />
               </div>
             </div>
@@ -201,12 +201,12 @@ const SneakerDetail = () => {
                 <img
                   alt="디테일 컷 1"
                   className="aspect-square rounded-xl object-cover"
-                  src="/printing-landing/assets/sneaker.png"
+                  src="/printing-landing/assets/sneaker-run-3.jpg"
                 />
                 <img
                   alt="디테일 컷 2"
                   className="aspect-square rounded-xl object-cover"
-                  src="/printing-landing/assets/sneaker.png"
+                  src="/printing-landing/assets/sneaker-run-4.jpg"
                 />
               </div>
             </div>
@@ -222,7 +222,7 @@ const SneakerDetail = () => {
               <img
                 alt="글리터 커스텀 티셔츠"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                src="/printing-landing/assets/sneaker.png"
+                src="/printing-landing/assets/sneaker-run-1.jpg"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-6">
                 <span className="text-white/80 text-xs font-semibold mb-1">BEST MATCHING</span>
@@ -236,7 +236,7 @@ const SneakerDetail = () => {
                 <img
                   alt="글리터 마스크"
                   className="w-full h-full object-cover"
-                  src="/printing-landing/assets/sneaker.png"
+                  src="/printing-landing/assets/sneaker-run-3.jpg"
                 />
               </div>
               <p className="font-semibold text-sm truncate">글리터 포인트 마스크</p>
@@ -247,7 +247,7 @@ const SneakerDetail = () => {
                 <img
                   alt="글리터 에코백"
                   className="w-full h-full object-cover"
-                  src="/printing-landing/assets/sneaker.png"
+                  src="/printing-landing/assets/sneaker-run-4.jpg"
                 />
               </div>
               <p className="font-semibold text-sm truncate">메탈릭 로고 에코백</p>
