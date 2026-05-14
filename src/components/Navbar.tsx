@@ -24,9 +24,13 @@ const Navbar = () => {
           <div className="flex items-center gap-10">
             <a
               href="#/"
-              className="font-['Space_Grotesk'] text-2xl font-bold text-primary tracking-tight hover:opacity-85 transition-opacity"
+              className="font-h3 text-h3 font-bold text-primary dark:text-inverse-primary tracking-tight hover:opacity-85 transition-opacity"
             >
-              신의데코프린팅
+              <img 
+                alt="Shinui Deco Printing Logo" 
+                className="h-12 w-auto object-contain" 
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuATZsC3Bccgfi-HNceu7_VPoPe2Pk8xigUQ7OvhQdrwLe5e_F6nh9auF40s5mZh-CRi6wsm5dvD2KBq143jWhw4Lc9JwCrdeN9TzDxnuBURrI2dTOPes4T7pQCmU-G3-zHH3le498oxOyC0f62Zq4J51V1UvbNObTBB5D_22UjVlmenoMnnMPlvFsa4gRnp9pTOY3GPp4SmhXmtBqxIDi77uh4ifabghwDJKWleVOLYo3KzesLzgl82TqrvNQWewoMBIlN6Cgkq6Q" 
+              />
             </a>
             {/* Desktop Nav */}
             <nav className="hidden md:flex items-center gap-6">

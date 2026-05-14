@@ -3,10 +3,10 @@ const Footer = () => {
     <footer className="bg-surface-container-low border-t border-outline-variant/20">
       <div className="max-w-[1280px] mx-auto px-6 py-20 grid grid-cols-1 md:grid-cols-3 gap-6">
         <div>
-          <h3 className="font-['Space_Grotesk'] text-2xl font-bold text-on-surface mb-2">신의데코프린팅</h3>
-          <p className="text-sm text-on-surface-variant mb-6">
-            © 2024 신의데코프린팅. 모든 프레스에 담긴 정밀함.<br />
-            열전사 필름의 새로운 기준.
+          <h3 className="font-h3 text-h3 font-bold text-on-surface mb-2">신의데코프린팅</h3>
+          <p className="font-body-sm text-body-sm text-on-surface-variant mb-6">
+            © 2024 신의데코프린팅. 모든 공정에 정밀함을 담습니다.<br/>
+            열전사 필름의 새로운 기준, 신의데코와 함께하세요.
           </p>
           <div className="flex gap-6">
             <a href="#/" className="text-on-surface-variant hover:text-primary transition-all duration-200">

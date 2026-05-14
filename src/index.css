@@ -206,6 +206,14 @@ body {
   box-shadow: 0 20px 40px rgba(70, 72, 212, 0.15);
 }
 
+.video-overlay {
+  background: linear-gradient(to right, rgba(11, 28, 48, 0.9) 0%, rgba(11, 28, 48, 0.6) 50%, rgba(11, 28, 48, 0.3) 100%);
+}
+
+.gallery-card:hover .gallery-overlay {
+  opacity: 1;
+}
+
 /* Star rating */
 .star-filled { color: #f59e0b; }
 .star-empty { color: #d1d5db; }
