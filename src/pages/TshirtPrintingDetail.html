@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+<html class="light" lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&amp;family=Inter:wght@300..700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#bec6e0",
+                        "on-surface-variant": "#464554",
+                        "surface": "#f8f9ff",
+                        "inverse-surface": "#213145",
+                        "surface-container-high": "#dce9ff",
+                        "on-secondary-container": "#5c647a",
+                        "tertiary-container": "#b55d00",
+                        "on-error": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed": "#131b2e",
+                        "tertiary-fixed-dim": "#ffb783",
+                        "on-primary-fixed-variant": "#2f2ebe",
+                        "inverse-on-surface": "#eaf1ff",
+                        "secondary-fixed": "#dae2fd",
+                        "surface-tint": "#494bd6",
+                        "secondary-container": "#dae2fd",
+                        "surface-container": "#e5eeff",
+                        "outline-variant": "#c7c4d7",
+                        "surface-container-low": "#eff4ff",
+                        "background": "#f8f9ff",
+                        "tertiary-fixed": "#ffdcc5",
+                        "primary-fixed-dim": "#c0c1ff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#0b1c30",
+                        "secondary": "#565e74",
+                        "on-primary-fixed": "#07006c",
+                        "primary-fixed": "#e1e0ff",
+                        "on-surface": "#0b1c30",
+                        "surface-variant": "#d3e4fe",
+                        "surface-bright": "#f8f9ff",
+                        "primary": "#4648d4",
+                        "primary-container": "#6063ee",
+                        "on-tertiary-container": "#fffbff",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#cbdbf5",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "tertiary": "#904900",
+                        "inverse-primary": "#c0c1ff",
+                        "on-tertiary-fixed-variant": "#703700",
+                        "error": "#ba1a1a",
+                        "outline": "#767586",
+                        "on-tertiary-fixed": "#301400",
+                        "on-secondary-fixed-variant": "#3f465c",
+                        "on-primary-container": "#fffbff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "md": "24px",
+                        "container-max": "1280px",
+                        "xs": "4px",
+                        "base": "8px",
+                        "xl": "80px",
+                        "sm": "12px",
+                        "lg": "48px"
+                    },
+                    "fontFamily": {
+                        "h2": ["Space Grotesk"],
+                        "body-md": ["Inter"],
+                        "button": ["Inter"],
+                        "h3": ["Space Grotesk"],
+                        "h1": ["Space Grotesk"],
+                        "body-sm": ["Inter"],
+                        "label-bold": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "h2": ["36px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "button": ["16px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                        "h3": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "h1": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "label-bold": ["14px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .glass-nav {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .texture-glitter-gold { background: linear-gradient(45deg, #d4af37 25%, #f1d592 50%, #d4af37 75%); }
+        .texture-glitter-silver { background: linear-gradient(45deg, #c0c0c0 25%, #e8e8e8 50%, #c0c0c0 75%); }
+        .texture-glitter-rainbow { background: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff); }
+        .inner-shadow-sm { box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06); }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md">
+<!-- TopNavBar -->
+<nav class="sticky top-0 z-50 w-full bg-surface/80 glass-nav border-b border-outline-variant/30 shadow-sm">
+<div class="max-w-container-max mx-auto px-gutter flex justify-between items-center h-20">
+<div class="font-h3 text-h3 font-bold text-primary tracking-tight">PressPro HTV</div>
+<div class="hidden md:flex items-center space-x-lg">
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-body-md text-body-md" href="#">Home</a>
+<a class="text-primary border-b-2 border-primary pb-1 font-bold font-body-md text-body-md" href="#">Shop</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-body-md text-body-md" href="#">Custom Order</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-body-md text-body-md" href="#">Gallery</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-body-md text-body-md" href="#">Community</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 font-body-md text-body-md" href="#">Support</a>
+</div>
+<div class="flex items-center space-x-md">
+<button class="p-base rounded-full hover:bg-surface-container-low transition-all duration-300">
+<span class="material-symbols-outlined text-on-surface">shopping_cart</span>
+</button>
+<button class="p-base rounded-full hover:bg-surface-container-low transition-all duration-300">
+<span class="material-symbols-outlined text-on-surface">account_circle</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="max-w-container-max mx-auto px-gutter py-lg">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-xl">
+<!-- Left Side: Product Gallery -->
+<div class="md:col-span-7 space-y-md">
+<div class="rounded-xl overflow-hidden bg-white border border-outline-variant/30 shadow-sm group">
+<img alt="Custom T-Shirt" class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A high-resolution, close-up photograph of a crisp white round-neck cotton t-shirt. On the chest area, a complex and intricate holographic mandala design glows with shifting iridescent colors. The lighting is soft and professional, highlighting the high-quality textile grain and the shimmering glitter texture of the custom HTV application. The background is a clean, minimalist studio setting with cool neutral tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSA-_g0TFLPtsRYyPeMFWmTjx2TavDzMCRdPZmGv7TMsfJmsfFGXxl5CNgX23AxhggtSQExDSw1Q3s-Azz2XBg6hO555gG0yA5zT-1PljQtyu1HzwJ4sVL4deLPexsdialKYuKCdp3CyWvvgvi-yEI0TE4ykgTaq45WdDzwhYmWWMI3qlW4lr7_2Zfb4MtwcFBolnowP-gbmAlkFQSgn7LBp_V4C962OhyYRCrHF0ZIf8b0tIz1YxKVQMhz25iNnNXGwnzJ7PSpw"/>
+</div>
+<div class="grid grid-cols-4 gap-sm">
+<div class="rounded-lg overflow-hidden border border-primary/20 aspect-square">
+<img class="w-full h-full object-cover" data-alt="A macro detail shot of holographic glitter HTV material showing intense sparkle and multi-colored reflections. The texture is granulated and tactile, capturing how light hits the premium metallic flakes. The color palette is vibrant and celebratory, fitting the modern high-tech vinyl printing aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDU58ly332fe_3NZOcXV9PdZVbX39DB5jYoYGrmCSSLdIYKe8wvdLIMQl_b2ceP2uF2ktG6CXm43D5YlpEeuSULoFHk_4WFyCK6wLxpfzZOiLqaYKGau9BQqPTm7bcA5OpkE8ssKqd_Y_H3T9zIsqk5FIaxhujAOh4ySppijcOgVCrJQZUFb-6Kd3UCr94C3XO2gdje-4Lb4p0AFdUCjoD2mAX-zqtj8VPpOw-9S8338oYSPFrni_8IYXGqCOvmbjsjwR-uXbf6Ow"/>
+</div>
+<div class="rounded-lg overflow-hidden border border-outline-variant/20 aspect-square opacity-60 hover:opacity-100 transition-opacity cursor-pointer">
+<img class="w-full h-full object-cover" data-alt="A professional heat press machine in operation, with a bright neon cyan digital display showing temperature settings. The machine is pressing a custom vinyl design onto a garment, symbolizing precision and industrial reliability. Soft white lighting illuminates the clean workspace." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCl9QeOBQyAter9BJ5nJjfd68okAmp_dADN6u1nJryjo-uiCLnI9NcQKk4KnvHjEhhq3p_vCX3Fn9LvdXJbiB6bSsMOgWCFJX-MfR8GIbsB-kp26ZFHxcToHqnireQ0aOVr4HP1LE13NpeOYuEWluEOs8xkWvYjnFJqLzaz8lIU3WshtbMxUfNhf2RlKvmVBL9FYHMTlaGZb-_DXRLMULFDiphABa0yA679rM0GwiTmJe5mGZifMBKx-NVIuhPs0brIfe9h5DfoIQ"/>
+</div>
+<!-- Placeholders for more images -->
+<div class="rounded-lg bg-surface-container-low border border-outline-variant/20 aspect-square flex items-center justify-center">
+<span class="material-symbols-outlined text-outline">photo_library</span>
+</div>
+<div class="rounded-lg bg-surface-container-low border border-outline-variant/20 aspect-square flex items-center justify-center">
+<span class="material-symbols-outlined text-outline">videocam</span>
+</div>
+</div>
+</div>
+<!-- Right Side: Sticky Info Panel -->
+<div class="md:col-span-5">
+<div class="sticky top-28 space-y-lg p-lg bg-surface-container-lowest rounded-xl border border-outline-variant/20 shadow-sm">
+<div>
+<span class="inline-block px-sm py-xs bg-primary-container/10 text-primary font-label-bold text-[12px] rounded-full mb-sm">Premium Edition</span>
+<h1 class="font-h2 text-h2 text-on-surface mb-xs">프리미엄 글리터 HTV 커스텀 티셔츠</h1>
+<p class="text-on-surface-variant font-body-md">고해상도 홀로그램 만다라 디자인과 최상급 글리터 원단의 만남. 당신만의 빛나는 스타일을 완성하세요.</p>
+</div>
+<div class="flex items-end space-x-xs">
+<span class="font-h1 text-h1 text-primary">₩35,000</span>
+<span class="text-on-surface-variant line-through mb-base font-body-sm">₩42,000</span>
+</div>
+<!-- Texture Selectors -->
+<div class="space-y-sm">
+<label class="font-label-bold text-on-surface">Vinyl Texture Selection</label>
+<div class="flex space-x-md">
+<div class="group flex flex-col items-center space-y-xs cursor-pointer">
+<div class="w-12 h-12 rounded-full texture-glitter-gold border-2 border-primary ring-2 ring-primary/20 ring-offset-2 inner-shadow-sm"></div>
+<span class="font-label-bold text-[10px]">Gold</span>
+</div>
+<div class="group flex flex-col items-center space-y-xs cursor-pointer">
+<div class="w-12 h-12 rounded-full texture-glitter-silver border border-outline-variant/50 hover:border-primary transition-colors inner-shadow-sm"></div>
+<span class="font-label-bold text-[10px] text-on-surface-variant">Silver</span>
+</div>
+<div class="group flex flex-col items-center space-y-xs cursor-pointer">
+<div class="w-12 h-12 rounded-full texture-glitter-rainbow border border-outline-variant/50 hover:border-primary transition-colors inner-shadow-sm"></div>
+<span class="font-label-bold text-[10px] text-on-surface-variant">Rainbow</span>
+</div>
+</div>
+</div>
+<!-- Size Selectors -->
+<div class="space-y-sm">
+<div class="flex justify-between items-center">
+<label class="font-label-bold text-on-surface">Select Size</label>
+<button class="text-primary font-label-bold text-[12px] hover:underline">Size Guide</button>
+</div>
+<div class="grid grid-cols-5 gap-xs">
+<button class="py-sm border border-outline-variant/50 rounded-lg font-label-bold hover:border-primary transition-all">S</button>
+<button class="py-sm border border-outline-variant/50 rounded-lg font-label-bold hover:border-primary transition-all">M</button>
+<button class="py-sm border-2 border-primary bg-primary-container/10 text-primary rounded-lg font-label-bold">L</button>
+<button class="py-sm border border-outline-variant/50 rounded-lg font-label-bold hover:border-primary transition-all">XL</button>
+<button class="py-sm border border-outline-variant/50 rounded-lg font-label-bold hover:border-primary transition-all">XXL</button>
+</div>
+</div>
+<div class="pt-md space-y-sm">
+<button class="w-full bg-primary text-on-primary py-md rounded-lg font-button flex items-center justify-center space-x-sm hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span>Add to Cart</span>
+</button>
+<button class="w-full bg-surface-container-high text-on-secondary-container py-md rounded-lg font-button border border-outline-variant/30 hover:bg-surface-variant transition-all">
+                            Personalize Design
+                        </button>
+</div>
+<div class="flex items-center justify-center space-x-lg pt-sm text-on-surface-variant">
+<div class="flex items-center space-x-xs">
+<span class="material-symbols-outlined text-[18px]">local_shipping</span>
+<span class="font-body-sm">Free Shipping</span>
+</div>
+<div class="flex items-center space-x-xs">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span class="font-body-sm">Premium Quality</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Section: Production Process (Bento Grid Style) -->
+<section class="mt-xl py-xl">
+<div class="flex flex-col items-center mb-lg">
+<h2 class="font-h2 text-h2 text-on-surface mb-xs">The Precision Process</h2>
+<div class="h-1 w-20 bg-primary rounded-full"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<div class="p-lg bg-surface-container-low rounded-xl border border-outline-variant/20 flex flex-col space-y-md">
+<div class="w-12 h-12 rounded-lg bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary">draw</span>
+</div>
+<h3 class="font-h3 text-h3">Step 01. Vector Design</h3>
+<p class="text-on-surface-variant font-body-md">고객님의 디자인을 정밀 벡터 데이터로 변환하여 컷팅 플로터에 최적화된 경로를 생성합니다.</p>
+</div>
+<div class="p-lg bg-surface-container-low rounded-xl border border-outline-variant/20 flex flex-col space-y-md">
+<div class="w-12 h-12 rounded-lg bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary">content_cut</span>
+</div>
+<h3 class="font-h3 text-h3">Step 02. Precision Cutting</h3>
+<p class="text-on-surface-variant font-body-md">프리미엄 글리터 HTV 필름을 0.1mm 오차 범위 내의 초정밀 레이저/플로터 컷팅으로 가공합니다.</p>
+</div>
+<div class="p-lg bg-surface-container-low rounded-xl border border-outline-variant/20 flex flex-col space-y-md">
+<div class="w-12 h-12 rounded-lg bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary">heat_pump</span>
+</div>
+<h3 class="font-h3 text-h3">Step 03. Industrial Press</h3>
+<p class="text-on-surface-variant font-body-md">150°C의 고온과 3.5kg/cm²의 압력으로 섬유 조직 깊숙이 본딩하여 강력한 내구성을 확보합니다.</p>
+</div>
+</div>
+</section>
+<!-- Section: Care Instructions -->
+<section class="py-xl border-t border-outline-variant/20">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-xl items-center">
+<div>
+<h2 class="font-h2 text-h2 text-on-surface mb-md">Care Instructions</h2>
+<p class="text-on-surface-variant font-body-lg mb-lg">오랫동안 변함없는 반짝임을 유지하기 위해 다음의 관리 수칙을 지켜주세요.</p>
+<div class="grid grid-cols-2 gap-md">
+<div class="flex items-start space-x-sm">
+<span class="material-symbols-outlined text-primary">dry_cleaning</span>
+<div>
+<span class="font-label-bold block">뒤집어 세탁</span>
+<span class="text-body-sm text-on-surface-variant">세탁 시 옷을 뒤집어 디자인을 보호하세요.</span>
+</div>
+</div>
+<div class="flex items-start space-x-sm">
+<span class="material-symbols-outlined text-primary">ac_unit</span>
+<div>
+<span class="font-label-bold block">찬물 세탁</span>
+<span class="text-body-sm text-on-surface-variant">30도 이하의 찬물 세탁을 권장합니다.</span>
+</div>
+</div>
+<div class="flex items-start space-x-sm">
+<span class="material-symbols-outlined text-primary">mode_fan</span>
+<div>
+<span class="font-label-bold block">자연 건조</span>
+<span class="text-body-sm text-on-surface-variant">건조기 사용을 피하고 그늘에서 말리세요.</span>
+</div>
+</div>
+<div class="flex items-start space-x-sm">
+<span class="material-symbols-outlined text-primary">iron</span>
+<div>
+<span class="font-label-bold block">다림질 주의</span>
+<span class="text-body-sm text-on-surface-variant">프린팅 부위 위에 직접 다림질하지 마세요.</span>
+</div>
+</div>
+</div>
+</div>
+<div class="relative group">
+<div class="absolute -inset-4 bg-primary/5 rounded-3xl blur-2xl group-hover:bg-primary/10 transition-all"></div>
+<img alt="Washing Care" class="relative rounded-2xl w-full h-80 object-cover shadow-lg" data-alt="An artistic composition showing a pile of neatly folded high-quality garments in soft morning light. A single silver care label with clear minimalist icons is visible. The scene is clean, airy, and suggests premium garment care. The color palette is composed of soft whites, light greys, and a touch of professional electric indigo." src="https://lh3.googleusercontent.com/aida-public/AB6AXuATWdJ78lt-bjOcBOCf5HMRJRi7OI8GzCor0-o7TfBxNqjP_-AftGIRvNpwgB-la9nGBF27l_k8c1YWlBa7D0JKmo0usrq2xflatZqEx3T-ZVOKKlAoOCcvNJxYgFWXEj6SdN_qhxk8wLOHZVyHc6Ey6XLlsyjrjo-WDjP6au4G18xQ3p1krzqLLN5-72GgCuyolLa4Fi_cWYsNMUZuKnasdQh3Z-QzfOxCjofAJy9h2hsLVT_WrY5FBxKMojQiszOZnDIvugzcUQ"/>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-outline-variant/20">
+<div class="max-w-container-max mx-auto px-gutter py-xl grid grid-cols-1 md:grid-cols-3 gap-md">
+<div class="space-y-md">
+<div class="font-h3 text-h3 font-bold text-on-surface">PressPro HTV</div>
+<p class="text-on-surface-variant font-body-sm max-w-xs">
+                    최고급 열전사 소재와 정밀 공정을 통해 당신의 창의력을 현실로 만듭니다. 우리는 모든 프레스마다 정밀함과 가치를 담습니다.
+                </p>
+</div>
+<div class="flex flex-col space-y-sm">
+<span class="font-label-bold text-on-surface">Quick Links</span>
+<a class="text-on-surface-variant hover:text-primary underline-offset-4 hover:underline transition-all duration-200 font-body-sm" href="#">About Us</a>
+<a class="text-on-surface-variant hover:text-primary underline-offset-4 hover:underline transition-all duration-200 font-body-sm" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary underline-offset-4 hover:underline transition-all duration-200 font-body-sm" href="#">Terms of Service</a>
+<a class="text-on-surface-variant hover:text-primary underline-offset-4 hover:underline transition-all duration-200 font-body-sm" href="#">Shipping Info</a>
+</div>
+<div class="space-y-md">
+<span class="font-label-bold text-on-surface">Connect With Us</span>
+<div class="flex space-x-md">
+<button class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center hover:bg-primary-container hover:text-on-primary transition-all">
+<span class="material-symbols-outlined">share</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center hover:bg-primary-container hover:text-on-primary transition-all">
+<span class="material-symbols-outlined">mail</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center hover:bg-primary-container hover:text-on-primary transition-all">
+<span class="material-symbols-outlined">forum</span>
+</button>
+</div>
+<p class="text-on-surface-variant font-body-sm">© 2024 PressPro HTV. Precision in every press.</p>
+</div>
+</div>
+</footer>
+</body></html>
