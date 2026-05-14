@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { useCart } from '../context/CartContext';
@@ -29,6 +29,7 @@ const TEXTURES = [
 const SIZES = ['S', 'M', 'L', 'XL', 'XXL'];
 
 const TshirtPrintingDetail = () => {
+  const navigate = useNavigate();
   const [selectedTexture, setSelectedTexture] = useState('골드');
   const [selectedSize, setSelectedSize] = useState('L');
   const [mainImg, setMainImg] = useState(PRODUCT.mainImg);
@@ -44,6 +45,11 @@ const TshirtPrintingDetail = () => {
       size: selectedSize,
       texture: selectedTexture,
     });
+  };
+
+  const handleBuyNow = () => {
+    handleAddCart();
+    navigate('/checkout');
   };
 
   return (
@@ -148,14 +154,17 @@ const TshirtPrintingDetail = () => {
               {/* CTA Buttons */}
               <div className="pt-2 space-y-3">
                 <button
-                  onClick={handleAddCart}
-                  className="btn-gradient w-full text-white py-4 rounded-xl font-semibold flex items-center justify-center gap-2"
+                  onClick={handleBuyNow}
+                  className="btn-gradient w-full text-white py-4 rounded-xl font-semibold flex items-center justify-center gap-2 shadow-lg hover:shadow-primary/20 transition-all"
                 >
-                  <span className="material-symbols-outlined">shopping_bag</span>
-                  장바구니 담기
+                  <span className="material-symbols-outlined">bolt</span>
+                  바로 주문하기
                 </button>
-                <button className="w-full bg-surface-container-high text-on-secondary-container py-4 rounded-xl font-semibold border border-outline-variant/30 hover:bg-surface-variant transition-all">
-                  디자인 커스터마이징
+                <button
+                  onClick={handleAddCart}
+                  className="w-full bg-surface-container-high text-on-secondary-container py-4 rounded-xl font-semibold border border-outline-variant/30 hover:bg-surface-variant transition-all"
+                >
+                  장바구니 담기
                 </button>
               </div>
 

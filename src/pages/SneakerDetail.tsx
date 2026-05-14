@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { useCart } from '../context/CartContext';
@@ -12,6 +13,7 @@ const TEXTURES = [
 ];
 
 const SneakerDetail = () => {
+  const navigate = useNavigate();
   const [selectedSize, setSelectedSize] = useState('250');
   const [selectedTexture, setSelectedTexture] = useState('Metallic Red');
   // 기존 메인 이미지 동일
@@ -19,6 +21,15 @@ const SneakerDetail = () => {
     '/printing-landing/assets/sneaker.png'
   );
   const { addItem } = useCart();
+
+  const handleAddCart = () => {
+    addItem({ id: 'sneaker-001', name: '글리터 커스텀 스니커즈', price: 89000, image: mainImg, category: '신발', size: selectedSize, texture: selectedTexture });
+  };
+
+  const handleBuyNow = () => {
+    handleAddCart();
+    navigate('/checkout');
+  };
 
   // 기존 썸네일 이미지들 동일
   const thumbs = [
@@ -134,19 +145,19 @@ const SneakerDetail = () => {
           </div>
 
           {/* CTA */}
-          <div className="mt-8 flex gap-3">
+          <div className="mt-8 flex flex-col sm:flex-row gap-3">
             <button
-              className="flex-1 h-14 bg-secondary-container text-on-secondary-container font-semibold rounded-xl hover:bg-surface-container-high transition-colors"
-              onClick={() => addItem({ id: 'sneaker-001', name: '글리터 커스텀 스니커즈', price: 89000, image: mainImg, category: '신발', size: selectedSize, texture: selectedTexture })}
-            >
-              장바구니
-            </button>
-            <button
-              className="flex-[1.5] h-14 btn-gradient text-white font-semibold rounded-xl shadow-lg flex items-center justify-center gap-2"
-              onClick={() => addItem({ id: 'sneaker-001', name: '글리터 커스텀 스니커즈', price: 89000, image: mainImg, category: '신발', size: selectedSize, texture: selectedTexture })}
+              className="flex-1 h-14 btn-gradient text-white font-semibold rounded-xl shadow-lg flex items-center justify-center gap-2 hover:shadow-primary/20 transition-all"
+              onClick={handleBuyNow}
             >
               <span className="material-symbols-outlined text-[20px]">bolt</span>
-              커스텀 주문하기
+              바로 주문하기
+            </button>
+            <button
+              className="flex-1 h-14 bg-surface-container-high text-on-surface font-semibold rounded-xl border border-outline-variant/30 hover:bg-surface-variant transition-all"
+              onClick={handleAddCart}
+            >
+              장바구니 담기
             </button>
           </div>
         </section>

@@ -5,6 +5,7 @@ import TshirtPrintingDetail from './pages/TshirtPrintingDetail';
 import MaskDetail from './pages/MaskDetail';
 import SneakerDetail from './pages/SneakerDetail';
 import BagDetail from './pages/BagDetail';
+import HatDetail from './pages/HatDetail';
 import Checkout from './pages/Checkout';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path="/mask-printing" element={<MaskDetail />} />
           <Route path="/sneaker-printing" element={<SneakerDetail />} />
           <Route path="/bag-printing" element={<BagDetail />} />
+          <Route path="/hat-printing" element={<HatDetail />} />
           <Route path="/checkout" element={<Checkout />} />
         </Routes>
       </main>

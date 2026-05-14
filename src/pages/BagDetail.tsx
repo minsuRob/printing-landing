@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { useCart } from '../context/CartContext';
@@ -11,6 +11,7 @@ const TEXTURES = [
 ];
 
 const BagDetail = () => {
+  const navigate = useNavigate();
   const [selectedTexture, setSelectedTexture] = useState('Champagne Gold');
   const [selectedColor, setSelectedColor] = useState('Natural');
   const { addItem } = useCart();
@@ -24,6 +25,11 @@ const BagDetail = () => {
       category: '가방/모자',
       texture: selectedTexture,
     });
+  };
+
+  const handleBuyNow = () => {
+    handleAdd();
+    navigate('/checkout');
   };
 
   return (
@@ -133,21 +139,19 @@ const BagDetail = () => {
             </div>
 
             {/* CTA */}
-            <div className="flex gap-3">
-              <button className="w-12 h-12 rounded-xl border-2 border-outline-variant flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high transition-colors">
-                <span className="material-symbols-outlined">favorite</span>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <button
+                onClick={handleBuyNow}
+                className="flex-[1.5] h-14 btn-gradient text-white font-bold rounded-xl shadow-lg flex items-center justify-center gap-2 hover:shadow-primary/20 transition-all"
+              >
+                <span className="material-symbols-outlined text-[20px]">bolt</span>
+                바로 주문하기
               </button>
               <button
                 onClick={handleAdd}
-                className="flex-1 h-12 bg-secondary-container text-on-secondary-container font-semibold rounded-xl hover:bg-surface-container-high transition-colors"
+                className="flex-1 h-14 bg-surface-container-high text-on-surface font-semibold rounded-xl border border-outline-variant/30 hover:bg-surface-variant transition-all"
               >
                 장바구니 담기
-              </button>
-              <button
-                onClick={handleAdd}
-                className="flex-1 h-12 btn-gradient text-white font-semibold rounded-xl shadow-lg"
-              >
-                주문제작 시작하기
               </button>
             </div>
           </div>

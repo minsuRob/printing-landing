@@ -1,18 +1,20 @@
 import { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import CartDrawer from './CartDrawer';
 
 const Navbar = () => {
   const { totalItems, setIsCartOpen } = useCart();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   const navLinks = [
-    { label: '홈', href: '#/' },
-    { label: '쇼핑', href: '#/' },
-    { label: '맞춤 주문', href: '#/' },
-    { label: '갤러리', href: '#/' },
-    { label: '커뮤니티', href: '#/' },
-    { label: '고객 지원', href: '#/' },
+    { label: '홈', href: '/' },
+    { label: '티셔츠', href: '/tshirt-printing' },
+    { label: '신발', href: '/sneaker-printing' },
+    { label: '가방', href: '/bag-printing' },
+    { label: '마스크', href: '/mask-printing' },
+    { label: '모자', href: '/hat-printing' },
   ];
 
   return (
@@ -22,24 +24,27 @@ const Navbar = () => {
         <div className="max-w-[1280px] mx-auto px-6 flex justify-between items-center h-20 w-full">
           {/* Logo */}
           <div className="flex items-center gap-10">
-            <a
-              href="#/"
-              className="font-h3 text-h3 font-bold text-primary dark:text-inverse-primary tracking-tight hover:opacity-85 transition-opacity"
+            <Link
+              to="/"
+              className="font-h3 text-h3 font-bold text-primary tracking-tight hover:opacity-85 transition-opacity"
             >
               <img 
                 alt="Shinui Deco Printing Logo" 
-                className="h-12 w-auto object-contain" 
+                className="h-10 w-auto object-contain" 
                 src="/printing-landing/assets/logo.png" 
               />
-            </a>
+            </Link>
             {/* Desktop Nav */}
-            <nav className="hidden md:flex items-center gap-6">
-              <a href="#/" className="text-primary border-b-2 border-primary pb-0.5 font-semibold text-sm transition-colors">홈</a>
-              <a href="#/tshirt-printing" className="text-on-surface-variant hover:text-primary transition-colors text-sm">쇼핑</a>
-              <a href="#/" className="text-on-surface-variant hover:text-primary transition-colors text-sm">맞춤 주문</a>
-              <a href="#/" className="text-on-surface-variant hover:text-primary transition-colors text-sm">갤러리</a>
-              <a href="#/" className="text-on-surface-variant hover:text-primary transition-colors text-sm">커뮤니티</a>
-              <a href="#/" className="text-on-surface-variant hover:text-primary transition-colors text-sm">고객 지원</a>
+            <nav className="hidden md:flex items-center gap-8">
+              {navLinks.map(link => (
+                <Link
+                  key={link.label}
+                  to={link.href}
+                  className={`text-sm font-bold transition-all hover:text-primary ${location.pathname === link.href ? 'text-primary' : 'text-on-surface-variant'}`}
+                >
+                  {link.label}
+                </Link>
+              ))}
             </nav>
           </div>
 
@@ -74,14 +79,14 @@ const Navbar = () => {
           <div className="md:hidden bg-surface border-t border-outline-variant/20 animate-fadeIn">
             <nav className="flex flex-col px-6 py-4 gap-4">
               {navLinks.map(link => (
-                <a
+                <Link
                   key={link.label}
-                  href={link.href}
+                  to={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-on-surface hover:text-primary transition-colors font-medium py-1"
+                  className={`text-on-surface hover:text-primary transition-colors font-bold py-2 ${location.pathname === link.href ? 'text-primary' : ''}`}
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
             </nav>
           </div>

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { useCart } from '../context/CartContext';
@@ -37,6 +37,7 @@ const PRODUCTS = [
 ];
 
 const MaskDetail = () => {
+  const navigate = useNavigate();
   const { addItem } = useCart();
   const [added, setAdded] = useState<string | null>(null);
 
@@ -44,6 +45,11 @@ const MaskDetail = () => {
     addItem({ id: p.id, name: p.name, price: p.price, image: p.img, category: '마스크' });
     setAdded(p.id);
     setTimeout(() => setAdded(null), 1500);
+  };
+
+  const handleBuy = (p: typeof PRODUCTS[0]) => {
+    addItem({ id: p.id, name: p.name, price: p.price, image: p.img, category: '마스크' });
+    navigate('/checkout');
   };
 
   return (
@@ -89,12 +95,18 @@ const MaskDetail = () => {
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                       src={p.img}
                     />
-                    <div className="product-action absolute inset-0 bg-primary/20 backdrop-blur-[2px] flex items-end p-4">
+                    <div className="product-action absolute inset-0 bg-[#0b1c30]/60 backdrop-blur-[2px] flex flex-col justify-center items-center gap-3 p-6">
+                      <button
+                        onClick={() => handleBuy(p)}
+                        className="w-full py-3 bg-white text-[#0b1c30] rounded-xl font-bold text-sm shadow-xl hover:scale-105 transition-all"
+                      >
+                        바로 구매
+                      </button>
                       <button
                         onClick={() => handleAdd(p)}
-                        className={`w-full py-2.5 rounded-lg font-semibold text-sm shadow-lg transition-all ${added === p.id ? 'bg-green-500 text-white' : 'btn-gradient text-white'}`}
+                        className={`w-full py-3 border border-white/50 text-white rounded-xl font-bold text-sm transition-all ${added === p.id ? 'bg-green-500 border-green-500' : 'hover:bg-white/10'}`}
                       >
-                        {added === p.id ? '✓ 담았습니다' : '장바구니 담기'}
+                        {added === p.id ? '✓ 담겼습니다' : '장바구니'}
                       </button>
                     </div>
                   </div>
