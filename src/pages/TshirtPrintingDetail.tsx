@@ -6,19 +6,20 @@ import { useCart } from '../context/CartContext';
 
 const PRODUCT = {
   id: 'tshirt-001',
-  name: '프리미엄 글리터 열전사 필름 커스텀 티셔츠',
+  name: '마스크 인스파이어드 에디션 티셔츠',
   category: '티셔츠',
   price: 35000,
   originalPrice: 42000,
-  badge: '프리미엄 에디션',
-  desc: '고해상도 홀로그램 만다라 디자인과 최상급 글리터 원단의 만남. 당신만의 빛나는 스타일을 완성하세요.',
-  // 기존 이미지 동일
-  mainImg: '/printing-landing/assets/tshirt.png',
+  badge: '신규 컬렉션',
+  desc: '마스크 패턴에서 영감을 받은 독창적인 그래픽과 홀로그램 필름의 완벽한 조화. 신의데코만의 기술력으로 구현된 리미티드 시리즈입니다.',
+  mainImg: '/printing-landing/assets/tshirt-series-1.jpg',
   thumbs: [
-    '/printing-landing/assets/tshirt.png',
-    '/printing-landing/assets/tshirt.png',
+    '/printing-landing/assets/tshirt-series-1.jpg',
+    '/printing-landing/assets/tshirt-series-2.jpg',
+    '/printing-landing/assets/tshirt-series-3.jpg',
+    '/printing-landing/assets/tshirt-series-4.png',
   ],
-  washImg: '/printing-landing/assets/tshirt.png',
+  washImg: '/printing-landing/assets/tshirt-series-5.png',
 };
 
 const TEXTURES = [
