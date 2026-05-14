@@ -7,6 +7,7 @@ import SneakerDetail from './pages/SneakerDetail';
 import BagDetail from './pages/BagDetail';
 import HatDetail from './pages/HatDetail';
 import ProductionGuide from './pages/ProductionGuide';
+import Portfolio from './pages/Portfolio';
 import Checkout from './pages/Checkout';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="/bag-printing" element={<BagDetail />} />
           <Route path="/hat-printing" element={<HatDetail />} />
           <Route path="/production-guide" element={<ProductionGuide />} />
+          <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/checkout" element={<Checkout />} />
         </Routes>
       </main>
