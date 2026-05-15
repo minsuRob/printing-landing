@@ -75,15 +75,6 @@ const MaskDetail = () => {
         {/* Product Grid */}
         <section className="py-20">
           <div className="max-w-[1280px] mx-auto px-6">
-            {/* 기존 상단 와이드 이미지 동일 위치 */}
-            <div className="mb-20 rounded-3xl overflow-hidden border border-outline-variant shadow-lg">
-              <img
-                alt="Premium Mask Collection Overview"
-                className="w-full h-auto object-cover"
-                src="/printing-landing/assets/mask-1.jpg"
-              />
-            </div>
-
             {/* 4칸 상품 그리드 (기존 동일) */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {PRODUCTS.map(p => (
@@ -123,35 +114,23 @@ const MaskDetail = () => {
           </div>
         </section>
 
-        {/* Material Details (기존 동일 레이아웃: 텍스트 left, 이미지 right) */}
+        {/* Material Details */}
         <section className="py-20 bg-surface-container">
           <div className="max-w-[1280px] mx-auto px-6">
-            <div className="flex flex-col md:flex-row items-center gap-16">
-              <div className="w-full md:w-1/2">
-                <h2 className="font-['Space_Grotesk'] text-3xl font-bold mb-6">마스크 전용 고신축 필름</h2>
-                <p className="text-on-surface-variant text-lg mb-8">
-                  마스크는 움직임이 많고 잦은 세탁이 필요합니다. 신의데코프린팅의 마스크 전용 열전사 필름은
-                  뛰어난 신축성과 내구성을 자랑하며, 피부에 자극이 없는 안전한 소재만을 사용합니다.
-                </p>
-                <ul className="space-y-3">
-                  {['OEKO-TEX 친환경 인증 소재', '30회 이상 세탁 후에도 변함없는 부착력', '다양한 원단(면, 폴리, 혼방) 완벽 대응'].map(t => (
-                    <li key={t} className="flex items-center gap-3">
-                      <span className="material-symbols-outlined text-primary">verified</span>
-                      <span className="text-base">{t}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              {/* 기존 재료 이미지 동일 위치 */}
-              <div className="w-full md:w-1/2">
-                <div className="rounded-2xl overflow-hidden shadow-2xl border border-outline-variant">
-                  <img
-                    alt="Material Palette"
-                    className="w-full h-auto"
-                    src="/printing-landing/assets/mask-2.jpg"
-                  />
-                </div>
-              </div>
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="font-['Space_Grotesk'] text-3xl font-bold mb-6">마스크 전용 고신축 필름</h2>
+              <p className="text-on-surface-variant text-lg mb-8">
+                마스크는 움직임이 많고 잦은 세탁이 필요합니다. 신의데코프린팅의 마스크 전용 열전사 필름은
+                뛰어난 신축성과 내구성을 자랑하며, 피부에 자극이 없는 안전한 소재만을 사용합니다.
+              </p>
+              <ul className="space-y-3 inline-block text-left">
+                {['OEKO-TEX 친환경 인증 소재', '30회 이상 세탁 후에도 변함없는 부착력', '다양한 원단(면, 폴리, 혼방) 완벽 대응'].map(t => (
+                  <li key={t} className="flex items-center gap-3">
+                    <span className="material-symbols-outlined text-primary">verified</span>
+                    <span className="text-base">{t}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </section>
