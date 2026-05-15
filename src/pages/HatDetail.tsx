@@ -11,17 +11,16 @@ const PRODUCT = {
   price: 28000,
   originalPrice: 35000,
   badge: '베스트셀러',
-  desc: '각이 살아있는 핏과 고퀄리티 전사의 만남. 유니크한 모자로 당신의 개성을 표현하세요.',
-  mainImg: '/printing-landing/assets/hat-1.jpg',
+  desc: '매트, 홀로그램, 반사, 형광 등 다양한 특수 필름으로 구현하는 프리미엄 커스텀 모자. 당신의 아이덴티티를 빛나는 퀄리티로 완성하세요.',
+  mainImg: '/printing-landing/assets/hat-hologram.png',
   thumbs: [
+    '/printing-landing/assets/hat-hologram.png',
+    '/printing-landing/assets/hat-reflective.png',
+    '/printing-landing/assets/hat-neon.png',
     '/printing-landing/assets/hat-1.jpg',
     '/printing-landing/assets/hat-2.jpg',
     '/printing-landing/assets/hat-3.jpg',
     '/printing-landing/assets/hat-4.jpg',
-    '/printing-landing/assets/hat-glitter-1.png',
-    '/printing-landing/assets/hat-glitter-2.png',
-    '/printing-landing/assets/hat-glitter-3.png',
-    '/printing-landing/assets/hat-glitter-4.png',
   ],
 };
 
