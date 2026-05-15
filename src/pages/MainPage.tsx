@@ -4,10 +4,10 @@ import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
 
 const GLITTER_SLIDES = [
-  '/printing-landing/assets/film-sample-2.jpg',
-  '/printing-landing/assets/film-sample-3.jpg',
-  '/printing-landing/assets/film-sample-4.jpg',
-  '/printing-landing/assets/film-sample-5.jpg',
+  '/printing-landing/assets/bag-1.jpg',
+  '/printing-landing/assets/bag-2.jpg',
+  '/printing-landing/assets/bag-3.jpg',
+  '/printing-landing/assets/bag-4.jpg',
 ];
 
 const MainPage: React.FC = () => {
