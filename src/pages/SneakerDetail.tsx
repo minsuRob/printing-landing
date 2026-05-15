@@ -63,8 +63,8 @@ const SneakerDetail = () => {
           {/* USP Cards (기존 2열 동일) */}
           <div className="grid grid-cols-2 gap-4 mb-8">
             {[
-              { icon: 'shield', title: '강력한 내구성', desc: '세탁 후에도 변함없는 광택' },
-              { icon: 'precision_manufacturing', title: '정교한 커스텀', desc: '열전사 필름 레이저 커팅 기술' },
+              { icon: 'layers', title: '다양한 공법', desc: '매트, 홀로그램, 반사, 형광' },
+              { icon: 'brush', title: '심플 커스텀', desc: '미니멀 로고 및 그래픽 적용' },
             ].map(u => (
               <div key={u.title} className="bg-white border border-outline-variant p-4 rounded-xl flex items-center gap-3">
                 <div className="bg-primary-fixed text-primary p-2 rounded-lg">
@@ -80,47 +80,7 @@ const SneakerDetail = () => {
 
           <hr className="border-outline-variant/30 mb-8" />
 
-          {/* Texture + Size (기존 동일) */}
-          <div className="space-y-8">
-            <div>
-              <label className="text-sm font-semibold block mb-4">Glitter Texture 선택</label>
-              <div className="flex gap-4">
-                {TEXTURES.map(t => (
-                  <button
-                    key={t.key}
-                    onClick={() => setSelectedTexture(t.key)}
-                    className={`flex flex-col items-center gap-2 transition-all ${selectedTexture !== t.key ? 'opacity-60' : ''}`}
-                  >
-                    <div className={`w-16 h-16 rounded-full border-2 p-1 bg-white ${selectedTexture === t.key ? 'border-primary' : 'border-transparent'}`}>
-                      <div
-                        className="w-full h-full rounded-full shadow-inner"
-                        style={{ background: `linear-gradient(135deg, ${t.from}, ${t.to})` }}
-                      />
-                    </div>
-                    <span className={`text-xs font-semibold ${selectedTexture === t.key ? 'text-primary' : 'text-on-surface-variant'}`}>{t.key}</span>
-                  </button>
-                ))}
-              </div>
-            </div>
 
-            <div>
-              <div className="flex justify-between items-center mb-4">
-                <label className="text-sm font-semibold">Size 선택</label>
-                <button className="text-primary text-xs underline">사이즈 가이드</button>
-              </div>
-              <div className="grid grid-cols-5 gap-2">
-                {SIZES.map(s => (
-                  <button
-                    key={s}
-                    onClick={() => setSelectedSize(s)}
-                    className={`h-10 rounded-lg flex items-center justify-center text-sm font-medium transition-all ${selectedSize === s ? 'border-2 border-primary bg-primary/10 text-primary' : 'border border-outline-variant hover:border-primary hover:text-primary'}`}
-                  >
-                    {s}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </div>
 
           {/* CTA */}
           <div className="mt-8 flex flex-col sm:flex-row gap-3">
