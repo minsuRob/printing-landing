@@ -1,15 +1,14 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { useCart } from '../context/CartContext';
+
 
 const PRODUCT = {
   id: 'tshirt-001',
   name: '미니멀 시그니처 홀로그램 티',
   category: '티셔츠',
-  price: 35000,
-  originalPrice: 42000,
+
   badge: '심플 컬렉션',
   desc: '과하지 않은 절제의 미학. 심플한 로고와 고품질 홀로그램 필름만으로 완성된 미니멀리즘 스타일입니다.',
   mainImg: '/printing-landing/assets/cat-tshirt.jpg',
@@ -22,36 +21,10 @@ const PRODUCT = {
   washImg: '/printing-landing/assets/tshirt-series-5.png',
 };
 
-const TEXTURES = [
-  { key: '골드', cls: 'texture-glitter-gold' },
-  { key: '실버', cls: 'texture-glitter-silver' },
-  { key: '레인보우', cls: 'texture-glitter-rainbow' },
-];
-const SIZES = ['S', 'M', 'L', 'XL', 'XXL'];
+
 
 const TshirtPrintingDetail = () => {
-  const navigate = useNavigate();
-  const [selectedTexture, setSelectedTexture] = useState('골드');
-  const [selectedSize, setSelectedSize] = useState('L');
   const [mainImg, setMainImg] = useState(PRODUCT.mainImg);
-  const { addItem } = useCart();
-
-  const handleAddCart = () => {
-    addItem({
-      id: PRODUCT.id,
-      name: PRODUCT.name,
-      price: PRODUCT.price,
-      image: PRODUCT.mainImg,
-      category: PRODUCT.category,
-      size: selectedSize,
-      texture: selectedTexture,
-    });
-  };
-
-  const handleBuyNow = () => {
-    handleAddCart();
-    navigate('/checkout');
-  };
 
   return (
     <div className="bg-background text-on-surface font-body-md">
