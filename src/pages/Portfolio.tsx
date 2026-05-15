@@ -10,13 +10,13 @@ const PORTFOLIO_ITEMS = [
   { id: 4, title: '네온 핑크 스트릿 후디', category: '티셔츠', img: '/printing-landing/assets/cat-tshirt.jpg', client: 'Club X' },
   { id: 5, title: '홀로그램 포인트 마스크', category: '마스크', img: '/printing-landing/assets/cat-mask.jpg', client: 'Fashion Group B' },
   { id: 6, title: '열전사 프리미엄 롤 필름', category: '필름', img: '/printing-landing/assets/film-1.jpg', client: '신의데코 표준 규격' },
-  { id: 7, title: '반짝이 열전사 디자인 샘플', category: '필름디자인', img: '/printing-landing/assets/film-sample-1.jpg', client: 'Sample Book' },
+  { id: 7, title: '반짝이 열전사 디자인 샘플', category: '필름 샘플', img: '/printing-landing/assets/film-sample-1.jpg', client: 'Sample Book' },
   { id: 8, title: '커스텀 굿즈 패키지', category: '기타', img: '/printing-landing/assets/tshirt.png', client: 'Corporate Event' },
 ];
 
 const Portfolio = () => {
   const [filter, setFilter] = useState('전체보기');
-  const categories = ['전체보기', '가방', '신발', '모자', '티셔츠', '마스크', '필름', '필름디자인', '기타'];
+  const categories = ['전체보기', '가방', '신발', '모자', '티셔츠', '마스크', '필름', '필름 샘플', '기타'];
 
   const filteredItems = filter === '전체보기' 
     ? PORTFOLIO_ITEMS 
@@ -72,7 +72,7 @@ const Portfolio = () => {
                     item.category === '가방' ? '/bag-printing' :
                     item.category === '마스크' ? '/mask-printing' :
                     item.category === '필름' ? '/film-printing' :
-                    item.category === '필름디자인' ? '/film-sample' : '/'
+                    item.category === '필름 샘플' ? '/film-sample' : '/'
                   }
                   className="w-full py-3 bg-white text-black text-center rounded-xl font-bold text-sm hover:bg-primary hover:text-white transition-colors"
                 >
