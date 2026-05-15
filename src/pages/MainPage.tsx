@@ -12,19 +12,26 @@ const MainPage: React.FC = () => {
         {/* ── Hero Section with Cinematic Background ── */}
         <section className="relative min-h-[90vh] lg:min-h-screen flex items-center overflow-hidden bg-[#0b1c30]">
           <div className="absolute inset-0 z-0">
-            <video 
-              autoPlay 
-              loop 
-              muted 
-              playsInline
-              className="w-full h-full object-cover object-center scale-105 opacity-80 mix-blend-screen"
-            >
-              <source src="https://assets.mixkit.co/videos/preview/mixkit-ink-swirling-in-water-under-a-microscope-4158-large.mp4" type="video/mp4" />
-            </video>
-            <div className="absolute inset-0 bg-[#0b1c30]/70"></div>
+            <style>{`
+              @keyframes heroDynamic {
+                0% { transform: scale(1.05) translate(0, 0); filter: brightness(1); }
+                50% { transform: scale(1.15) translate(-1%, 1%); filter: brightness(1.2); }
+                100% { transform: scale(1.05) translate(0, 0); filter: brightness(1); }
+              }
+              .animate-hero-dynamic {
+                animation: heroDynamic 15s ease-in-out infinite alternate;
+              }
+            `}</style>
+            <img 
+              alt="Dynamic heat press machine background" 
+              className="w-full h-full object-cover object-center opacity-90 animate-hero-dynamic"
+              src="/printing-landing/assets/hero-animated.jpg" 
+            />
+            <div className="absolute inset-0 bg-[#0b1c30]/50 mix-blend-overlay"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-[#0b1c30]/80 via-transparent to-[#0b1c30]"></div>
             {/* Neon Accents */}
-            <div className="absolute top-1/4 -right-20 w-[500px] h-[500px] bg-primary/30 rounded-full blur-[120px] animate-pulse"></div>
-            <div className="absolute bottom-1/4 -left-20 w-96 h-96 bg-cyan-500/20 rounded-full blur-[100px] animate-pulse"></div>
+            <div className="absolute top-1/4 -right-20 w-[500px] h-[500px] bg-primary/40 rounded-full blur-[120px] animate-pulse"></div>
+            <div className="absolute bottom-1/4 -left-20 w-96 h-96 bg-cyan-500/30 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '1s' }}></div>
           </div>
           
           <div className="relative z-10 max-w-[1280px] mx-auto px-6 w-full">
