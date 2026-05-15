@@ -33,6 +33,20 @@ const PRODUCTS = [
     price: 14000,
     img: '/printing-landing/assets/mask-4.jpg',
   },
+  {
+    id: 'mask-005',
+    label: 'Holographic Series',
+    name: '스마일리 홀로그램 마스크',
+    price: 16000,
+    img: '/printing-landing/assets/mask-5.png',
+  },
+  {
+    id: 'mask-006',
+    label: 'Grid Pattern',
+    name: '푸시아 파인 그리드 마스크',
+    price: 15500,
+    img: '/printing-landing/assets/mask-6.png',
+  },
 ];
 
 const MaskDetail = () => {
