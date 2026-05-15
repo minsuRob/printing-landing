@@ -126,7 +126,7 @@ const MainPage: React.FC = () => {
                 { id: 'sneaker', title: '스니커즈', sub: 'Custom Shoes', img: '/printing-landing/assets/cat-sneaker.jpg', link: '/sneaker-printing' },
                 { id: 'mask', title: '마스크', sub: 'Tech Mask', img: '/printing-landing/assets/cat-mask.jpg', link: '/mask-printing' },
                 { id: 'hat', title: '모자', sub: 'Custom Hats', img: '/printing-landing/assets/cat-hat.jpg', link: '/hat-printing' },
-                { id: 'bag', title: '가방', sub: 'Custom Bags', img: '/printing-landing/assets/cat-bag.jpg', link: '/bag-printing' },
+                { id: 'bag', title: '가방', sub: 'Custom Bags', img: '/printing-landing/assets/bag-hologram.png', link: '/bag-printing' },
                 { id: 'film', title: '필름', sub: 'Heat Transfer', img: '/printing-landing/assets/film-1.jpg', link: '/film-printing' },
                 { id: 'film-sample', title: '필름 샘플', sub: 'Sample Pack', img: '/printing-landing/assets/film-sample-1.jpg', link: '/film-sample' },
               ].map((cat, i) => (

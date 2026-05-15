@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 const PORTFOLIO_ITEMS = [
-  { id: 1, title: '골드 로고 캔버스 에코백', category: '가방', img: '/printing-landing/assets/cat-bag.jpg', client: 'Gift Shop C' },
+  { id: 1, title: '골드 로고 캔버스 에코백', category: '가방', img: '/printing-landing/assets/bag-hologram.png', client: 'Gift Shop C' },
   { id: 2, title: '메탈릭 실버 커스텀 스니커즈', category: '신발', img: '/printing-landing/assets/cat-sneaker.jpg', client: 'Individual Order' },
   { id: 3, title: '프리미엄 글리터 로고 볼캡', category: '모자', img: '/printing-landing/assets/cat-hat.jpg', client: 'Street Brand' },
   { id: 4, title: '네온 핑크 스트릿 후디', category: '티셔츠', img: '/printing-landing/assets/cat-tshirt.jpg', client: 'Club X' },

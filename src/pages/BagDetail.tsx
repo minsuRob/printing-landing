@@ -52,7 +52,7 @@ const BagDetail = () => {
               <img
                 alt="글리터 커스텀 캔버스 백"
                 className="w-full h-full object-cover"
-                src="/printing-landing/assets/bag.png"
+                src="/printing-landing/assets/bag-hologram.png"
               />
             </div>
             {/* 신규 디테일 그리드 */}
