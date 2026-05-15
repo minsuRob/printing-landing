@@ -55,20 +55,20 @@ const BagDetail = () => {
                 src="/printing-landing/assets/bag.png"
               />
             </div>
-            {/* 기존 2열 디테일 그리드 동일 */}
+            {/* 신규 디테일 그리드 */}
             <div className="grid grid-cols-2 gap-3">
               <div className="rounded-xl overflow-hidden border border-outline-variant/30">
                 <img
                   alt="디테일 1"
                   className="w-full h-48 md:h-64 object-cover"
-                  src="/printing-landing/assets/bag.png"
+                  src="/printing-landing/assets/bag-1.jpg"
                 />
               </div>
               <div className="rounded-xl overflow-hidden border border-outline-variant/30">
                 <img
                   alt="디테일 2"
                   className="w-full h-48 md:h-64 object-cover"
-                  src="/printing-landing/assets/bag.png"
+                  src="/printing-landing/assets/bag-2.jpg"
                 />
               </div>
             </div>
@@ -167,17 +167,17 @@ const BagDetail = () => {
                 프레스프로의 커스텀 글리터 백은 특수 열전사 공법을 통해 제작되어 장시간 사용에도 반짝임이 유지됩니다.
                 일상의 특별함을 더해주는 화려한 포인트 아이템으로 추천드립니다.
               </p>
-              {/* 기존 2열 이미지 동일 */}
+              {/* 신규 2열 이미지 */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <img
-                  alt="캔버스 패브릭 텍스처"
+                  alt="다양한 디자인 1"
                   className="rounded-2xl w-full"
-                  src="/printing-landing/assets/bag.png"
+                  src="/printing-landing/assets/bag-3.jpg"
                 />
                 <img
-                  alt="글리터 열전사 필름 클로즈업"
+                  alt="다양한 디자인 2"
                   className="rounded-2xl w-full"
-                  src="/printing-landing/assets/bag.png"
+                  src="/printing-landing/assets/bag-4.jpg"
                 />
               </div>
             </div>
@@ -191,9 +191,9 @@ const BagDetail = () => {
             </div>
             <div className="flex gap-6 overflow-x-auto pb-4">
               {[
-                { name: '커스텀 네임 택', price: '₩8,000', img: '/printing-landing/assets/bag.png' },
-                { name: '프리미엄 세탁 망', price: '₩3,500', img: '/printing-landing/assets/bag.png' },
-                { name: '캔버스 전용 클리너', price: '₩12,000', img: '/printing-landing/assets/bag.png' },
+                { name: '커스텀 네임 택', price: '₩8,000', img: '/printing-landing/assets/bag-1.jpg' },
+                { name: '프리미엄 세탁 망', price: '₩3,500', img: '/printing-landing/assets/bag-2.jpg' },
+                { name: '캔버스 전용 클리너', price: '₩12,000', img: '/printing-landing/assets/bag-3.jpg' },
               ].map(r => (
                 <div key={r.name} className="min-w-[280px] group bg-surface-container-lowest border border-outline-variant/30 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow">
                   <div className="h-48 overflow-hidden">
