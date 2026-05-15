@@ -1,9 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
 
+const GLITTER_SLIDES = [
+  '/printing-landing/assets/sparkle-detail.jpg',
+  '/printing-landing/assets/film-sample-2.jpg',
+  '/printing-landing/assets/film-sample-3.jpg',
+  '/printing-landing/assets/film-sample-4.jpg',
+  '/printing-landing/assets/film-sample-5.jpg',
+];
+
 const MainPage: React.FC = () => {
+  const [glitterSlide, setGlitterSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setGlitterSlide((prev) => (prev + 1) % GLITTER_SLIDES.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <div className="bg-background text-on-surface font-body-md overflow-x-hidden">
@@ -169,12 +185,31 @@ const MainPage: React.FC = () => {
         <section className="py-32 bg-surface">
           <div className="max-w-[1280px] mx-auto px-6">
             <div className="bg-[#0b1c30] rounded-[48px] overflow-hidden flex flex-col lg:flex-row items-center border border-white/5 shadow-2xl">
-              <div className="w-full lg:w-1/2 aspect-square lg:aspect-auto h-full">
-                <img 
-                  alt="Detailed Glitter Transfers" 
-                  className="w-full h-full object-cover" 
-                  src="/printing-landing/assets/sparkle-detail.jpg" 
-                />
+              <div className="w-full lg:w-1/2 aspect-square lg:aspect-auto h-full relative overflow-hidden bg-black/20">
+                {GLITTER_SLIDES.map((slide, index) => (
+                  <img 
+                    key={slide}
+                    alt={`Glitter Sample ${index + 1}`} 
+                    className={`absolute inset-0 w-full h-full object-cover transition-all duration-[1500ms] ease-in-out ${
+                      index === glitterSlide ? 'opacity-100 scale-100 z-10' : 'opacity-0 scale-105 z-0'
+                    }`}
+                    src={slide} 
+                  />
+                ))}
+                
+                {/* Slide Indicators for Glitter Section */}
+                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+                  {GLITTER_SLIDES.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setGlitterSlide(index)}
+                      className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                        index === glitterSlide ? 'bg-primary scale-150' : 'bg-white/50 hover:bg-white/80'
+                      }`}
+                      aria-label={`View glitter slide ${index + 1}`}
+                    />
+                  ))}
+                </div>
               </div>
               <div className="w-full lg:w-1/2 p-12 lg:p-24 space-y-8">
                 <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/20 text-primary-glow text-xs font-bold uppercase tracking-widest">
