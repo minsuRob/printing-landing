@@ -11,8 +11,13 @@ const PRODUCT = {
 
   badge: '심플 컬렉션',
   desc: '과하지 않은 절제의 미학. 심플한 로고와 고품질 홀로그램 필름만으로 완성된 미니멀리즘 스타일입니다.',
-  mainImg: '/printing-landing/assets/tshirt.png',
-  thumbs: [],
+  mainImg: '/printing-landing/assets/tshirt-series-1.jpg',
+  thumbs: [
+    '/printing-landing/assets/tshirt-series-1.jpg',
+    '/printing-landing/assets/tshirt-series-2.jpg',
+    '/printing-landing/assets/tshirt-series-3.jpg',
+    '/printing-landing/assets/tshirt-series-4.png',
+  ],
   washImg: '/printing-landing/assets/tshirt-series-5.png',
 };
 
@@ -43,6 +48,18 @@ const TshirtPrintingDetail = () => {
                 className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
                 src={mainImg}
               />
+            </div>
+            {/* 썸네일 갤러리 */}
+            <div className="grid grid-cols-4 gap-3">
+              {PRODUCT.thumbs.map((t, i) => (
+                <div
+                  key={i}
+                  onClick={() => setMainImg(t)}
+                  className={`rounded-lg overflow-hidden aspect-square cursor-pointer border-2 transition-all ${mainImg === t ? 'border-primary ring-2 ring-primary/20 ring-offset-2' : 'border-outline-variant/20 opacity-60 hover:opacity-100'}`}
+                >
+                  <img className="w-full h-full object-cover" src={t} alt={`thumb-${i}`} />
+                </div>
+              ))}
             </div>
 
           </div>
