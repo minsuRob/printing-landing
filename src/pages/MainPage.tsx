@@ -4,7 +4,6 @@ import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
 
 const GLITTER_SLIDES = [
-  '/printing-landing/assets/sparkle-detail.jpg',
   '/printing-landing/assets/film-sample-2.jpg',
   '/printing-landing/assets/film-sample-3.jpg',
   '/printing-landing/assets/film-sample-4.jpg',
