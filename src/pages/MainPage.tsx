@@ -313,9 +313,12 @@ const MainPage: React.FC = () => {
                 <h2 className="font-['Space_Grotesk'] text-4xl lg:text-6xl font-bold leading-tight">지금 당신의 디자인을<br/>현실로 만들어보세요.</h2>
                 <p className="text-white/80 text-xl max-w-2xl mx-auto">대량 생산부터 단 한 개의 커스텀까지, 신의데코가 함께합니다.</p>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-4">
-                  <Link to="/checkout" className="w-full sm:w-auto bg-white text-primary px-12 py-5 rounded-xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all">
-                    바로 구매하기
-                  </Link>
+                  <button 
+                    onClick={() => window.location.href = 'mailto:contact@godsdeco.com'}
+                    className="w-full sm:w-auto bg-white text-primary px-12 py-5 rounded-xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all"
+                  >
+                    지금 문의하기
+                  </button>
                   <Link to="/production-guide" className="w-full sm:w-auto bg-transparent border-2 border-white/40 text-white px-12 py-5 rounded-xl font-bold text-lg hover:bg-white/10 transition-all flex items-center justify-center">
                     제작 가이드 다운로드
                   </Link>
@@ -328,13 +331,7 @@ const MainPage: React.FC = () => {
       
       <Footer />
       
-      {/* Floating Action Button (Mobile) */}
-      <div className="fixed bottom-8 right-8 z-[100] lg:hidden">
-        <Link to="/checkout" className="w-16 h-16 rounded-full bg-primary text-white shadow-2xl flex items-center justify-center hover:scale-110 transition-transform active:scale-95">
-          <span className="material-symbols-outlined text-3xl">shopping_cart</span>
-          <div className="absolute top-0 right-0 bg-error text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center border-2 border-primary">2</div>
-        </Link>
-      </div>
+
     </div>
   );
 };

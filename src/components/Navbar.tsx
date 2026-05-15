@@ -22,7 +22,6 @@ const Navbar = () => {
 
   return (
     <>
-      <CartDrawer />
       <header className="glass-nav sticky top-0 z-50 border-b border-outline-variant/30 shadow-sm w-full">
         <div className="max-w-[1280px] mx-auto px-6 flex justify-between items-center h-20 w-full">
           {/* Logo */}
@@ -53,15 +52,6 @@ const Navbar = () => {
 
           {/* Right Icons */}
           <div className="flex items-center gap-2">
-            <button
-              onClick={() => setIsCartOpen(true)}
-              className="relative p-2 hover:bg-surface-container-low rounded-full transition-all duration-300 active:scale-95"
-            >
-              <span className="material-symbols-outlined text-on-surface">shopping_cart</span>
-              {totalItems > 0 && (
-                <span className="cart-badge animate-cart-bounce">{totalItems}</span>
-              )}
-            </button>
             <button className="p-2 hover:bg-surface-container-low rounded-full transition-all duration-300 active:scale-95">
               <span className="material-symbols-outlined text-on-surface">account_circle</span>
             </button>

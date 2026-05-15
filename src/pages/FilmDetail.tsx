@@ -86,16 +86,10 @@ const FilmDetail = () => {
                     />
                     <div className="product-action absolute inset-0 bg-[#0b1c30]/60 backdrop-blur-[2px] flex flex-col justify-center items-center gap-3 p-6">
                       <button
-                        onClick={() => handleBuy(p)}
+                        onClick={() => window.location.href = 'mailto:contact@godsdeco.com'}
                         className="w-full py-3 bg-white text-[#0b1c30] rounded-xl font-bold text-sm shadow-xl hover:scale-105 transition-all"
                       >
-                        바로 구매
-                      </button>
-                      <button
-                        onClick={() => handleAdd(p)}
-                        className={`w-full py-3 border border-white/50 text-white rounded-xl font-bold text-sm transition-all ${added === p.id ? 'bg-green-500 border-green-500' : 'hover:bg-white/10'}`}
-                      >
-                        {added === p.id ? '✓ 담겼습니다' : '장바구니'}
+                        제작 문의하기
                       </button>
                     </div>
                   </div>
@@ -103,7 +97,6 @@ const FilmDetail = () => {
                     <span className="text-xs font-semibold text-primary uppercase">{p.label}</span>
                     <h3 className="text-sm font-bold mt-1">{p.name}</h3>
                     <div className="flex justify-between items-center mt-3">
-                      <span className="text-primary font-bold">₩{p.price.toLocaleString()}</span>
                       <span className="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-error transition-colors">favorite</span>
                     </div>
                   </div>

@@ -107,65 +107,14 @@ const TshirtPrintingDetail = () => {
                 <p className="text-on-surface-variant text-sm">{PRODUCT.desc}</p>
               </div>
 
-              {/* Price */}
-              <div className="flex items-end gap-2">
-                <span className="font-['Space_Grotesk'] text-4xl font-bold text-primary">₩{PRODUCT.price.toLocaleString()}</span>
-                <span className="text-on-surface-variant line-through mb-1 text-sm">₩{PRODUCT.originalPrice.toLocaleString()}</span>
-                <span className="text-error text-sm font-semibold mb-1">
-                  {Math.round((1 - PRODUCT.price / PRODUCT.originalPrice) * 100)}% 할인
-                </span>
-              </div>
-
-              {/* Texture Selectors (기존 동일) */}
-              <div className="space-y-2">
-                <label className="text-sm font-semibold text-on-surface">비닐 텍스처 선택</label>
-                <div className="flex gap-4">
-                  {TEXTURES.map(t => (
-                    <div
-                      key={t.key}
-                      onClick={() => setSelectedTexture(t.key)}
-                      className="flex flex-col items-center gap-1 cursor-pointer"
-                    >
-                      <div className={`w-12 h-12 rounded-full ${t.cls} inner-shadow-sm border-2 transition-all ${selectedTexture === t.key ? 'border-primary ring-2 ring-primary/20 ring-offset-2' : 'border-outline-variant/50 hover:border-primary'}`} />
-                      <span className={`text-[10px] font-semibold ${selectedTexture === t.key ? 'text-primary' : 'text-on-surface-variant'}`}>{t.key}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Size Selectors (기존 동일) */}
-              <div className="space-y-2">
-                <div className="flex justify-between items-center">
-                  <label className="text-sm font-semibold text-on-surface">사이즈 선택</label>
-                  <button className="text-primary text-xs font-semibold hover:underline">사이즈 가이드</button>
-                </div>
-                <div className="grid grid-cols-5 gap-2">
-                  {SIZES.map(s => (
-                    <button
-                      key={s}
-                      onClick={() => setSelectedSize(s)}
-                      className={`py-2 rounded-lg text-sm font-semibold transition-all ${selectedSize === s ? 'border-2 border-primary bg-primary/10 text-primary' : 'border border-outline-variant/50 hover:border-primary text-on-surface'}`}
-                    >
-                      {s}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
               {/* CTA Buttons */}
               <div className="pt-2 space-y-3">
                 <button
-                  onClick={handleBuyNow}
                   className="btn-gradient w-full text-white py-4 rounded-xl font-semibold flex items-center justify-center gap-2 shadow-lg hover:shadow-primary/20 transition-all"
+                  onClick={() => window.location.href = 'mailto:contact@godsdeco.com'}
                 >
-                  <span className="material-symbols-outlined">bolt</span>
-                  바로 주문하기
-                </button>
-                <button
-                  onClick={handleAddCart}
-                  className="w-full bg-surface-container-high text-on-secondary-container py-4 rounded-xl font-semibold border border-outline-variant/30 hover:bg-surface-variant transition-all"
-                >
-                  장바구니 담기
+                  <span className="material-symbols-outlined">mail</span>
+                  제작 문의하기
                 </button>
               </div>
 

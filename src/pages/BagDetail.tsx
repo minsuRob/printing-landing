@@ -79,11 +79,6 @@ const BagDetail = () => {
             <section>
               <span className="text-sm font-semibold text-primary px-3 py-1 bg-primary/10 rounded-full mb-3 inline-block">베스트 셀러</span>
               <h1 className="font-['Space_Grotesk'] text-3xl font-bold text-on-surface mb-3">글리터 커스텀 캔버스 백</h1>
-              <div className="flex items-center gap-3">
-                <p className="font-['Space_Grotesk'] text-2xl text-on-surface font-bold">₩25,000</p>
-                <span className="bg-error text-white text-xs font-bold px-2 py-0.5 rounded-lg">15% OFF</span>
-                <p className="text-on-surface-variant line-through text-sm">₩29,400</p>
-              </div>
             </section>
 
             <hr className="border-outline-variant/30" />
@@ -141,17 +136,11 @@ const BagDetail = () => {
             {/* CTA */}
             <div className="flex flex-col sm:flex-row gap-3">
               <button
-                onClick={handleBuyNow}
-                className="flex-[1.5] h-14 btn-gradient text-white font-bold rounded-xl shadow-lg flex items-center justify-center gap-2 hover:shadow-primary/20 transition-all"
+                className="flex-1 h-14 btn-gradient text-white font-bold rounded-xl shadow-lg flex items-center justify-center gap-2 hover:shadow-primary/20 transition-all"
+                onClick={() => window.location.href = 'mailto:contact@godsdeco.com'}
               >
-                <span className="material-symbols-outlined text-[20px]">bolt</span>
-                바로 주문하기
-              </button>
-              <button
-                onClick={handleAdd}
-                className="flex-1 h-14 bg-surface-container-high text-on-surface font-semibold rounded-xl border border-outline-variant/30 hover:bg-surface-variant transition-all"
-              >
-                장바구니 담기
+                <span className="material-symbols-outlined text-[20px]">mail</span>
+                제작 문의하기
               </button>
             </div>
           </div>
@@ -191,9 +180,9 @@ const BagDetail = () => {
             </div>
             <div className="flex gap-6 overflow-x-auto pb-4">
               {[
-                { name: '커스텀 네임 택', price: '₩8,000', img: '/printing-landing/assets/bag-1.jpg' },
-                { name: '프리미엄 세탁 망', price: '₩3,500', img: '/printing-landing/assets/bag-2.jpg' },
-                { name: '캔버스 전용 클리너', price: '₩12,000', img: '/printing-landing/assets/bag-3.jpg' },
+                { name: '커스텀 네임 택', img: '/printing-landing/assets/bag-1.jpg' },
+                { name: '프리미엄 세탁 망', img: '/printing-landing/assets/bag-2.jpg' },
+                { name: '캔버스 전용 클리너', img: '/printing-landing/assets/bag-3.jpg' },
               ].map(r => (
                 <div key={r.name} className="min-w-[280px] group bg-surface-container-lowest border border-outline-variant/30 rounded-2xl overflow-hidden hover:shadow-lg transition-shadow">
                   <div className="h-48 overflow-hidden">
@@ -201,7 +190,6 @@ const BagDetail = () => {
                   </div>
                   <div className="p-4">
                     <p className="font-semibold text-on-surface">{r.name}</p>
-                    <p className="text-primary font-bold mt-1">{r.price}</p>
                   </div>
                 </div>
               ))}

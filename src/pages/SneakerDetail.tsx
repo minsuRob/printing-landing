@@ -76,11 +76,6 @@ const SneakerDetail = () => {
             </button>
           </div>
           <h1 className="font-['Space_Grotesk'] text-3xl font-bold mb-3">글리터 커스텀 스니커즈</h1>
-          <div className="flex items-center gap-4 mb-8">
-            <span className="font-['Space_Grotesk'] text-2xl text-primary font-bold">₩89,000</span>
-            <span className="text-on-surface-variant line-through text-sm">₩112,000</span>
-            <span className="text-error text-sm font-semibold">20% OFF</span>
-          </div>
 
           {/* USP Cards (기존 2열 동일) */}
           <div className="grid grid-cols-2 gap-4 mb-8">
@@ -148,16 +143,10 @@ const SneakerDetail = () => {
           <div className="mt-8 flex flex-col sm:flex-row gap-3">
             <button
               className="flex-1 h-14 btn-gradient text-white font-semibold rounded-xl shadow-lg flex items-center justify-center gap-2 hover:shadow-primary/20 transition-all"
-              onClick={handleBuyNow}
+              onClick={() => window.location.href = 'mailto:contact@godsdeco.com'}
             >
-              <span className="material-symbols-outlined text-[20px]">bolt</span>
-              바로 주문하기
-            </button>
-            <button
-              className="flex-1 h-14 bg-surface-container-high text-on-surface font-semibold rounded-xl border border-outline-variant/30 hover:bg-surface-variant transition-all"
-              onClick={handleAddCart}
-            >
-              장바구니 담기
+              <span className="material-symbols-outlined text-[20px]">mail</span>
+              제작 문의하기
             </button>
           </div>
         </section>
@@ -227,7 +216,6 @@ const SneakerDetail = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-6">
                 <span className="text-white/80 text-xs font-semibold mb-1">BEST MATCHING</span>
                 <h4 className="text-white font-['Space_Grotesk'] text-2xl font-bold mb-1">글리터 메탈릭 티셔츠</h4>
-                <span className="text-blue-200 font-semibold">₩39,000</span>
               </div>
             </div>
             {/* 기존 두 번째, 세 번째 작은 카드 동일 위치 */}
@@ -240,7 +228,6 @@ const SneakerDetail = () => {
                 />
               </div>
               <p className="font-semibold text-sm truncate">글리터 포인트 마스크</p>
-              <p className="text-primary text-sm">₩12,000</p>
             </div>
             <div className="bg-white border border-outline-variant p-4 rounded-2xl">
               <div className="aspect-square rounded-xl overflow-hidden mb-3">
@@ -251,7 +238,6 @@ const SneakerDetail = () => {
                 />
               </div>
               <p className="font-semibold text-sm truncate">메탈릭 로고 에코백</p>
-              <p className="text-primary text-sm">₩25,000</p>
             </div>
           </div>
         </section>

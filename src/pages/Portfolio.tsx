@@ -76,7 +76,7 @@ const Portfolio = () => {
                   }
                   className="w-full py-3 bg-white text-black text-center rounded-xl font-bold text-sm hover:bg-primary hover:text-white transition-colors"
                 >
-                  비슷한 스타일 주문하기
+                  제작 가이드 보기
                 </Link>
               </div>
             </div>
@@ -90,8 +90,8 @@ const Portfolio = () => {
             포트폴리오의 영감을 현실로 만들어보세요. 대량 문의부터 단 하나의 작품까지 정성을 다해 제작합니다.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/tshirt-printing" className="btn-gradient px-12 py-4 rounded-xl text-white font-bold shadow-lg">
-              커스텀 주문 시작하기
+            <Link to="/production-guide" className="btn-gradient px-12 py-4 rounded-xl text-white font-bold shadow-lg">
+              제작 가이드 보기
             </Link>
             <button className="bg-white border border-outline-variant px-12 py-4 rounded-xl font-bold hover:bg-surface-container-high transition-all">
               견적 문의하기

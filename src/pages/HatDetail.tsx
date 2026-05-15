@@ -96,40 +96,13 @@ const HatDetail = () => {
                 <p className="text-on-surface-variant text-sm">{PRODUCT.desc}</p>
               </div>
 
-              <div className="flex items-end gap-2">
-                <span className="font-['Space_Grotesk'] text-4xl font-bold text-primary">₩{PRODUCT.price.toLocaleString()}</span>
-                <span className="text-on-surface-variant line-through mb-1 text-sm">₩{PRODUCT.originalPrice.toLocaleString()}</span>
-              </div>
-
-              <div className="space-y-2">
-                <label className="text-sm font-semibold text-on-surface">텍스처 선택</label>
-                <div className="flex gap-4">
-                  {TEXTURES.map(t => (
-                    <div
-                      key={t.key}
-                      onClick={() => setSelectedTexture(t.key)}
-                      className="flex flex-col items-center gap-1 cursor-pointer"
-                    >
-                      <div className={`w-12 h-12 rounded-full ${t.cls} inner-shadow-sm border-2 transition-all ${selectedTexture === t.key ? 'border-primary ring-2 ring-primary/20 ring-offset-2' : 'border-outline-variant/50 hover:border-primary'}`} />
-                      <span className={`text-[10px] font-semibold ${selectedTexture === t.key ? 'text-primary' : 'text-on-surface-variant'}`}>{t.key}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
               <div className="pt-2 space-y-3">
                 <button
-                  onClick={handleBuyNow}
                   className="btn-gradient w-full text-white py-4 rounded-xl font-semibold flex items-center justify-center gap-2"
+                  onClick={() => window.location.href = 'mailto:contact@godsdeco.com'}
                 >
-                  <span className="material-symbols-outlined">bolt</span>
-                  바로 주문하기
-                </button>
-                <button
-                  onClick={handleAddCart}
-                  className="w-full bg-surface-container-high text-on-secondary-container py-4 rounded-xl font-semibold border border-outline-variant/30 hover:bg-surface-variant transition-all"
-                >
-                  장바구니 담기
+                  <span className="material-symbols-outlined">mail</span>
+                  제작 문의하기
                 </button>
               </div>
 
