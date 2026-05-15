@@ -1,34 +1,17 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { useCart } from '../context/CartContext';
 
-const SIZES = ['230', '240', '250', '260', '270'];
 
-const TEXTURES = [
-  { key: 'Metallic Red', from: '#4648d4', to: '#6063ee' },
-  { key: 'Silver Dust', from: '#a8a9ad', to: '#e8e8e8' },
-  { key: 'Hologram', from: '#a855f7', to: '#06b6d4' },
-];
 
 const SneakerDetail = () => {
-  const navigate = useNavigate();
-  const [selectedSize, setSelectedSize] = useState('250');
-  const [selectedTexture, setSelectedTexture] = useState('Metallic Red');
-  // 기존 메인 이미지 동일
   const [mainImg, setMainImg] = useState(
     '/printing-landing/assets/sneaker-run-1.jpg'
   );
-  const { addItem } = useCart();
 
-  const handleAddCart = () => {
-    addItem({ id: 'sneaker-001', name: '글리터 커스텀 스니커즈', price: 89000, image: mainImg, category: '신발', size: selectedSize, texture: selectedTexture });
-  };
-
-  const handleBuyNow = () => {
-    handleAddCart();
-    navigate('/checkout');
+  // 제작 문의하기 버튼 클릭 시 이메일 연결
+  const handleInquiry = () => {
+    window.location.href = 'mailto:contact@godsdeco.com';
   };
 
   // 기존 썸네일 이미지들 동일
@@ -48,7 +31,7 @@ const SneakerDetail = () => {
         <section className="relative bg-surface-container-low overflow-hidden">
           <div className="aspect-square w-full max-h-[600px]">
             <img
-              alt="프리미엄 글리터 스니커즈"
+              alt="네온 홀로그램 스니커즈"
               className="w-full h-full object-cover"
               src={mainImg}
             />
@@ -75,7 +58,7 @@ const SneakerDetail = () => {
               <span className="material-symbols-outlined">favorite</span>
             </button>
           </div>
-          <h1 className="font-['Space_Grotesk'] text-3xl font-bold mb-3">글리터 커스텀 스니커즈</h1>
+          <h1 className="font-['Space_Grotesk'] text-3xl font-bold mb-3">네온 홀로그램 스니커즈</h1>
 
           {/* USP Cards (기존 2열 동일) */}
           <div className="grid grid-cols-2 gap-4 mb-8">
@@ -162,8 +145,8 @@ const SneakerDetail = () => {
             <div className="space-y-6">
               <h3 className="font-['Space_Grotesk'] text-2xl font-semibold">고기능성 패브릭과 프리미엄 열전사 필름의 만남</h3>
               <p className="text-on-surface-variant leading-relaxed">
-                신의데코프린팅만의 독자적인 열압착 기술로 제작된 '글리터 커스텀 스니커즈'는 기존 프린팅 방식의 한계를 넘었습니다.
-                수만 번의 굴곡 테스트를 통과한 유연한 프리미엄 글리터 필름은 격한 움직임에도 갈라짐이나 떨어짐이 없습니다.
+                신의데코프린팅만의 독자적인 열압착 기술로 제작된 '네온 홀로그램 스니커즈'는 기존 프린팅 방식의 한계를 넘었습니다.
+                수만 번의 굴곡 테스트를 통과한 유연한 프리미엄 홀로그램 필름은 격한 움직임에도 갈라짐이나 떨어짐이 없습니다.
               </p>
               {/* 기존 제작공정 이미지 동일 위치 */}
               <div className="rounded-2xl overflow-hidden shadow-xl">
