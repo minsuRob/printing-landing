@@ -1,25 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
 
-const SLIDES = [
-  '/printing-landing/assets/slide-0.jpg',
-  '/printing-landing/assets/slide-1.jpg',
-  '/printing-landing/assets/slide-2.jpg',
-  '/printing-landing/assets/slide-3.jpg',
-  '/printing-landing/assets/slide-4.jpg',
-];
-
 const MainPage: React.FC = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % SLIDES.length);
-    }, 5000); // 5 seconds per slide
-    return () => clearInterval(timer);
-  }, []);
 
   return (
     <div className="bg-background text-on-surface font-body-md overflow-x-hidden">
@@ -36,41 +20,19 @@ const MainPage: React.FC = () => {
                 100% { transform: scale(1.05) translate(0, 0); filter: brightness(1); }
               }
               .animate-hero-dynamic {
-                animation: heroDynamic 20s ease-in-out infinite alternate;
+                animation: heroDynamic 15s ease-in-out infinite alternate;
               }
             `}</style>
-            
-            {SLIDES.map((slide, index) => (
-              <img 
-                key={slide}
-                alt={`Hero slide ${index + 1}`} 
-                className={`absolute inset-0 w-full h-full object-cover object-center animate-hero-dynamic transition-opacity duration-[2000ms] ease-in-out ${
-                  index === currentSlide ? 'opacity-90 z-10' : 'opacity-0 z-0'
-                }`}
-                src={slide} 
-              />
-            ))}
-
-            <div className="absolute inset-0 bg-[#0b1c30]/50 mix-blend-overlay z-20"></div>
-            <div className="absolute inset-0 bg-gradient-to-b from-[#0b1c30]/80 via-transparent to-[#0b1c30] z-20"></div>
-            
-            {/* Slide Indicators */}
-            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-30">
-              {SLIDES.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentSlide(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    index === currentSlide ? 'bg-primary scale-125' : 'bg-white/30 hover:bg-white/50'
-                  }`}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
-              ))}
-            </div>
-
+            <img 
+              alt="Dynamic heat press machine background" 
+              className="w-full h-full object-cover object-center opacity-90 animate-hero-dynamic"
+              src="/printing-landing/assets/slide-0.jpg" 
+            />
+            <div className="absolute inset-0 bg-[#0b1c30]/50 mix-blend-overlay"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-[#0b1c30]/80 via-transparent to-[#0b1c30]"></div>
             {/* Neon Accents */}
-            <div className="absolute top-1/4 -right-20 w-[500px] h-[500px] bg-primary/40 rounded-full blur-[120px] animate-pulse z-20"></div>
-            <div className="absolute bottom-1/4 -left-20 w-96 h-96 bg-cyan-500/30 rounded-full blur-[100px] animate-pulse z-20" style={{ animationDelay: '1s' }}></div>
+            <div className="absolute top-1/4 -right-20 w-[500px] h-[500px] bg-primary/40 rounded-full blur-[120px] animate-pulse"></div>
+            <div className="absolute bottom-1/4 -left-20 w-96 h-96 bg-cyan-500/30 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '1s' }}></div>
           </div>
           
           <div className="relative z-10 max-w-[1280px] mx-auto px-6 w-full">
