@@ -6,13 +6,13 @@ import { useCart } from '../context/CartContext';
 
 const PRODUCT = {
   id: 'tshirt-001',
-  name: '마스크 인스파이어드 에디션 티셔츠',
+  name: '스트릿 오버핏 홀로그램 라운드 티',
   category: '티셔츠',
   price: 35000,
   originalPrice: 42000,
-  badge: '신규 컬렉션',
-  desc: '마스크 패턴에서 영감을 받은 독창적인 그래픽과 홀로그램 필름의 완벽한 조화. 신의데코만의 기술력으로 구현된 리미티드 시리즈입니다.',
-  mainImg: '/printing-landing/assets/tshirt-series-1.jpg',
+  badge: 'MZ 픽 컬렉션',
+  desc: '트렌디한 오버핏 실루엣과 각도에 따라 오묘하게 빛나는 프리미엄 홀로그램 전사의 만남. 젊은 감각의 스트릿 웨어를 완성하세요.',
+  mainImg: '/printing-landing/assets/tshirt.png',
   thumbs: [
     '/printing-landing/assets/tshirt-series-1.jpg',
     '/printing-landing/assets/tshirt-series-2.jpg',
