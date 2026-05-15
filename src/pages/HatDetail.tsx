@@ -12,12 +12,12 @@ const PRODUCT = {
   originalPrice: 35000,
   badge: '베스트셀러',
   desc: '각이 살아있는 핏과 고퀄리티 전사의 만남. 유니크한 모자로 당신의 개성을 표현하세요.',
-  mainImg: '/printing-landing/assets/hat-1.jpg',
+  mainImg: '/printing-landing/assets/hat-glitter-1.png',
   thumbs: [
-    '/printing-landing/assets/hat-1.jpg',
-    '/printing-landing/assets/hat-2.jpg',
-    '/printing-landing/assets/hat-3.jpg',
-    '/printing-landing/assets/hat-4.jpg',
+    '/printing-landing/assets/hat-glitter-1.png',
+    '/printing-landing/assets/hat-glitter-2.png',
+    '/printing-landing/assets/hat-glitter-3.png',
+    '/printing-landing/assets/hat-glitter-4.png',
   ],
 };
 
