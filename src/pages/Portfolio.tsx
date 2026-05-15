@@ -4,21 +4,21 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 const PORTFOLIO_ITEMS = [
-  { id: 1, title: '프리미엄 필름 컬러 가이드', category: 'T-shirt', img: '/printing-landing/assets/film-color-chart.jpg', client: '신의데코 표준 규격' },
-  { id: 2, title: '메탈릭 실버 커스텀 스니커즈', category: 'Sneaker', img: '/printing-landing/assets/cat-sneaker.jpg', client: 'Individual Order' },
-  { id: 3, title: '홀로그램 포인트 마스크', category: 'Mask', img: '/printing-landing/assets/cat-mask.jpg', client: 'Fashion Group B' },
-  { id: 4, title: '골드 로고 캔버스 에코백', category: 'Bag', img: '/printing-landing/assets/cat-bag.jpg', client: 'Gift Shop C' },
-  { id: 5, title: '네온 핑크 스트릿 후디', category: 'T-shirt', img: '/printing-landing/assets/tshirt.png', client: 'Club X' },
-  { id: 6, title: '카본 텍스처 하이탑', category: 'Sneaker', img: '/printing-landing/assets/sneaker.png', client: 'Pro Athlete' },
-  { id: 7, title: '블루 시퀸 포인트 마스크', category: 'Mask', img: '/printing-landing/assets/mask.png', client: 'Cafe Staff' },
-  { id: 8, title: '매트 블랙 레더 백팩', category: 'Bag', img: '/printing-landing/assets/bag.png', client: 'Designer Brand' },
+  { id: 1, title: '골드 로고 캔버스 에코백', category: '가방', img: '/printing-landing/assets/cat-bag.jpg', client: 'Gift Shop C' },
+  { id: 2, title: '메탈릭 실버 커스텀 스니커즈', category: '신발', img: '/printing-landing/assets/cat-sneaker.jpg', client: 'Individual Order' },
+  { id: 3, title: '프리미엄 글리터 로고 볼캡', category: '모자', img: '/printing-landing/assets/cat-hat.jpg', client: 'Street Brand' },
+  { id: 4, title: '네온 핑크 스트릿 후디', category: '티셔츠', img: '/printing-landing/assets/cat-tshirt.jpg', client: 'Club X' },
+  { id: 5, title: '홀로그램 포인트 마스크', category: '마스크', img: '/printing-landing/assets/cat-mask.jpg', client: 'Fashion Group B' },
+  { id: 6, title: '열전사 프리미엄 롤 필름', category: '필름', img: '/printing-landing/assets/film-1.jpg', client: '신의데코 표준 규격' },
+  { id: 7, title: '반짝이 열전사 디자인 샘플', category: '필름디자인', img: '/printing-landing/assets/film-sample-1.jpg', client: 'Sample Book' },
+  { id: 8, title: '커스텀 굿즈 패키지', category: '기타', img: '/printing-landing/assets/tshirt.png', client: 'Corporate Event' },
 ];
 
 const Portfolio = () => {
-  const [filter, setFilter] = useState('All');
-  const categories = ['All', 'T-shirt', 'Sneaker', 'Mask', 'Bag'];
+  const [filter, setFilter] = useState('전체보기');
+  const categories = ['전체보기', '가방', '신발', '모자', '티셔츠', '마스크', '필름', '필름디자인', '기타'];
 
-  const filteredItems = filter === 'All' 
+  const filteredItems = filter === '전체보기' 
     ? PORTFOLIO_ITEMS 
     : PORTFOLIO_ITEMS.filter(item => item.category === filter);
 
@@ -65,7 +65,15 @@ const Portfolio = () => {
                 <h3 className="text-white text-xl font-bold mb-1">{item.title}</h3>
                 <p className="text-white/60 text-sm mb-4">Client: {item.client}</p>
                 <Link
-                  to={item.category === 'T-shirt' ? '/tshirt-printing' : item.category === 'Sneaker' ? '/sneaker-printing' : '/'}
+                  to={
+                    item.category === '티셔츠' ? '/tshirt-printing' : 
+                    item.category === '신발' ? '/sneaker-printing' : 
+                    item.category === '모자' ? '/hat-printing' :
+                    item.category === '가방' ? '/bag-printing' :
+                    item.category === '마스크' ? '/mask-printing' :
+                    item.category === '필름' ? '/film-printing' :
+                    item.category === '필름디자인' ? '/film-sample' : '/'
+                  }
                   className="w-full py-3 bg-white text-black text-center rounded-xl font-bold text-sm hover:bg-primary hover:text-white transition-colors"
                 >
                   비슷한 스타일 주문하기
