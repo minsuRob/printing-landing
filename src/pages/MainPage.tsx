@@ -184,8 +184,8 @@ const MainPage: React.FC = () => {
         {/* ── Technology Showcase Section (Glitter) ── */}
         <section className="py-32 bg-surface">
           <div className="max-w-[1280px] mx-auto px-6">
-            <div className="bg-[#0b1c30] rounded-[48px] overflow-hidden flex flex-col lg:flex-row items-center border border-white/5 shadow-2xl">
-              <div className="w-full lg:w-1/2 aspect-square lg:aspect-auto h-full relative overflow-hidden bg-black/20">
+            <div className="bg-[#0b1c30] rounded-[48px] overflow-hidden flex flex-col lg:flex-row items-stretch border border-white/5 shadow-2xl">
+              <div className="w-full lg:w-1/2 aspect-square lg:aspect-auto relative overflow-hidden bg-black/20 min-h-[400px]">
                 {GLITTER_SLIDES.map((slide, index) => (
                   <img 
                     key={slide}
@@ -211,7 +211,7 @@ const MainPage: React.FC = () => {
                   ))}
                 </div>
               </div>
-              <div className="w-full lg:w-1/2 p-12 lg:p-24 space-y-8">
+              <div className="w-full lg:w-1/2 p-12 lg:p-24 space-y-8 flex flex-col justify-center">
                 <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/20 text-primary-glow text-xs font-bold uppercase tracking-widest">
                   <span className="relative flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
