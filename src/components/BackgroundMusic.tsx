@@ -22,14 +22,20 @@ const BackgroundMusic: React.FC = () => {
     playAudio();
   }, []);
 
-  const togglePlay = () => {
+  const togglePlay = async () => {
     if (audioRef.current) {
       if (isPlaying) {
         audioRef.current.pause();
+        setIsPlaying(false);
       } else {
-        audioRef.current.play();
+        try {
+          await audioRef.current.play();
+          setIsPlaying(true);
+        } catch (err) {
+          console.error("Audio playback failed:", err);
+          setIsPlaying(false);
+        }
       }
-      setIsPlaying(!isPlaying);
     }
   };
 
@@ -38,8 +44,9 @@ const BackgroundMusic: React.FC = () => {
       {/* Calm Classical Music: Erik Satie - Gymnopédie No.1 (Public Domain) */}
       <audio 
         ref={audioRef} 
-        src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Erik_Satie_-_Gymnop%C3%A9die_No._1.ogg" 
+        src="https://cdn.pixabay.com/download/audio/2022/02/10/audio_55a2979069.mp3" 
         loop 
+        crossOrigin="anonymous"
       />
       
       <button 
