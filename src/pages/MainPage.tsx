@@ -185,26 +185,32 @@ const MainPage: React.FC = () => {
         <section className="py-32 bg-surface">
           <div className="max-w-[1280px] mx-auto px-6">
             <div className="bg-[#0b1c30] rounded-[48px] overflow-hidden flex flex-col lg:flex-row items-stretch border border-white/5 shadow-2xl">
-              <div className="w-full lg:w-1/2 aspect-square lg:aspect-auto relative overflow-hidden bg-black/20 min-h-[400px]">
+              <div className="w-full lg:w-1/2 relative min-h-[400px] lg:min-h-[600px] flex-shrink-0 overflow-hidden bg-black/50">
                 {GLITTER_SLIDES.map((slide, index) => (
-                  <img 
+                  <div 
                     key={slide}
-                    alt={`Glitter Sample ${index + 1}`} 
-                    className={`absolute inset-0 w-full h-full object-cover transition-all duration-[1500ms] ease-in-out ${
-                      index === glitterSlide ? 'opacity-100 scale-100 z-10' : 'opacity-0 scale-105 z-0'
+                    className={`absolute inset-0 w-full h-full transition-opacity duration-[1500ms] ease-in-out ${
+                      index === glitterSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'
                     }`}
-                    src={slide} 
-                  />
+                  >
+                    <img 
+                      alt={`Glitter Sample ${index + 1}`} 
+                      className={`w-full h-full object-cover transition-transform duration-[3000ms] ease-out ${
+                        index === glitterSlide ? 'scale-105' : 'scale-100'
+                      }`}
+                      src={slide} 
+                    />
+                  </div>
                 ))}
                 
                 {/* Slide Indicators for Glitter Section */}
-                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+                <div className="absolute bottom-6 left-0 right-0 flex justify-center gap-3 z-20">
                   {GLITTER_SLIDES.map((_, index) => (
                     <button
                       key={index}
                       onClick={() => setGlitterSlide(index)}
-                      className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                        index === glitterSlide ? 'bg-primary scale-150' : 'bg-white/50 hover:bg-white/80'
+                      className={`w-3 h-3 rounded-full transition-all duration-300 shadow-md ${
+                        index === glitterSlide ? 'bg-primary scale-125' : 'bg-white/40 hover:bg-white/80'
                       }`}
                       aria-label={`View glitter slide ${index + 1}`}
                     />
