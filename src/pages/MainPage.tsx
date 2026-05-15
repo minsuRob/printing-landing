@@ -122,7 +122,7 @@ const MainPage: React.FC = () => {
 
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-6">
               {[
-                { id: 'tshirt', title: '티셔츠', sub: 'Minimal Signature', img: '/printing-landing/assets/cat-tshirt.jpg', link: '/tshirt-printing' },
+                { id: 'tshirt', title: '티셔츠', sub: 'Minimal Signature', img: '/printing-landing/assets/tshirt.png', link: '/tshirt-printing' },
                 { id: 'sneaker', title: '스니커즈', sub: 'Custom Shoes', img: '/printing-landing/assets/cat-sneaker.jpg', link: '/sneaker-printing' },
                 { id: 'mask', title: '마스크', sub: 'Tech Mask', img: '/printing-landing/assets/cat-mask.jpg', link: '/mask-printing' },
                 { id: 'hat', title: '모자', sub: 'Custom Hats', img: '/printing-landing/assets/hat-hologram.png', link: '/hat-printing' },

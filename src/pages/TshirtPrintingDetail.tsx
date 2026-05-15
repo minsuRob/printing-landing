@@ -11,7 +11,7 @@ const PRODUCT = {
 
   badge: '심플 컬렉션',
   desc: '과하지 않은 절제의 미학. 심플한 로고와 고품질 홀로그램 필름만으로 완성된 미니멀리즘 스타일입니다.',
-  mainImg: '/printing-landing/assets/cat-tshirt.jpg',
+  mainImg: '/printing-landing/assets/tshirt.png',
   thumbs: [],
   washImg: '/printing-landing/assets/tshirt-series-5.png',
 };
