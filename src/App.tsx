@@ -14,11 +14,13 @@ import About from './pages/About';
 import Terms from './pages/Terms';
 import Support from './pages/Support';
 import Checkout from './pages/Checkout';
+import BackgroundMusic from './components/BackgroundMusic';
 
 function App() {
   return (
     <CartProvider>
       <main className="w-full min-h-screen bg-background text-on-surface relative">
+        <BackgroundMusic />
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/tshirt-printing" element={<TshirtPrintingDetail />} />
