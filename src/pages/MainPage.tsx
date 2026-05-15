@@ -92,13 +92,14 @@ const MainPage: React.FC = () => {
               </button>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-8">
               {[
                 { id: 'tshirt', title: '티셔츠', sub: 'Premium Tee', img: '/printing-landing/assets/cat-tshirt.jpg', link: '/tshirt-printing' },
                 { id: 'sneaker', title: '스니커즈', sub: 'Custom Shoes', img: '/printing-landing/assets/cat-sneaker.jpg', link: '/sneaker-printing' },
                 { id: 'mask', title: '마스크', sub: 'Tech Mask', img: '/printing-landing/assets/cat-mask.jpg', link: '/mask-printing' },
                 { id: 'hat', title: '모자', sub: 'Custom Hats', img: '/printing-landing/assets/cat-hat.jpg', link: '/hat-printing' },
                 { id: 'bag', title: '가방', sub: 'Custom Bags', img: '/printing-landing/assets/cat-bag.jpg', link: '/bag-printing' },
+                { id: 'film', title: '필름', sub: 'Heat Transfer', img: '/printing-landing/assets/film-1.jpg', link: '/film-printing' },
               ].map((cat, i) => (
                 <Link 
                   key={cat.id}

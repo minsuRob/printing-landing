@@ -14,6 +14,7 @@ const Navbar = () => {
     { label: '신발', href: '/sneaker-printing' },
     { label: '마스크', href: '/mask-printing' },
     { label: '모자', href: '/hat-printing' },
+    { label: '필름', href: '/film-printing' },
     { label: '포트폴리오', href: '/portfolio' },
     { label: '제작 가이드', href: '/production-guide' },
   ];
