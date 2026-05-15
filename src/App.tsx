@@ -7,6 +7,7 @@ import SneakerDetail from './pages/SneakerDetail';
 import BagDetail from './pages/BagDetail';
 import HatDetail from './pages/HatDetail';
 import FilmDetail from './pages/FilmDetail';
+import FilmSampleDetail from './pages/FilmSampleDetail';
 import ProductionGuide from './pages/ProductionGuide';
 import Portfolio from './pages/Portfolio';
 import About from './pages/About';
@@ -26,6 +27,7 @@ function App() {
           <Route path="/bag-printing" element={<BagDetail />} />
           <Route path="/hat-printing" element={<HatDetail />} />
           <Route path="/film-printing" element={<FilmDetail />} />
+          <Route path="/film-sample" element={<FilmSampleDetail />} />
           <Route path="/production-guide" element={<ProductionGuide />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/about" element={<About />} />
