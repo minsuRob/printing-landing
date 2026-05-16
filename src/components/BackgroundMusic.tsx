@@ -37,7 +37,8 @@ const BackgroundMusic: React.FC = () => {
     };
   }, []);
 
-  const togglePlay = () => {
+  const togglePlay = (e: React.MouseEvent) => {
+    e.stopPropagation(); // 이벤트 전파 중단 (window 리스너 트리거 방지)
     if (isPlaying) {
       proceduralMusic.stop();
       setIsPlaying(false);
