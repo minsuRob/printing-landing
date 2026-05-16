@@ -1,12 +1,12 @@
 /**
- * ProceduralMusic Utility
- * Web Audio API를 사용하여 저작권 걱정 없는 잔잔하고 분위기 있는 앰비언트 음악을 생성합니다.
+ * ProceduralMusic Utility (MZ Style - Lo-Fi / Tech Ambient)
+ * Web Audio API를 사용하여 현대적이고 힙한 MZ 스타일의 비트를 생성합니다.
  */
 
 class ProceduralMusic {
   private audioCtx: AudioContext | null = null;
   private isPlaying: boolean = false;
-  private nodes: AudioNode[] = [];
+  private loopInterval: any = null;
 
   constructor() {}
 
@@ -16,10 +16,11 @@ class ProceduralMusic {
     this.audioCtx = new (window.AudioContext || (window as any).webkitAudioContext)();
     this.isPlaying = true;
 
-    // 잔잔한 드론 사운드 및 멜로디 생성
-    this.createAmbientLayer(110, 0.1); // Low drone
-    this.createAmbientLayer(220, 0.05); // Mid drone
-    this.createRandomPluck(); // Procedural melody
+    // MZ 스타일: 로우파이(Lo-fi) 감성의 비트와 세련된 신스 패드
+    this.startBeat();
+    this.createSynthPad(110, 0.1); // Bass pad
+    this.createSynthPad(164.81, 0.05); // E2
+    this.createSynthPad(196.00, 0.05); // G2
   }
 
   public stop() {
@@ -27,80 +28,132 @@ class ProceduralMusic {
       this.audioCtx.close();
       this.audioCtx = null;
     }
+    if (this.loopInterval) {
+      clearInterval(this.loopInterval);
+      this.loopInterval = null;
+    }
     this.isPlaying = false;
-    this.nodes = [];
   }
 
-  private createAmbientLayer(freq: number, volume: number) {
+  private startBeat() {
+    if (!this.audioCtx) return;
+
+    let step = 0;
+    const bpm = 90;
+    const stepTime = 60 / bpm / 2; // 8th notes
+
+    this.loopInterval = setInterval(() => {
+      if (!this.audioCtx || !this.isPlaying) return;
+      
+      const time = this.audioCtx.currentTime;
+
+      // Kick on 1 and 3
+      if (step % 4 === 0) {
+        this.createKick(time);
+      }
+      
+      // Snare/Clap on 2 and 4 (soft lo-fi style)
+      if (step % 8 === 4) {
+        this.createSnare(time);
+      }
+
+      // Hi-hats on every 8th note
+      this.createHiHat(time, step % 2 === 1 ? 0.01 : 0.02);
+
+      step = (step + 1) % 16;
+    }, stepTime * 1000);
+  }
+
+  private createKick(time: number) {
+    if (!this.audioCtx) return;
+    const osc = this.audioCtx.createOscillator();
+    const gain = this.audioCtx.createGain();
+
+    osc.frequency.setValueAtTime(150, time);
+    osc.frequency.exponentialRampToValueAtTime(0.01, time + 0.5);
+
+    gain.gain.setValueAtTime(0.2, time);
+    gain.gain.exponentialRampToValueAtTime(0.01, time + 0.5);
+
+    osc.connect(gain);
+    gain.connect(this.audioCtx.destination);
+
+    osc.start(time);
+    osc.stop(time + 0.5);
+  }
+
+  private createSnare(time: number) {
+    if (!this.audioCtx) return;
+    const noise = this.audioCtx.createBufferSource();
+    const bufferSize = this.audioCtx.sampleRate * 0.1;
+    const buffer = this.audioCtx.createBuffer(1, bufferSize, this.audioCtx.sampleRate);
+    const data = buffer.getChannelData(0);
+    for (let i = 0; i < bufferSize; i++) {
+      data[i] = Math.random() * 2 - 1;
+    }
+    noise.buffer = buffer;
+
+    const filter = this.audioCtx.createBiquadFilter();
+    filter.type = 'highpass';
+    filter.frequency.setValueAtTime(1000, time);
+
+    const gain = this.audioCtx.createGain();
+    gain.gain.setValueAtTime(0.05, time);
+    gain.gain.exponentialRampToValueAtTime(0.01, time + 0.2);
+
+    noise.connect(filter);
+    filter.connect(gain);
+    gain.connect(this.audioCtx.destination);
+
+    noise.start(time);
+  }
+
+  private createHiHat(time: number, vol: number) {
+    if (!this.audioCtx) return;
+    const noise = this.audioCtx.createBufferSource();
+    const bufferSize = this.audioCtx.sampleRate * 0.05;
+    const buffer = this.audioCtx.createBuffer(1, bufferSize, this.audioCtx.sampleRate);
+    const data = buffer.getChannelData(0);
+    for (let i = 0; i < bufferSize; i++) data[i] = Math.random() * 2 - 1;
+    noise.buffer = buffer;
+
+    const filter = this.audioCtx.createBiquadFilter();
+    filter.type = 'highpass';
+    filter.frequency.setValueAtTime(8000, time);
+
+    const gain = this.audioCtx.createGain();
+    gain.gain.setValueAtTime(vol, time);
+    gain.gain.exponentialRampToValueAtTime(0.001, time + 0.05);
+
+    noise.connect(filter);
+    filter.connect(gain);
+    gain.connect(this.audioCtx.destination);
+
+    noise.start(time);
+  }
+
+  private createSynthPad(freq: number, volume: number) {
     if (!this.audioCtx) return;
 
     const osc = this.audioCtx.createOscillator();
     const gain = this.audioCtx.createGain();
-    const lfo = this.audioCtx.createOscillator();
-    const lfoGain = this.audioCtx.createGain();
+    const filter = this.audioCtx.createBiquadFilter();
 
-    osc.type = 'sine';
+    osc.type = 'square'; // More tech/modern sound
     osc.frequency.setValueAtTime(freq, this.audioCtx.currentTime);
 
-    lfo.type = 'sine';
-    lfo.frequency.setValueAtTime(0.1, this.audioCtx.currentTime);
-    lfoGain.gain.setValueAtTime(volume * 0.5, this.audioCtx.currentTime);
+    filter.type = 'lowpass';
+    filter.frequency.setValueAtTime(400, this.audioCtx.currentTime);
+    filter.Q.setValueAtTime(10, this.audioCtx.currentTime);
 
     gain.gain.setValueAtTime(0, this.audioCtx.currentTime);
-    gain.gain.linearRampToValueAtTime(volume, this.audioCtx.currentTime + 2);
+    gain.gain.linearRampToValueAtTime(volume, this.audioCtx.currentTime + 4);
 
-    lfo.connect(lfoGain);
-    lfoGain.connect(gain.gain);
-    osc.connect(gain);
+    osc.connect(filter);
+    filter.connect(gain);
     gain.connect(this.audioCtx.destination);
 
     osc.start();
-    lfo.start();
-    
-    this.nodes.push(osc, lfo);
-  }
-
-  private createRandomPluck() {
-    if (!this.audioCtx || !this.isPlaying) return;
-
-    const playNote = () => {
-      if (!this.audioCtx || !this.isPlaying) return;
-
-      const notes = [261.63, 329.63, 392.00, 440.00, 523.25]; // C Major pentatonic
-      const freq = notes[Math.floor(Math.random() * notes.length)];
-      
-      const osc = this.audioCtx.createOscillator();
-      const gain = this.audioCtx.createGain();
-      const delay = this.audioCtx.createDelay();
-      const feedback = this.audioCtx.createGain();
-
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(freq, this.audioCtx.currentTime);
-
-      gain.gain.setValueAtTime(0, this.audioCtx.currentTime);
-      gain.gain.linearRampToValueAtTime(0.05, this.audioCtx.currentTime + 0.1);
-      gain.gain.exponentialRampToValueAtTime(0.001, this.audioCtx.currentTime + 4);
-
-      delay.delayTime.setValueAtTime(0.5, this.audioCtx.currentTime);
-      feedback.gain.setValueAtTime(0.4, this.audioCtx.currentTime);
-
-      osc.connect(gain);
-      gain.connect(this.audioCtx.destination);
-      
-      // Add a bit of delay/reverb effect
-      gain.connect(delay);
-      delay.connect(feedback);
-      feedback.connect(delay);
-      delay.connect(this.audioCtx.destination);
-
-      osc.start();
-      osc.stop(this.audioCtx.currentTime + 4);
-
-      // Schedule next note
-      setTimeout(playNote, 3000 + Math.random() * 5000);
-    };
-
-    playNote();
   }
 }
 
