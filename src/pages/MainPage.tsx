@@ -26,59 +26,107 @@ const MainPage: React.FC = () => {
       <Navbar />
       
       <main>
-        {/* ── Hero Section with Cinematic Background ── */}
+        {/* ── Hero Section with Dynamic Video Background ── */}
         <section className="relative min-h-[90vh] lg:min-h-screen flex items-center overflow-hidden bg-[#0b1c30]">
           <div className="absolute inset-0 z-0">
-            <style>{`
-              @keyframes heroDynamic {
-                0% { transform: scale(1.05) translate(0, 0); filter: brightness(1); }
-                50% { transform: scale(1.15) translate(-1%, 1%); filter: brightness(1.2); }
-                100% { transform: scale(1.05) translate(0, 0); filter: brightness(1); }
-              }
-              .animate-hero-dynamic {
-                animation: heroDynamic 15s ease-in-out infinite alternate;
-              }
-            `}</style>
-            <img 
-              alt="Dynamic heat press machine background" 
-              className="w-full h-full object-cover object-center opacity-90 animate-hero-dynamic"
-              src="/printing-landing/assets/slide-0.jpg" 
-            />
-            <div className="absolute inset-0 bg-[#0b1c30]/50 mix-blend-overlay"></div>
-            <div className="absolute inset-0 bg-gradient-to-b from-[#0b1c30]/80 via-transparent to-[#0b1c30]"></div>
-            {/* Neon Accents */}
-            <div className="absolute top-1/4 -right-20 w-[500px] h-[500px] bg-primary/40 rounded-full blur-[120px] animate-pulse"></div>
-            <div className="absolute bottom-1/4 -left-20 w-96 h-96 bg-cyan-500/30 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '1s' }}></div>
+            <video 
+              autoPlay 
+              muted 
+              loop 
+              playsInline
+              className="w-full h-full object-cover opacity-60 scale-105"
+            >
+              <source src="https://assets.mixkit.co/videos/preview/mixkit-close-up-of-a-printer-printing-on-a-t-shirt-23348-large.mp4" type="video/mp4" />
+              {/* Fallback Image */}
+              <img src="/printing-landing/assets/slide-0.jpg" alt="Fallback background" className="w-full h-full object-cover" />
+            </video>
+            
+            {/* Overlay Layers for Visual Richness */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0b1c30] via-[#0b1c30]/40 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0b1c30]"></div>
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(70,72,212,0.1)_0%,transparent_70%)]"></div>
+            
+            {/* Dynamic Light Streaks */}
+            <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+              <div className="absolute top-1/4 -left-1/4 w-[150%] h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent rotate-45 animate-pulse"></div>
+              <div className="absolute top-3/4 -left-1/4 w-[150%] h-[1px] bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent -rotate-12 animate-pulse" style={{ animationDelay: '2s' }}></div>
+            </div>
           </div>
           
           <div className="relative z-10 max-w-[1280px] mx-auto px-6 w-full">
-            <div className="max-w-3xl animate-fadeInUp">
-              <span className="inline-block px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-bold uppercase tracking-widest mb-8">
-                Premium HTV Custom Studio
-              </span>
-              <h1 className="font-['Space_Grotesk'] text-white leading-tight font-black tracking-tight mb-8">
-                <span className="block text-[64px] lg:text-[100px] leading-[0.9] drop-shadow-[0_0_30px_rgba(70,72,212,0.5)]">신의데코</span>
-                <span className="block text-[48px] lg:text-[72px] text-primary-glow shimmer-text">프린팅</span>
+            <div className="max-w-4xl">
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-white/5 backdrop-blur-xl border border-white/10 text-white text-sm font-bold uppercase tracking-[0.3em] mb-10 shadow-[0_0_20px_rgba(255,255,255,0.05)]"
+              >
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                </span>
+                Next-Gen Printing Technology
+              </motion.div>
+
+              <h1 className="font-['Space_Grotesk'] text-white leading-tight font-black tracking-tighter mb-10">
+                <motion.span 
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1, delay: 0.2 }}
+                  className="block text-[70px] lg:text-[120px] leading-[0.8] drop-shadow-[0_0_50px_rgba(70,72,212,0.4)]"
+                >
+                  신의데코
+                </motion.span>
+                <motion.span 
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1, delay: 0.4 }}
+                  className="block text-[54px] lg:text-[88px] text-primary-glow shimmer-text mt-4"
+                >
+                  프린팅 솔루션
+                </motion.span>
               </h1>
-              <p className="font-body-lg text-white/80 mb-12 font-medium max-w-xl text-lg lg:text-xl leading-relaxed">
-                상상을 현실로 만드는 가장 정밀한 열전사 솔루션.<br/>
-                홀로그램, 글리터, 반사 필름 등 특수 소재의 압도적인 퀄리티를 경험하세요.
-              </p>
-              <div className="flex flex-col sm:flex-row items-center gap-6">
-                <Link to="/tshirt-printing" className="w-full sm:w-auto text-center bg-primary text-on-primary px-12 py-5 rounded-xl font-button text-lg hover:shadow-[0_0_30px_rgba(70,72,212,0.6)] transition-all duration-300 active:scale-95 border border-primary/50">
-                  제작 시작하기
+
+              <motion.p 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, delay: 0.8 }}
+                className="font-body-lg text-white/70 mb-14 font-light max-w-2xl text-xl lg:text-2xl leading-relaxed"
+              >
+                단순한 인쇄를 넘어선 예술적 가공. <br/>
+                <span className="text-white font-medium italic">홀로그램, 글리터, 리플렉티브</span> 등 특수 소재로 압도적인 결과물을 선사합니다.
+              </motion.p>
+
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: 1 }}
+                className="flex flex-col sm:flex-row items-center gap-6"
+              >
+                <Link to="/tshirt-printing" className="group relative w-full sm:w-auto overflow-hidden bg-primary text-on-primary px-14 py-6 rounded-2xl font-bold text-xl transition-all duration-500 hover:scale-105 hover:shadow-[0_0_50px_rgba(70,72,212,0.6)] active:scale-95">
+                  <span className="relative z-10 flex items-center justify-center gap-3">
+                    제작 시작하기
+                    <svg className="w-6 h-6 group-hover:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                 </Link>
-                <Link to="/portfolio-detail" className="w-full sm:w-auto border-2 border-white/40 text-white px-12 py-[18px] rounded-xl font-button text-lg hover:bg-white hover:text-[#0b1c30] hover:border-white transition-all duration-300 active:scale-95 bg-white/5 backdrop-blur-lg flex items-center justify-center">
+
+                <Link to="/portfolio-detail" className="w-full sm:w-auto border-2 border-white/20 text-white px-14 py-[22px] rounded-2xl font-bold text-xl hover:bg-white hover:text-black hover:border-white transition-all duration-300 active:scale-95 bg-white/5 backdrop-blur-xl flex items-center justify-center gap-3 group">
                   포트폴리오 보기
+                  <span className="material-symbols-outlined text-[20px] group-hover:rotate-45 transition-transform">arrow_outward</span>
                 </Link>
-              </div>
+              </motion.div>
             </div>
           </div>
 
-          {/* Scroll Indicator */}
-          <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce opacity-60">
-            <span className="text-white/40 text-[10px] font-bold tracking-[0.2em] uppercase">Scroll</span>
-            <div className="w-0.5 h-12 bg-gradient-to-b from-primary to-transparent"></div>
+          {/* Scrolldown indicator */}
+          <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 opacity-50">
+            <div className="w-[1px] h-20 bg-gradient-to-b from-primary to-transparent relative">
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-primary rounded-full animate-scrollIndicator"></div>
+            </div>
+            <span className="text-white/40 text-[10px] font-bold tracking-[0.4em] uppercase">Explore</span>
           </div>
         </section>
 
