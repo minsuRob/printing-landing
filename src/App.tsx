@@ -15,6 +15,7 @@ import Terms from './pages/Terms';
 import Support from './pages/Support';
 import Checkout from './pages/Checkout';
 import PortfolioDetail from './pages/PortfolioDetail';
+import Inquiry from './pages/Inquiry';
 import BackgroundMusic from './components/BackgroundMusic';
 import SecurityGuard from './components/SecurityGuard';
 
@@ -41,6 +42,7 @@ function App() {
           <Route path="/terms" element={<Terms />} />
           <Route path="/support" element={<Support />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/inquiry" element={<Inquiry />} />
         </Routes>
       </main>
     </CartProvider>

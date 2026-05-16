@@ -345,7 +345,7 @@ const MainPage: React.FC = () => {
               <div className="lg:w-1/3">
                 <h2 className="font-['Space_Grotesk'] text-4xl lg:text-5xl font-bold mb-8 leading-tight">어떻게<br/>제작되나요?</h2>
                 <p className="text-on-surface-variant mb-12">디자인부터 배송까지, 10년 이상의 노하우가 집약된 신의데코만의 5단계 제작 프로세스입니다.</p>
-                <Link to="/tshirt-printing" className="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-xl font-bold hover:shadow-xl transition-all">
+                <Link to="/inquiry" className="inline-flex items-center gap-2 bg-primary text-white px-8 py-4 rounded-xl font-bold hover:shadow-xl transition-all">
                   상담 신청하기 <span className="material-symbols-outlined">chat</span>
                 </Link>
               </div>
@@ -376,12 +376,12 @@ const MainPage: React.FC = () => {
                 <h2 className="font-['Space_Grotesk'] text-4xl lg:text-6xl font-bold leading-tight">지금 당신의 디자인을<br/>현실로 만들어보세요.</h2>
                 <p className="text-white/80 text-xl max-w-2xl mx-auto">대량 생산부터 단 한 개의 커스텀까지, 신의데코가 함께합니다.</p>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-4">
-                  <button 
-                    onClick={() => window.location.href = 'mailto:contact@godsdeco.com'}
-                    className="w-full sm:w-auto bg-white text-primary px-12 py-5 rounded-xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all"
+                  <Link 
+                    to="/inquiry"
+                    className="w-full sm:w-auto bg-white text-primary px-12 py-5 rounded-xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all text-center"
                   >
                     지금 문의하기
-                  </button>
+                  </Link>
                   <Link to="/production-guide" className="w-full sm:w-auto bg-transparent border-2 border-white/40 text-white px-12 py-5 rounded-xl font-bold text-lg hover:bg-white/10 transition-all flex items-center justify-center">
                     제작 가이드 다운로드
                   </Link>

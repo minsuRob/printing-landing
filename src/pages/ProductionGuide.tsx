@@ -122,12 +122,12 @@ const ProductionGuide = () => {
             지금 바로 당신의 디자인을 신의데코프린팅의 프리미엄 퀄리티로 완성해보세요.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/tshirt-printing" className="bg-white text-primary px-8 py-4 rounded-xl font-bold hover:bg-surface-container-lowest transition-all">
-              지금 주문하기
+            <Link to="/inquiry" className="bg-white text-primary px-8 py-4 rounded-xl font-bold hover:bg-surface-container-lowest transition-all">
+              지금 문의하기
             </Link>
-            <button className="border border-white/40 px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition-all">
+            <Link to="/support" className="border border-white/40 px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition-all text-white text-center">
               고객 센터 문의
-            </button>
+            </Link>
           </div>
         </section>
       </main>
