@@ -1,6 +1,6 @@
 /**
- * ProceduralMusic Utility (MZ Style - Lo-Fi / Tech Ambient)
- * Web Audio API를 사용하여 현대적이고 힙한 MZ 스타일의 비트를 생성합니다.
+ * ProceduralMusic Utility (MZ Style - Upbeat Bright Pop)
+ * Web Audio API를 사용하여 MZ세대가 선호하는 밝고 경쾌한 리듬의 음악을 생성합니다.
  */
 
 class ProceduralMusic {
@@ -16,11 +16,11 @@ class ProceduralMusic {
     this.audioCtx = new (window.AudioContext || (window as any).webkitAudioContext)();
     this.isPlaying = true;
 
-    // MZ 스타일: 로우파이(Lo-fi) 감성의 비트와 세련된 신스 패드
-    this.startBeat();
-    this.createSynthPad(110, 0.1); // Bass pad
-    this.createSynthPad(164.81, 0.05); // E2
-    this.createSynthPad(196.00, 0.05); // G2
+    // MZ 스타일: 밝고 경쾌한 팝 리듬 (Upbeat & Bright)
+    this.startUpbeatBeat();
+    this.createBrightPad(261.63, 0.08); // C4 (Bright)
+    this.createBrightPad(329.63, 0.05); // E4
+    this.createBrightPad(392.00, 0.05); // G4
   }
 
   public stop() {
@@ -35,71 +35,76 @@ class ProceduralMusic {
     this.isPlaying = false;
   }
 
-  private startBeat() {
+  private startUpbeatBeat() {
     if (!this.audioCtx) return;
 
     let step = 0;
-    const bpm = 90;
-    const stepTime = 60 / bpm / 2; // 8th notes
+    const bpm = 124; // 밝고 빠른 템포
+    const stepTime = 60 / bpm / 4; // 16th notes
 
     this.loopInterval = setInterval(() => {
       if (!this.audioCtx || !this.isPlaying) return;
       
       const time = this.audioCtx.currentTime;
 
-      // Kick on 1 and 3
+      // Kick on 1, 2, 3, 4 (Four-on-the-floor)
       if (step % 4 === 0) {
-        this.createKick(time);
+        this.createPunchyKick(time);
       }
       
-      // Snare/Clap on 2 and 4 (soft lo-fi style)
+      // Bright Clap on 2 and 4
       if (step % 8 === 4) {
-        this.createSnare(time);
+        this.createBrightClap(time);
       }
 
-      // Hi-hats on every 8th note
-      this.createHiHat(time, step % 2 === 1 ? 0.01 : 0.02);
+      // Fast Hi-hats
+      if (step % 2 === 1) {
+        this.createOpenHat(time);
+      }
+
+      // Random "Sparkle" notes every now and then
+      if (Math.random() > 0.9) {
+        this.createSparkle(time);
+      }
 
       step = (step + 1) % 16;
     }, stepTime * 1000);
   }
 
-  private createKick(time: number) {
+  private createPunchyKick(time: number) {
     if (!this.audioCtx) return;
     const osc = this.audioCtx.createOscillator();
     const gain = this.audioCtx.createGain();
 
-    osc.frequency.setValueAtTime(150, time);
-    osc.frequency.exponentialRampToValueAtTime(0.01, time + 0.5);
+    osc.frequency.setValueAtTime(120, time);
+    osc.frequency.exponentialRampToValueAtTime(40, time + 0.1);
 
-    gain.gain.setValueAtTime(0.2, time);
-    gain.gain.exponentialRampToValueAtTime(0.01, time + 0.5);
+    gain.gain.setValueAtTime(0.3, time);
+    gain.gain.exponentialRampToValueAtTime(0.01, time + 0.15);
 
     osc.connect(gain);
     gain.connect(this.audioCtx.destination);
 
     osc.start(time);
-    osc.stop(time + 0.5);
+    osc.stop(time + 0.15);
   }
 
-  private createSnare(time: number) {
+  private createBrightClap(time: number) {
     if (!this.audioCtx) return;
     const noise = this.audioCtx.createBufferSource();
     const bufferSize = this.audioCtx.sampleRate * 0.1;
     const buffer = this.audioCtx.createBuffer(1, bufferSize, this.audioCtx.sampleRate);
     const data = buffer.getChannelData(0);
-    for (let i = 0; i < bufferSize; i++) {
-      data[i] = Math.random() * 2 - 1;
-    }
+    for (let i = 0; i < bufferSize; i++) data[i] = Math.random() * 2 - 1;
     noise.buffer = buffer;
 
     const filter = this.audioCtx.createBiquadFilter();
-    filter.type = 'highpass';
-    filter.frequency.setValueAtTime(1000, time);
+    filter.type = 'bandpass';
+    filter.frequency.setValueAtTime(1200, time);
 
     const gain = this.audioCtx.createGain();
-    gain.gain.setValueAtTime(0.05, time);
-    gain.gain.exponentialRampToValueAtTime(0.01, time + 0.2);
+    gain.gain.setValueAtTime(0.1, time);
+    gain.gain.exponentialRampToValueAtTime(0.01, time + 0.1);
 
     noise.connect(filter);
     filter.connect(gain);
@@ -108,7 +113,7 @@ class ProceduralMusic {
     noise.start(time);
   }
 
-  private createHiHat(time: number, vol: number) {
+  private createOpenHat(time: number) {
     if (!this.audioCtx) return;
     const noise = this.audioCtx.createBufferSource();
     const bufferSize = this.audioCtx.sampleRate * 0.05;
@@ -119,10 +124,10 @@ class ProceduralMusic {
 
     const filter = this.audioCtx.createBiquadFilter();
     filter.type = 'highpass';
-    filter.frequency.setValueAtTime(8000, time);
+    filter.frequency.setValueAtTime(10000, time);
 
     const gain = this.audioCtx.createGain();
-    gain.gain.setValueAtTime(vol, time);
+    gain.gain.setValueAtTime(0.02, time);
     gain.gain.exponentialRampToValueAtTime(0.001, time + 0.05);
 
     noise.connect(filter);
@@ -132,28 +137,43 @@ class ProceduralMusic {
     noise.start(time);
   }
 
-  private createSynthPad(freq: number, volume: number) {
+  private createBrightPad(freq: number, volume: number) {
     if (!this.audioCtx) return;
 
     const osc = this.audioCtx.createOscillator();
     const gain = this.audioCtx.createGain();
-    const filter = this.audioCtx.createBiquadFilter();
 
-    osc.type = 'square'; // More tech/modern sound
+    osc.type = 'triangle'; // Brighter than sine but softer than square
     osc.frequency.setValueAtTime(freq, this.audioCtx.currentTime);
 
-    filter.type = 'lowpass';
-    filter.frequency.setValueAtTime(400, this.audioCtx.currentTime);
-    filter.Q.setValueAtTime(10, this.audioCtx.currentTime);
-
     gain.gain.setValueAtTime(0, this.audioCtx.currentTime);
-    gain.gain.linearRampToValueAtTime(volume, this.audioCtx.currentTime + 4);
+    gain.gain.linearRampToValueAtTime(volume, this.audioCtx.currentTime + 2);
 
-    osc.connect(filter);
-    filter.connect(gain);
+    osc.connect(gain);
     gain.connect(this.audioCtx.destination);
 
     osc.start();
+  }
+
+  private createSparkle(time: number) {
+    if (!this.audioCtx) return;
+    const notes = [523.25, 659.25, 783.99, 1046.50]; // High C major notes
+    const freq = notes[Math.floor(Math.random() * notes.length)];
+    
+    const osc = this.audioCtx.createOscillator();
+    const gain = this.audioCtx.createGain();
+
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(freq, time);
+    
+    gain.gain.setValueAtTime(0.05, time);
+    gain.gain.exponentialRampToValueAtTime(0.001, time + 0.5);
+
+    osc.connect(gain);
+    gain.connect(this.audioCtx.destination);
+
+    osc.start(time);
+    osc.stop(time + 0.5);
   }
 }
 
