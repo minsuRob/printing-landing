@@ -1,6 +1,6 @@
 /**
- * ProceduralMusic Utility (Clean MZ Style)
- * 윙 하는 배경 소음을 제거하고 깔끔하고 밝은 리듬의 음악만 생성합니다.
+ * ProceduralMusic Utility (Dreamy Sparkle Style)
+ * 비트 기반이 아닌, 맑고 투명한 느낌의 '드림 팝' 스타일의 음악을 생성합니다.
  */
 
 class ProceduralMusic {
@@ -16,8 +16,8 @@ class ProceduralMusic {
     this.audioCtx = new (window.AudioContext || (window as any).webkitAudioContext)();
     this.isPlaying = true;
 
-    // 윙 소리(Drone)를 제거하고 깔끔한 비트와 멜로디만 생성
-    this.startUpbeatBeat();
+    // 비트(드럼)를 완전히 제거하고, 맑은 종소리와 부드러운 아르페지오 선율만 생성
+    this.startDreamyMelody();
   }
 
   public stop() {
@@ -32,128 +32,53 @@ class ProceduralMusic {
     this.isPlaying = false;
   }
 
-  private startUpbeatBeat() {
+  private startDreamyMelody() {
     if (!this.audioCtx) return;
 
     let step = 0;
-    const bpm = 124;
-    const stepTime = 60 / bpm / 4;
+    const bpm = 110;
+    const stepTime = 60 / bpm / 2; // 8th notes
 
     this.loopInterval = setInterval(() => {
       if (!this.audioCtx || !this.isPlaying) return;
       
       const time = this.audioCtx.currentTime;
 
-      // 1. 깔끔한 킥 (펀치감 위주)
-      if (step % 4 === 0) {
-        this.createPunchyKick(time);
-      }
+      // 맑은 아르페지오 선율 (C Major 7 / G Major 느낌)
+      const scale = [523.25, 659.25, 783.99, 987.77, 1046.50]; // C4, E4, G4, B4, C5
+      const note = scale[step % scale.length];
       
-      // 2. 경쾌한 박수 소리
-      if (step % 8 === 4) {
-        this.createBrightClap(time);
-      }
+      this.createCrystalNote(note, time);
 
-      // 3. 리듬감을 살려주는 하이햇
-      if (step % 2 === 1) {
-        this.createOpenHat(time);
-      }
-
-      // 4. 멜로디성 스파클 노트 (주기적으로 재생)
-      if (step % 8 === 0 || step % 8 === 3 || step % 8 === 6) {
-        this.createSparkleMelody(time, step);
+      // 가끔씩 더 높은 하이라이트 노트 추가
+      if (step % 8 === 0 && Math.random() > 0.5) {
+        this.createCrystalNote(note * 1.5, time, 0.03);
       }
 
       step = (step + 1) % 16;
     }, stepTime * 1000);
   }
 
-  private createPunchyKick(time: number) {
+  private createCrystalNote(freq: number, time: number, vol: number = 0.05) {
     if (!this.audioCtx) return;
-    const osc = this.audioCtx.createOscillator();
-    const gain = this.audioCtx.createGain();
-
-    osc.frequency.setValueAtTime(150, time);
-    osc.frequency.exponentialRampToValueAtTime(50, time + 0.08);
-
-    gain.gain.setValueAtTime(0.2, time);
-    gain.gain.exponentialRampToValueAtTime(0.001, time + 0.1);
-
-    osc.connect(gain);
-    gain.connect(this.audioCtx.destination);
-
-    osc.start(time);
-    osc.stop(time + 0.1);
-  }
-
-  private createBrightClap(time: number) {
-    if (!this.audioCtx) return;
-    const noise = this.audioCtx.createBufferSource();
-    const bufferSize = this.audioCtx.sampleRate * 0.05;
-    const buffer = this.audioCtx.createBuffer(1, bufferSize, this.audioCtx.sampleRate);
-    const data = buffer.getChannelData(0);
-    for (let i = 0; i < bufferSize; i++) data[i] = Math.random() * 2 - 1;
-    noise.buffer = buffer;
-
-    const filter = this.audioCtx.createBiquadFilter();
-    filter.type = 'bandpass';
-    filter.frequency.setValueAtTime(1500, time);
-
-    const gain = this.audioCtx.createGain();
-    gain.gain.setValueAtTime(0.08, time);
-    gain.gain.exponentialRampToValueAtTime(0.001, time + 0.08);
-
-    noise.connect(filter);
-    filter.connect(gain);
-    gain.connect(this.audioCtx.destination);
-
-    noise.start(time);
-  }
-
-  private createOpenHat(time: number) {
-    if (!this.audioCtx) return;
-    const noise = this.audioCtx.createBufferSource();
-    const bufferSize = this.audioCtx.sampleRate * 0.03;
-    const buffer = this.audioCtx.createBuffer(1, bufferSize, this.audioCtx.sampleRate);
-    const data = buffer.getChannelData(0);
-    for (let i = 0; i < bufferSize; i++) data[i] = Math.random() * 2 - 1;
-    noise.buffer = buffer;
-
-    const filter = this.audioCtx.createBiquadFilter();
-    filter.type = 'highpass';
-    filter.frequency.setValueAtTime(12000, time);
-
-    const gain = this.audioCtx.createGain();
-    gain.gain.setValueAtTime(0.015, time);
-    gain.gain.exponentialRampToValueAtTime(0.001, time + 0.03);
-
-    noise.connect(filter);
-    filter.connect(gain);
-    gain.connect(this.audioCtx.destination);
-
-    noise.start(time);
-  }
-
-  private createSparkleMelody(time: number, step: number) {
-    if (!this.audioCtx) return;
-    // C Major Pentatonic Scale
-    const notes = [523.25, 587.33, 659.25, 783.99, 880.00]; 
-    const freq = notes[step % notes.length];
     
     const osc = this.audioCtx.createOscillator();
     const gain = this.audioCtx.createGain();
+    const reverb = this.audioCtx.createConvolver(); // 리버브 효과를 위한 필터 대용
 
+    // 맑은 벨 소리 느낌을 위해 Sine과 Triangle 혼합 시도 (여기서는 Sine으로 깔끔하게)
     osc.type = 'sine';
     osc.frequency.setValueAtTime(freq, time);
     
-    gain.gain.setValueAtTime(0.06, time);
-    gain.gain.exponentialRampToValueAtTime(0.001, time + 0.3);
+    gain.gain.setValueAtTime(0, time);
+    gain.gain.linearRampToValueAtTime(vol, time + 0.05);
+    gain.gain.exponentialRampToValueAtTime(0.001, time + 2.5);
 
     osc.connect(gain);
     gain.connect(this.audioCtx.destination);
 
     osc.start(time);
-    osc.stop(time + 0.3);
+    osc.stop(time + 3);
   }
 }
 
