@@ -27,30 +27,44 @@ const MainPage: React.FC = () => {
       <Navbar />
       
       <main>
-        {/* ── Hero Section with Dynamic Video Background ── */}
+        {/* ── Hero Section with Dynamic Lion Visuals ── */}
         <section className="relative min-h-[90vh] lg:min-h-screen flex items-center overflow-hidden bg-[#0b1c30]">
           <div className="absolute inset-0 z-0">
-            <video 
-              autoPlay 
-              muted 
-              loop 
-              playsInline
-              className="w-full h-full object-cover opacity-60 scale-105"
+            <motion.div
+              animate={{
+                scale: [1, 1.1, 1],
+                filter: ['brightness(1) contrast(1)', 'brightness(1.3) contrast(1.2)', 'brightness(1) contrast(1)'],
+              }}
+              transition={{
+                duration: 15,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              className="w-full h-full"
             >
-              <source src="https://assets.mixkit.co/videos/preview/mixkit-close-up-of-a-printer-printing-on-a-t-shirt-23348-large.mp4" type="video/mp4" />
-              {/* Fallback Image */}
-              <img src="/printing-landing/assets/slide-0.jpg" alt="Fallback background" className="w-full h-full object-cover" />
-            </video>
+              <img 
+                src="/printing-landing/assets/slide-0.jpg" 
+                alt="Dynamic Lion Printing" 
+                className="w-full h-full object-cover opacity-80"
+              />
+            </motion.div>
             
-            {/* Overlay Layers for Visual Richness */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0b1c30] via-[#0b1c30]/40 to-transparent"></div>
+            {/* Flashy Overlays */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0b1c30] via-transparent to-transparent"></div>
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0b1c30]"></div>
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(70,72,212,0.1)_0%,transparent_70%)]"></div>
             
-            {/* Dynamic Light Streaks */}
-            <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-              <div className="absolute top-1/4 -left-1/4 w-[150%] h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent rotate-45 animate-pulse"></div>
-              <div className="absolute top-3/4 -left-1/4 w-[150%] h-[1px] bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent -rotate-12 animate-pulse" style={{ animationDelay: '2s' }}></div>
+            {/* Animated Neon Rings */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none">
+              <motion.div 
+                animate={{ rotate: 360 }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-primary/20 rounded-full blur-sm"
+              ></motion.div>
+              <motion.div 
+                animate={{ rotate: -360 }}
+                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] border border-cyan-500/10 rounded-full blur-md"
+              ></motion.div>
             </div>
           </div>
           
