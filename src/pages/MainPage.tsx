@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const GLITTER_SLIDES = [
   '/printing-landing/assets/sparkle-detail.jpg',
