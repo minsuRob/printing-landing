@@ -68,9 +68,9 @@ const MainPage: React.FC = () => {
                 <Link to="/tshirt-printing" className="w-full sm:w-auto text-center bg-primary text-on-primary px-12 py-5 rounded-xl font-button text-lg hover:shadow-[0_0_30px_rgba(70,72,212,0.6)] transition-all duration-300 active:scale-95 border border-primary/50">
                   제작 시작하기
                 </Link>
-                <button className="w-full sm:w-auto border-2 border-white/40 text-white px-12 py-[18px] rounded-xl font-button text-lg hover:bg-white hover:text-[#0b1c30] hover:border-white transition-all duration-300 active:scale-95 bg-white/5 backdrop-blur-lg">
+                <Link to="/portfolio-detail" className="w-full sm:w-auto border-2 border-white/40 text-white px-12 py-[18px] rounded-xl font-button text-lg hover:bg-white hover:text-[#0b1c30] hover:border-white transition-all duration-300 active:scale-95 bg-white/5 backdrop-blur-lg flex items-center justify-center">
                   포트폴리오 보기
-                </button>
+                </Link>
               </div>
             </div>
           </div>

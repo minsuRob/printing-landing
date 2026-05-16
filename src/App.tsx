@@ -14,6 +14,7 @@ import About from './pages/About';
 import Terms from './pages/Terms';
 import Support from './pages/Support';
 import Checkout from './pages/Checkout';
+import PortfolioDetail from './pages/PortfolioDetail';
 import BackgroundMusic from './components/BackgroundMusic';
 import SecurityGuard from './components/SecurityGuard';
 
@@ -35,6 +36,7 @@ function App() {
           <Route path="/film-sample" element={<FilmSampleDetail />} />
           <Route path="/production-guide" element={<ProductionGuide />} />
           <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/portfolio-detail" element={<PortfolioDetail />} />
           <Route path="/about" element={<About />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/support" element={<Support />} />
