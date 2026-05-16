@@ -1,54 +1,39 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { proceduralMusic } from '../utils/ProceduralMusic';
 
 const BackgroundMusic: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
-    // Attempt to auto-play (browsers might block it until interaction)
-    const playAudio = async () => {
-      try {
-        if (audioRef.current) {
-          audioRef.current.volume = 0.2; // Set volume to 20% so it's calm and quiet
-          await audioRef.current.play();
-          setIsPlaying(true);
-        }
-      } catch (err) {
-        // Autoplay blocked, wait for user interaction
-        console.log("Autoplay prevented by browser. User interaction needed.");
+    // 사용자가 첫 클릭을 하면 음악이 시작될 수 있도록 설정
+    const handleFirstInteraction = () => {
+      if (!isPlaying) {
+        proceduralMusic.start();
+        setIsPlaying(true);
       }
+      window.removeEventListener('click', handleFirstInteraction);
     };
+
+    window.addEventListener('click', handleFirstInteraction);
     
-    playAudio();
+    return () => {
+      window.removeEventListener('click', handleFirstInteraction);
+      proceduralMusic.stop();
+    };
   }, []);
 
-  const togglePlay = async () => {
-    if (audioRef.current) {
-      if (isPlaying) {
-        audioRef.current.pause();
-        setIsPlaying(false);
-      } else {
-        try {
-          await audioRef.current.play();
-          setIsPlaying(true);
-        } catch (err) {
-          console.error("Audio playback failed:", err);
-          setIsPlaying(false);
-        }
-      }
+  const togglePlay = () => {
+    if (isPlaying) {
+      proceduralMusic.stop();
+      setIsPlaying(false);
+    } else {
+      proceduralMusic.start();
+      setIsPlaying(true);
     }
   };
 
   return (
     <div className="fixed bottom-6 right-6 z-[100]">
-      {/* Calm Classical Music: Erik Satie - Gymnopédie No.1 (Public Domain) */}
-      <audio 
-        ref={audioRef} 
-        src="https://cdn.pixabay.com/download/audio/2022/02/10/audio_55a2979069.mp3" 
-        loop 
-        crossOrigin="anonymous"
-      />
-      
       <button 
         onClick={togglePlay}
         className="flex items-center justify-center w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white shadow-lg hover:bg-white/20 hover:scale-110 transition-all duration-300"
@@ -59,10 +44,10 @@ const BackgroundMusic: React.FC = () => {
         </span>
       </button>
       
-      {/* Small tooltip indicating calm music is playing */}
+      {/* 음악 재생 중 표시 */}
       {isPlaying && (
         <div className="absolute bottom-14 right-0 w-32 text-center text-xs text-white/60 font-medium animate-pulse pointer-events-none">
-          Calm Classical Playing
+          Custom Ambient Playing
         </div>
       )}
     </div>
