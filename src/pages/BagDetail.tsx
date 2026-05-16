@@ -1,35 +1,12 @@
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { useCart } from '../context/CartContext';
 
-const TEXTURES = [
-  { key: 'Champagne Gold', from: '#D4AF37', to: '#F9E498' },
-  { key: 'Galaxy Silver', from: '#71706E', to: '#E5E4E2' },
-  { key: 'Rose Pink', from: '#E0115F', to: '#FFC1CC' },
-];
+
 
 const BagDetail = () => {
-  const navigate = useNavigate();
-  const [selectedTexture, setSelectedTexture] = useState('Champagne Gold');
-  const [selectedColor, setSelectedColor] = useState('Natural');
-  const { addItem } = useCart();
-
-  const handleAdd = () => {
-    addItem({
-      id: 'bag-001',
-      name: '글리터 커스텀 캔버스 백',
-      price: 25000,
-      image: '/printing-landing/assets/bag.png',
-      category: '가방/모자',
-      texture: selectedTexture,
-    });
-  };
-
-  const handleBuyNow = () => {
-    handleAdd();
-    navigate('/checkout');
+  const handleInquiry = () => {
+    window.location.href = 'mailto:contact@godsdeco.com';
   };
 
   return (
@@ -93,51 +70,13 @@ const BagDetail = () => {
               ))}
             </div>
 
-            {/* Texture Selection */}
-            <div className="space-y-6">
-              <div>
-                <label className="text-sm font-semibold text-on-surface mb-3 block">글리터 텍스처 선택</label>
-                <div className="flex flex-wrap gap-4">
-                  {TEXTURES.map(t => (
-                    <button
-                      key={t.key}
-                      onClick={() => setSelectedTexture(t.key)}
-                      className={`flex flex-col items-center gap-1 transition-all ${selectedTexture !== t.key ? 'opacity-60' : ''}`}
-                    >
-                      <div className={`w-12 h-12 rounded-full border-2 p-0.5 ${selectedTexture === t.key ? 'border-primary' : 'border-transparent'}`}>
-                        <div
-                          className="w-full h-full rounded-full shadow-inner"
-                          style={{ background: `linear-gradient(135deg, ${t.from}, ${t.to})` }}
-                        />
-                      </div>
-                      <span className={`text-xs font-semibold ${selectedTexture === t.key ? 'text-primary' : 'text-on-surface-variant'}`}>{t.key}</span>
-                    </button>
-                  ))}
-                </div>
-              </div>
 
-              {/* Bag Color */}
-              <div>
-                <label className="text-sm font-semibold text-on-surface mb-3 block">가방 컬러</label>
-                <div className="flex gap-3">
-                  {['Natural', 'Black'].map(c => (
-                    <button
-                      key={c}
-                      onClick={() => setSelectedColor(c)}
-                      className={`px-5 py-2 rounded-xl border-2 text-sm font-semibold transition-all ${selectedColor === c ? 'border-primary text-primary bg-primary/5' : 'border-outline-variant text-on-surface-variant'}`}
-                    >
-                      {c}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            </div>
 
             {/* CTA */}
             <div className="flex flex-col sm:flex-row gap-3">
               <button
                 className="flex-1 h-14 btn-gradient text-white font-bold rounded-xl shadow-lg flex items-center justify-center gap-2 hover:shadow-primary/20 transition-all"
-                onClick={() => window.location.href = 'mailto:contact@godsdeco.com'}
+                onClick={handleInquiry}
               >
                 <span className="material-symbols-outlined text-[20px]">mail</span>
                 제작 문의하기
@@ -153,8 +92,8 @@ const BagDetail = () => {
             <h3 className="font-['Space_Grotesk'] text-2xl font-bold text-on-surface text-center">제품 상세 정보</h3>
             <div className="bg-surface-container-low rounded-3xl p-6 md:p-12 space-y-8">
               <p className="text-on-surface-variant text-lg max-w-3xl mx-auto text-center">
-                프레스프로의 커스텀 글리터 백은 특수 열전사 공법을 통해 제작되어 장시간 사용에도 반짝임이 유지됩니다.
-                일상의 특별함을 더해주는 화려한 포인트 아이템으로 추천드립니다.
+                 신의데코프린팅의 커스텀 글리터 백은 특수 열전사 공법을 통해 제작되어 장시간 사용에도 반짝임이 유지됩니다.
+                 일상의 특별함을 더해주는 화려한 포인트 아이템으로 추천드립니다.
               </p>
               {/* 신규 2열 이미지 */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

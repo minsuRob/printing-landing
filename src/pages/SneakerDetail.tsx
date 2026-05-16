@@ -86,7 +86,7 @@ const SneakerDetail = () => {
           <div className="mt-8 flex flex-col sm:flex-row gap-3">
             <button
               className="flex-1 h-14 btn-gradient text-white font-semibold rounded-xl shadow-lg flex items-center justify-center gap-2 hover:shadow-primary/20 transition-all"
-              onClick={() => window.location.href = 'mailto:contact@godsdeco.com'}
+              onClick={handleInquiry}
             >
               <span className="material-symbols-outlined text-[20px]">mail</span>
               제작 문의하기

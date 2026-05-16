@@ -15,12 +15,15 @@ import Terms from './pages/Terms';
 import Support from './pages/Support';
 import Checkout from './pages/Checkout';
 import BackgroundMusic from './components/BackgroundMusic';
+import SecurityGuard from './components/SecurityGuard';
+
 
 function App() {
   return (
     <CartProvider>
       <main className="w-full min-h-screen bg-background text-on-surface relative">
         <BackgroundMusic />
+        <SecurityGuard />
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="/tshirt-printing" element={<TshirtPrintingDetail />} />

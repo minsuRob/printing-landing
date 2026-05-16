@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { useCart } from '../context/CartContext';
 
 const SLIDES = [
   '/printing-landing/assets/slide-0.jpg',
@@ -44,9 +43,6 @@ const SAMPLES = [
 ];
 
 const FilmSampleDetail = () => {
-  const navigate = useNavigate();
-  const { addItem } = useCart();
-  const [added, setAdded] = useState<string | null>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
@@ -56,15 +52,8 @@ const FilmSampleDetail = () => {
     return () => clearInterval(timer);
   }, []);
 
-  const handleAdd = (s: typeof SAMPLES[0]) => {
-    addItem({ id: s.id, name: s.name, price: s.price, image: s.img, category: '필름 샘플' });
-    setAdded(s.id);
-    setTimeout(() => setAdded(null), 1500);
-  };
-
-  const handleBuy = (s: typeof SAMPLES[0]) => {
-    addItem({ id: s.id, name: s.name, price: s.price, image: s.img, category: '필름 샘플' });
-    navigate('/checkout');
+  const handleInquiry = () => {
+    window.location.href = 'mailto:contact@godsdeco.com';
   };
 
   return (
@@ -142,7 +131,7 @@ const FilmSampleDetail = () => {
                     />
                     <div className="product-action absolute inset-0 bg-[#0b1c30]/60 backdrop-blur-[2px] flex flex-col justify-center items-center gap-3 p-6">
                       <button
-                        onClick={() => window.location.href = 'mailto:contact@godsdeco.com'}
+                        onClick={handleInquiry}
                         className="w-full py-3 bg-white text-[#0b1c30] rounded-xl font-bold text-sm shadow-xl hover:scale-105 transition-all"
                       >
                         제작 문의하기

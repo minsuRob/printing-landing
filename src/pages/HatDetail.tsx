@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { useCart } from '../context/CartContext';
 
 const PRODUCT = {
   id: 'hat-001',
@@ -24,32 +23,13 @@ const PRODUCT = {
   ],
 };
 
-const TEXTURES = [
-  { key: '골드', cls: 'texture-glitter-gold' },
-  { key: '실버', cls: 'texture-glitter-silver' },
-  { key: '매트블랙', cls: 'texture-matte-black' },
-];
+
 
 const HatDetail = () => {
-  const navigate = useNavigate();
-  const [selectedTexture, setSelectedTexture] = useState('골드');
   const [mainImg, setMainImg] = useState(PRODUCT.mainImg);
-  const { addItem } = useCart();
 
-  const handleAddCart = () => {
-    addItem({
-      id: PRODUCT.id,
-      name: PRODUCT.name,
-      price: PRODUCT.price,
-      image: PRODUCT.mainImg,
-      category: PRODUCT.category,
-      texture: selectedTexture,
-    });
-  };
-
-  const handleBuyNow = () => {
-    handleAddCart();
-    navigate('/checkout');
+  const handleInquiry = () => {
+    window.location.href = 'mailto:contact@godsdeco.com';
   };
 
   return (
@@ -98,7 +78,7 @@ const HatDetail = () => {
               <div className="pt-2 space-y-3">
                 <button
                   className="btn-gradient w-full text-white py-4 rounded-xl font-semibold flex items-center justify-center gap-2"
-                  onClick={() => window.location.href = 'mailto:contact@godsdeco.com'}
+                  onClick={handleInquiry}
                 >
                   <span className="material-symbols-outlined">mail</span>
                   제작 문의하기

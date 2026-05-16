@@ -1,8 +1,6 @@
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { useCart } from '../context/CartContext';
 
 const PRODUCTS = [
   {
@@ -36,19 +34,8 @@ const PRODUCTS = [
 ];
 
 const FilmDetail = () => {
-  const navigate = useNavigate();
-  const { addItem } = useCart();
-  const [added, setAdded] = useState<string | null>(null);
-
-  const handleAdd = (p: typeof PRODUCTS[0]) => {
-    addItem({ id: p.id, name: p.name, price: p.price, image: p.img, category: '필름' });
-    setAdded(p.id);
-    setTimeout(() => setAdded(null), 1500);
-  };
-
-  const handleBuy = (p: typeof PRODUCTS[0]) => {
-    addItem({ id: p.id, name: p.name, price: p.price, image: p.img, category: '필름' });
-    navigate('/checkout');
+  const handleInquiry = () => {
+    window.location.href = 'mailto:contact@godsdeco.com';
   };
 
   return (
@@ -86,7 +73,7 @@ const FilmDetail = () => {
                     />
                     <div className="product-action absolute inset-0 bg-[#0b1c30]/60 backdrop-blur-[2px] flex flex-col justify-center items-center gap-3 p-6">
                       <button
-                        onClick={() => window.location.href = 'mailto:contact@godsdeco.com'}
+                        onClick={handleInquiry}
                         className="w-full py-3 bg-white text-[#0b1c30] rounded-xl font-bold text-sm shadow-xl hover:scale-105 transition-all"
                       >
                         제작 문의하기
