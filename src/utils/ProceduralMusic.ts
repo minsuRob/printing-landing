@@ -1,6 +1,6 @@
 /**
- * ProceduralMusic Utility (MZ Emotional Ballad Style)
- * 비트와 전자음을 배제하고, MZ세대가 선호하는 감성적이고 따뜻한 발라드 스타일의 선율을 생성합니다.
+ * ProceduralMusic Utility (MZ Energetic Dance Style)
+ * 경쾌하고 신나는 댄스 비트와 에너제틱한 선율을 생성합니다.
  */
 
 class ProceduralMusic {
@@ -16,8 +16,8 @@ class ProceduralMusic {
     this.audioCtx = new (window.AudioContext || (window as any).webkitAudioContext)();
     this.isPlaying = true;
 
-    // MZ 감성 발라드: 따뜻한 피아노 톤과 서정적인 코드 진행
-    this.startBalladMelody();
+    // MZ 에너제틱 댄스: 빠른 템포와 펀치감 있는 비트
+    this.startDanceBeat();
   }
 
   public stop() {
@@ -32,66 +32,156 @@ class ProceduralMusic {
     this.isPlaying = false;
   }
 
-  private startBalladMelody() {
+  private startDanceBeat() {
     if (!this.audioCtx) return;
 
     let step = 0;
-    const bpm = 70; // 느리고 감성적인 템포
-    const stepTime = 60 / bpm; // 1 beat
+    const bpm = 128; // 신나는 댄스 템포
+    const stepTime = 60 / bpm / 4; // 16th notes
 
     this.loopInterval = setInterval(() => {
       if (!this.audioCtx || !this.isPlaying) return;
       
       const time = this.audioCtx.currentTime;
 
-      // 감성적인 발라드 코드 진행 (C - G - Am - F)
-      const progressions = [
-        [261.63, 329.63, 392.00], // C Major
-        [196.00, 246.94, 293.66], // G Major
-        [220.00, 261.63, 329.63], // A Minor
-        [174.61, 220.00, 261.63]  // F Major
-      ];
+      // 1. 강렬한 킥 (Four-on-the-floor)
+      if (step % 4 === 0) {
+        this.createPowerKick(time);
+      }
       
-      const chord = progressions[Math.floor(step / 2) % progressions.length];
-      
-      // 베이스 노트 (더 깊은 소리)
-      this.createPianoNote(chord[0] / 2, time, 0.1, 4);
-      
-      // 코드 구성음 (따뜻한 피아노 톤)
-      chord.forEach(freq => {
-        this.createPianoNote(freq, time + Math.random() * 0.05, 0.05, 3);
-      });
-
-      // 멜로디 라인 (가끔씩 연주)
-      if (step % 2 === 1) {
-        const melodyScale = [523.25, 587.33, 659.25, 783.99, 880.00];
-        const melodyNote = melodyScale[Math.floor(Math.random() * melodyScale.length)];
-        this.createPianoNote(melodyNote, time + 0.5, 0.04, 2);
+      // 2. 에너제틱한 스네어/클랩 (2, 4 박자)
+      if (step % 8 === 4) {
+        this.createPowerClap(time);
       }
 
-      step = (step + 1) % 8;
+      // 3. 빠른 하이햇 리듬
+      this.createHat(time, step % 2 === 1 ? 0.02 : 0.01);
+
+      // 4. 통통 튀는 베이스라인 (Bouncy Bass)
+      if (step % 4 === 2 || step % 16 === 14) {
+        this.createBouncyBass(110, time); // A2
+      }
+
+      // 5. 밝고 신나는 리드 신스 멜로디
+      if (step % 4 === 0 || step % 16 === 7 || step % 16 === 15) {
+        const leadNotes = [440.00, 523.25, 587.33, 659.25, 783.99]; // A4, C5, D5, E5, G5
+        this.createLeadSynth(leadNotes[Math.floor(Math.random() * leadNotes.length)], time);
+      }
+
+      step = (step + 1) % 16;
     }, stepTime * 1000);
   }
 
-  private createPianoNote(freq: number, time: number, vol: number, decay: number) {
+  private createPowerKick(time: number) {
     if (!this.audioCtx) return;
-    
     const osc = this.audioCtx.createOscillator();
     const gain = this.audioCtx.createGain();
 
-    // 부드러운 피아노 느낌을 위해 Sine파 사용
-    osc.type = 'sine';
-    osc.frequency.setValueAtTime(freq, time);
-    
-    gain.gain.setValueAtTime(0, time);
-    gain.gain.linearRampToValueAtTime(vol, time + 0.02);
-    gain.gain.exponentialRampToValueAtTime(0.001, time + decay);
+    osc.frequency.setValueAtTime(150, time);
+    osc.frequency.exponentialRampToValueAtTime(40, time + 0.15);
+
+    gain.gain.setValueAtTime(0.4, time);
+    gain.gain.exponentialRampToValueAtTime(0.001, time + 0.2);
 
     osc.connect(gain);
     gain.connect(this.audioCtx.destination);
 
     osc.start(time);
-    osc.stop(time + decay);
+    osc.stop(time + 0.2);
+  }
+
+  private createPowerClap(time: number) {
+    if (!this.audioCtx) return;
+    const noise = this.audioCtx.createBufferSource();
+    const bufferSize = this.audioCtx.sampleRate * 0.1;
+    const buffer = this.audioCtx.createBuffer(1, bufferSize, this.audioCtx.sampleRate);
+    const data = buffer.getChannelData(0);
+    for (let i = 0; i < bufferSize; i++) data[i] = Math.random() * 2 - 1;
+    noise.buffer = buffer;
+
+    const filter = this.audioCtx.createBiquadFilter();
+    filter.type = 'bandpass';
+    filter.frequency.setValueAtTime(1200, time);
+
+    const gain = this.audioCtx.createGain();
+    gain.gain.setValueAtTime(0.15, time);
+    gain.gain.exponentialRampToValueAtTime(0.001, time + 0.15);
+
+    noise.connect(filter);
+    filter.connect(gain);
+    gain.connect(this.audioCtx.destination);
+
+    noise.start(time);
+  }
+
+  private createHat(time: number, vol: number) {
+    if (!this.audioCtx) return;
+    const noise = this.audioCtx.createBufferSource();
+    const bufferSize = this.audioCtx.sampleRate * 0.05;
+    const buffer = this.audioCtx.createBuffer(1, bufferSize, this.audioCtx.sampleRate);
+    const data = buffer.getChannelData(0);
+    for (let i = 0; i < bufferSize; i++) data[i] = Math.random() * 2 - 1;
+    noise.buffer = buffer;
+
+    const filter = this.audioCtx.createBiquadFilter();
+    filter.type = 'highpass';
+    filter.frequency.setValueAtTime(10000, time);
+
+    const gain = this.audioCtx.createGain();
+    gain.gain.setValueAtTime(vol, time);
+    gain.gain.exponentialRampToValueAtTime(0.001, time + 0.05);
+
+    noise.connect(filter);
+    filter.connect(gain);
+    gain.connect(this.audioCtx.destination);
+
+    noise.start(time);
+  }
+
+  private createBouncyBass(freq: number, time: number) {
+    if (!this.audioCtx) return;
+    const osc = this.audioCtx.createOscillator();
+    const gain = this.audioCtx.createGain();
+
+    osc.type = 'square';
+    osc.frequency.setValueAtTime(freq, time);
+
+    gain.gain.setValueAtTime(0.1, time);
+    gain.gain.exponentialRampToValueAtTime(0.001, time + 0.2);
+
+    const filter = this.audioCtx.createBiquadFilter();
+    filter.type = 'lowpass';
+    filter.frequency.setValueAtTime(300, time);
+
+    osc.connect(filter);
+    filter.connect(gain);
+    gain.connect(this.audioCtx.destination);
+
+    osc.start(time);
+    osc.stop(time + 0.2);
+  }
+
+  private createLeadSynth(freq: number, time: number) {
+    if (!this.audioCtx) return;
+    const osc = this.audioCtx.createOscillator();
+    const gain = this.audioCtx.createGain();
+
+    osc.type = 'sawtooth';
+    osc.frequency.setValueAtTime(freq, time);
+
+    gain.gain.setValueAtTime(0.05, time);
+    gain.gain.exponentialRampToValueAtTime(0.001, time + 0.3);
+
+    const filter = this.audioCtx.createBiquadFilter();
+    filter.type = 'lowpass';
+    filter.frequency.setValueAtTime(2000, time);
+
+    osc.connect(filter);
+    filter.connect(gain);
+    gain.connect(this.audioCtx.destination);
+
+    osc.start(time);
+    osc.stop(time + 0.3);
   }
 }
 

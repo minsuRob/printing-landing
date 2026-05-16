@@ -46,8 +46,8 @@ const BackgroundMusic: React.FC = () => {
       
       {/* 음악 재생 중 표시 */}
       {isPlaying && (
-        <div className="absolute bottom-14 right-0 w-48 text-center text-xs text-white/40 font-medium animate-pulse pointer-events-none tracking-widest uppercase italic">
-          MZ Emotional Ballad
+        <div className="absolute bottom-14 right-0 w-52 text-center text-xs text-primary font-black animate-pulse pointer-events-none tracking-[0.3em] uppercase shadow-primary-glow">
+          MZ Energetic Dance Pop
         </div>
       )}
     </div>
