@@ -10,10 +10,17 @@ class ProceduralMusic {
 
   constructor() {}
 
-  public start() {
+  public async start() {
     if (this.isPlaying) return;
     
-    this.audioCtx = new (window.AudioContext || (window as any).webkitAudioContext)();
+    if (!this.audioCtx) {
+      this.audioCtx = new (window.AudioContext || (window as any).webkitAudioContext)();
+    }
+    
+    if (this.audioCtx.state === 'suspended') {
+      await this.audioCtx.resume();
+    }
+
     this.isPlaying = true;
 
     // MZ 에너제틱 댄스: 빠른 템포와 펀치감 있는 비트

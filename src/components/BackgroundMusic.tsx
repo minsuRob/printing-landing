@@ -5,22 +5,26 @@ const BackgroundMusic: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
-    // 사용자가 첫 클릭을 하면 음악이 시작될 수 있도록 설정
-    const handleFirstInteraction = () => {
+    // 모바일 터치 및 클릭 이벤트 대응
+    const handleInteraction = async () => {
       if (!isPlaying) {
-        proceduralMusic.start();
+        await proceduralMusic.start();
         setIsPlaying(true);
       }
-      window.removeEventListener('click', handleFirstInteraction);
+      // 한 번 실행 후 이벤트 제거
+      window.removeEventListener('click', handleInteraction);
+      window.removeEventListener('touchstart', handleInteraction);
     };
 
-    window.addEventListener('click', handleFirstInteraction);
+    window.addEventListener('click', handleInteraction);
+    window.addEventListener('touchstart', handleInteraction);
     
     return () => {
-      window.removeEventListener('click', handleFirstInteraction);
+      window.removeEventListener('click', handleInteraction);
+      window.removeEventListener('touchstart', handleInteraction);
       proceduralMusic.stop();
     };
-  }, []);
+  }, [isPlaying]);
 
   const togglePlay = () => {
     if (isPlaying) {
