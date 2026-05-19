@@ -70,7 +70,7 @@ const BackgroundMusic: React.FC = () => {
             )}
           </div>
           <span className="text-sm">
-            {isPlaying ? 'MZ Energetic Dance Pop' : '음악 시작하기'}
+            {isPlaying ? '감성적인 앰비언트 피아노' : '음악 시작하기'}
           </span>
         </button>
     </div>
