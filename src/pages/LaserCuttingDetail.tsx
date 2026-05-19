@@ -9,9 +9,9 @@ const PRODUCT = {
   category: '레이저 컷팅',
   badge: '신기술 도입',
   desc: '신의데코프린팅의 최첨단 자동화 레이저 설비로 구현하는 오차 없는 정밀 컷팅 서비스입니다. 아크릴 조각, 글자 컷팅 스티커, 커스텀 소품 제작까지 다양한 활용이 가능합니다. 고열 레이저를 통한 단면 열융착 공정으로 테두리 올 풀림을 근본적으로 방지합니다.',
-  mainImg: '/printing-landing/assets/laser-main.mp4',
+  mainImg: '/printing-landing/assets/laser-main.jpg',
   thumbs: [
-    '/printing-landing/assets/laser-main.mp4',
+    '/printing-landing/assets/laser-main.jpg',
     '/printing-landing/assets/laser-2.jpg',
     '/printing-landing/assets/film-1.jpg',
     '/printing-landing/assets/film-2.jpg',
