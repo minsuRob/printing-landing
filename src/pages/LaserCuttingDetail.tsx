@@ -12,9 +12,12 @@ const PRODUCT = {
   mainImg: '/printing-landing/assets/laser-main.jpg',
   thumbs: [
     '/printing-landing/assets/laser-main.jpg',
+    '/printing-landing/assets/laser-detail-1.jpg',
+    '/printing-landing/assets/laser-detail-2.jpg',
+    '/printing-landing/assets/laser-detail-3.jpg',
+    '/printing-landing/assets/laser-detail-4.jpg',
+    '/printing-landing/assets/laser-detail-5.jpg',
     '/printing-landing/assets/laser-2.jpg',
-    '/printing-landing/assets/film-1.jpg',
-    '/printing-landing/assets/film-2.jpg',
   ],
   specs: [
     { title: '가공 오차', value: '±0.05mm 이하 초정밀 제어' },
@@ -65,7 +68,7 @@ const LaserCuttingDetail = () => {
                 />
               )}
             </div>
-            <div className="grid grid-cols-4 gap-3">
+            <div className="grid grid-cols-4 md:grid-cols-7 gap-3">
               {PRODUCT.thumbs.map((t, i) => (
                 <div
                   key={i}
