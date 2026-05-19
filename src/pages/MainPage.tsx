@@ -192,7 +192,7 @@ const MainPage: React.FC = () => {
                 { id: 'bag', title: '가방', sub: 'Custom Bags', img: '/printing-landing/assets/bag-hologram.png', link: '/bag-printing' },
                 { id: 'film', title: '필름', sub: 'Heat Transfer', img: '/printing-landing/assets/film-1.jpg', link: '/film-printing' },
                 { id: 'film-sample', title: '필름 샘플', sub: 'Sample Pack', img: '/printing-landing/assets/film-sample-1.jpg', link: '/film-sample' },
-                { id: 'laser', title: '레이저 컷팅', sub: 'Laser Cutting', img: '/printing-landing/assets/laser-1.png', link: '/laser-cutting' },
+                { id: 'laser', title: '레이저 컷팅', sub: 'Laser Cutting', img: '/printing-landing/assets/laser-main.gif', link: '/laser-cutting' },
               ].map((cat, i) => (
                 <Link 
                   key={cat.id}
