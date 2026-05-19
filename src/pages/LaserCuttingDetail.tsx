@@ -17,6 +17,10 @@ const PRODUCT = {
     '/printing-landing/assets/laser-detail-3.jpg',
     '/printing-landing/assets/laser-detail-4.jpg',
     '/printing-landing/assets/laser-detail-5.jpg',
+    '/printing-landing/assets/laser-detail-6.jpg',
+    '/printing-landing/assets/laser-detail-7.jpg',
+    '/printing-landing/assets/laser-detail-8.jpg',
+    '/printing-landing/assets/laser-detail-9.jpg',
     '/printing-landing/assets/laser-2.jpg',
   ],
   specs: [
@@ -68,7 +72,7 @@ const LaserCuttingDetail = () => {
                 />
               )}
             </div>
-            <div className="grid grid-cols-4 md:grid-cols-7 gap-3">
+            <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-11 gap-3">
               {PRODUCT.thumbs.map((t, i) => (
                 <div
                   key={i}
