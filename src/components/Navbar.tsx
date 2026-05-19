@@ -15,6 +15,7 @@ const Navbar = () => {
     { label: '가방', href: '/bag-printing' },
     { label: '필름', href: '/film-printing' },
     { label: '레이저 컷팅', href: '/laser-cutting' },
+    { label: '작업동영상', href: '/work-video' },
     { label: '포트폴리오', href: '/portfolio' },
     { label: '제작 가이드', href: '/production-guide' },
   ];

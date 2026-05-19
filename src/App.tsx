@@ -19,6 +19,7 @@ import Inquiry from './pages/Inquiry';
 import BackgroundMusic from './components/BackgroundMusic';
 import SecurityGuard from './components/SecurityGuard';
 import LaserCuttingDetail from './pages/LaserCuttingDetail';
+import WorkVideoDetail from './pages/WorkVideoDetail';
 
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/inquiry" element={<Inquiry />} />
           <Route path="/laser-cutting" element={<LaserCuttingDetail />} />
+          <Route path="/work-video" element={<WorkVideoDetail />} />
         </Routes>
       </main>
     </CartProvider>
