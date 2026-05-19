@@ -9,10 +9,10 @@ const PRODUCT = {
   category: '레이저 컷팅',
   badge: '신기술 도입',
   desc: '신의데코프린팅의 최첨단 자동화 레이저 설비로 구현하는 오차 없는 정밀 컷팅 서비스입니다. 아크릴 조각, 글자 컷팅 스티커, 커스텀 소품 제작까지 다양한 활용이 가능합니다. 고열 레이저를 통한 단면 열융착 공정으로 테두리 올 풀림을 근본적으로 방지합니다.',
-  mainImg: '/printing-landing/assets/laser-2.jpg',
+  mainImg: '/printing-landing/assets/laser-main.mp4',
   thumbs: [
+    '/printing-landing/assets/laser-main.mp4',
     '/printing-landing/assets/laser-2.jpg',
-    '/printing-landing/assets/laser-1.png',
     '/printing-landing/assets/film-1.jpg',
     '/printing-landing/assets/film-2.jpg',
   ],
@@ -48,11 +48,22 @@ const LaserCuttingDetail = () => {
           {/* Gallery Column */}
           <div className="lg:col-span-7 space-y-4">
             <div className="rounded-2xl overflow-hidden bg-surface-container border border-outline-variant/30 shadow-xl group aspect-[4/3] relative">
-              <img
-                alt="Laser Cutting Process"
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                src={mainImg}
-              />
+              {mainImg.endsWith('.mp4') ? (
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  src={mainImg}
+                />
+              ) : (
+                <img
+                  alt="Laser Cutting Process"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  src={mainImg}
+                />
+              )}
             </div>
             <div className="grid grid-cols-4 gap-3">
               {PRODUCT.thumbs.map((t, i) => (
@@ -65,7 +76,11 @@ const LaserCuttingDetail = () => {
                       : 'border-outline-variant/20 opacity-70 hover:opacity-100'
                   }`}
                 >
-                  <img className="w-full h-full object-cover" src={t} alt={`thumb-${i}`} />
+                  {t.endsWith('.mp4') ? (
+                    <video className="w-full h-full object-cover" src={t} muted playsInline />
+                  ) : (
+                    <img className="w-full h-full object-cover" src={t} alt={`thumb-${i}`} />
+                  )}
                 </div>
               ))}
             </div>

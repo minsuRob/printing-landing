@@ -192,7 +192,7 @@ const MainPage: React.FC = () => {
                 { id: 'bag', title: '가방', sub: 'Custom Bags', img: '/printing-landing/assets/bag-hologram.png', link: '/bag-printing' },
                 { id: 'film', title: '필름', sub: 'Heat Transfer', img: '/printing-landing/assets/film-1.jpg', link: '/film-printing' },
                 { id: 'film-sample', title: '필름 샘플', sub: 'Sample Pack', img: '/printing-landing/assets/film-sample-1.jpg', link: '/film-sample' },
-                { id: 'laser', title: '레이저 컷팅', sub: 'Laser Cutting', img: '/printing-landing/assets/laser-main.gif', link: '/laser-cutting' },
+                { id: 'laser', title: '레이저 컷팅', sub: 'Laser Cutting', img: '/printing-landing/assets/laser-main.mp4', link: '/laser-cutting' },
               ].map((cat, i) => (
                 <Link 
                   key={cat.id}
@@ -200,11 +200,22 @@ const MainPage: React.FC = () => {
                   className="category-card group relative aspect-[3/4] rounded-[24px] overflow-hidden bg-surface-container shadow-xl animate-fadeInUp"
                   style={{ animationDelay: `${i * 0.1}s` }}
                 >
-                  <img 
-                    alt={cat.title} 
-                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
-                    src={cat.img} 
-                  />
+                  {cat.img.endsWith('.mp4') ? (
+                    <video 
+                      autoPlay 
+                      loop 
+                      muted 
+                      playsInline
+                      className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
+                      src={cat.img} 
+                    />
+                  ) : (
+                    <img 
+                      alt={cat.title} 
+                      className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
+                      src={cat.img} 
+                    />
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0b1c30]/90 via-transparent to-transparent opacity-80 group-hover:opacity-100 transition-opacity"></div>
                   <div className="absolute bottom-0 left-0 right-0 p-8 transform translate-y-2 group-hover:translate-y-0 transition-transform">
                     <span className="text-primary-glow text-xs font-bold uppercase tracking-widest mb-1 block">{cat.sub}</span>
