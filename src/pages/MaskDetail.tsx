@@ -45,6 +45,20 @@ const PRODUCTS = [
     price: 15500,
     img: '/printing-landing/assets/mask-6.png',
   },
+  {
+    id: 'mask-007',
+    label: 'Custom Design',
+    name: '글리터 & 반사 커스텀 마스크',
+    price: 14500,
+    img: '/printing-landing/assets/mask-7.jpg',
+  },
+  {
+    id: 'mask-008',
+    label: 'Pattern Wear',
+    name: '에포키 패턴 패션 마스크',
+    price: 16500,
+    img: '/printing-landing/assets/mask-8.jpg',
+  },
 ];
 
 const MaskDetail = () => {
