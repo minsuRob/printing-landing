@@ -8,13 +8,13 @@ const PRODUCT = {
   name: '초정밀 산업용/의류용 레이저 컷팅 솔루션',
   category: '레이저 컷팅',
   badge: '신기술 도입',
-  desc: '신의데코프린팅의 최첨단 자동화 레이저 설비로 구현하는 오차 없는 정밀 컷팅 서비스입니다. 열전사 필름의 복잡한 기하학적 로고 컷팅부터 원단 가공, 가죽 조각까지 완벽한 마감을 선사합니다. 고열 레이저를 통한 단면 열융착 공정으로 테두리 올 풀림을 근본적으로 방지합니다.',
-  mainImg: '/printing-landing/assets/laser-1.png',
+  desc: '신의데코프린팅의 최첨단 자동화 레이저 설비로 구현하는 오차 없는 정밀 컷팅 서비스입니다. 아크릴 조각, 글자 컷팅 스티커, 커스텀 소품 제작까지 다양한 활용이 가능합니다. 고열 레이저를 통한 단면 열융착 공정으로 테두리 올 풀림을 근본적으로 방지합니다.',
+  mainImg: '/printing-landing/assets/laser-2.jpg',
   thumbs: [
+    '/printing-landing/assets/laser-2.jpg',
     '/printing-landing/assets/laser-1.png',
     '/printing-landing/assets/film-1.jpg',
     '/printing-landing/assets/film-2.jpg',
-    '/printing-landing/assets/film-3.jpg',
   ],
   specs: [
     { title: '가공 오차', value: '±0.05mm 이하 초정밀 제어' },
