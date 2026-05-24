@@ -99,7 +99,7 @@ const BagDetail = () => {
                   muted
                   playsInline
                   className="w-full h-full object-cover"
-                  src="https://assets.mixkit.co/videos/preview/mixkit-cutting-fabric-with-scissors-41712-large.mp4"
+                  src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"
                 />
               </div>
               <p className="text-on-surface-variant text-base leading-relaxed text-center max-w-2xl mx-auto">

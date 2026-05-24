@@ -74,7 +74,7 @@ const ProductionGuide = () => {
             <div className="lg:w-1/2 relative">
               <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border-4 border-white relative group">
                 <video 
-                  src="https://assets.mixkit.co/videos/preview/mixkit-industrial-mechanical-press-machinery-34537-large.mp4" 
+                  src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4" 
                   autoPlay
                   loop
                   muted

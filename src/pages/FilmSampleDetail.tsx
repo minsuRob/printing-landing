@@ -183,7 +183,7 @@ const FilmSampleDetail = () => {
                     muted
                     playsInline
                     className="w-full h-full object-cover"
-                    src="https://assets.mixkit.co/videos/preview/mixkit-close-up-of-cutting-paper-with-cutter-34305-large.mp4"
+                    src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
                   />
                 </div>
               </div>

@@ -11,9 +11,9 @@ const PRODUCT = {
 
   badge: '심플 컬렉션',
   desc: '과하지 않은 절제의 미학. 심플한 로고와 고품질 홀로그램 필름만으로 완성된 미니멀리즘 스타일입니다.',
-  mainImg: 'https://assets.mixkit.co/videos/preview/mixkit-printing-machine-printing-press-23112-large.mp4',
+  mainImg: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
   thumbs: [
-    'https://assets.mixkit.co/videos/preview/mixkit-printing-machine-printing-press-23112-large.mp4',
+    'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
     '/printing-landing/assets/tshirt-series-1.jpg',
     '/printing-landing/assets/tshirt-series-2.jpg',
     '/printing-landing/assets/tshirt-series-3.jpg',
