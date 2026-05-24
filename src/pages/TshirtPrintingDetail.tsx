@@ -11,8 +11,9 @@ const PRODUCT = {
 
   badge: '심플 컬렉션',
   desc: '과하지 않은 절제의 미학. 심플한 로고와 고품질 홀로그램 필름만으로 완성된 미니멀리즘 스타일입니다.',
-  mainImg: '/printing-landing/assets/tshirt-series-1.jpg',
+  mainImg: 'https://assets.mixkit.co/videos/preview/mixkit-printing-machine-printing-press-23112-large.mp4',
   thumbs: [
+    'https://assets.mixkit.co/videos/preview/mixkit-printing-machine-printing-press-23112-large.mp4',
     '/printing-landing/assets/tshirt-series-1.jpg',
     '/printing-landing/assets/tshirt-series-2.jpg',
     '/printing-landing/assets/tshirt-series-3.jpg',
@@ -42,12 +43,24 @@ const TshirtPrintingDetail = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
           {/* Left: Product Gallery (기존 동일 구조) */}
           <div className="md:col-span-7 space-y-4">
-            <div className="rounded-xl overflow-hidden bg-white border border-outline-variant/30 shadow-sm group">
-              <img
-                alt="Custom T-Shirt"
-                className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
-                src={mainImg}
-              />
+            <div className="rounded-xl overflow-hidden bg-white border border-outline-variant/30 shadow-sm group aspect-[4/3] relative">
+              {mainImg.endsWith('.mp4') ? (
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  controls
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  src={mainImg}
+                />
+              ) : (
+                <img
+                  alt="Custom T-Shirt"
+                  className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                  src={mainImg}
+                />
+              )}
             </div>
             {/* 썸네일 갤러리 */}
             <div className="grid grid-cols-4 gap-3">
@@ -57,7 +70,11 @@ const TshirtPrintingDetail = () => {
                   onClick={() => setMainImg(t)}
                   className={`rounded-lg overflow-hidden aspect-square cursor-pointer border-2 transition-all ${mainImg === t ? 'border-primary ring-2 ring-primary/20 ring-offset-2' : 'border-outline-variant/20 opacity-60 hover:opacity-100'}`}
                 >
-                  <img className="w-full h-full object-cover" src={t} alt={`thumb-${i}`} />
+                  {t.endsWith('.mp4') ? (
+                    <video className="w-full h-full object-cover" src={t} muted playsInline />
+                  ) : (
+                    <img className="w-full h-full object-cover" src={t} alt={`thumb-${i}`} />
+                  )}
                 </div>
               ))}
             </div>

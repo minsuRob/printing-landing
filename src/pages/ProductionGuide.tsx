@@ -72,18 +72,24 @@ const ProductionGuide = () => {
               </div>
             </div>
             <div className="lg:w-1/2 relative">
-              <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
-                <img 
-                  src="/printing-landing/assets/cat-tshirt.jpg" 
-                  alt="Production Process" 
+              <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border-4 border-white relative group">
+                <video 
+                  src="https://assets.mixkit.co/videos/preview/mixkit-industrial-mechanical-press-machinery-34537-large.mp4" 
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  controls
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-primary/20 backdrop-blur-[2px] flex items-center justify-center">
-                  <div className="bg-white/90 p-6 rounded-2xl shadow-xl text-center max-w-[200px]">
-                    <span className="material-symbols-outlined text-primary text-4xl mb-2">thermostat</span>
-                    <p className="text-sm font-bold">표준 온도 160°C</p>
-                    <p className="text-[10px] text-on-surface-variant">정밀한 온도 조절이 품질을 결정합니다.</p>
-                  </div>
+                <div className="absolute top-4 left-4 bg-black/60 text-white text-xs px-3 py-1.5 rounded-full font-bold z-10 flex items-center gap-1.5 backdrop-blur-sm pointer-events-none">
+                  <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+                  작업 동영상
+                </div>
+                <div className="absolute bottom-4 right-4 bg-white/95 p-5 rounded-2xl shadow-xl text-center max-w-[180px] pointer-events-none group-hover:opacity-0 transition-opacity duration-300">
+                  <span className="material-symbols-outlined text-primary text-3xl mb-1">thermostat</span>
+                  <p className="text-xs font-bold text-on-surface">표준 온도 160°C</p>
+                  <p className="text-[9px] text-on-surface-variant mt-0.5">정밀 온도 제어</p>
                 </div>
               </div>
             </div>

@@ -87,6 +87,28 @@ const BagDetail = () => {
 
         {/* Detail Sections */}
         <div className="mt-20 space-y-20">
+          {/* 작업 동영상 섹션 신규 추가 */}
+          <section className="space-y-8">
+            <h3 className="font-['Space_Grotesk'] text-2xl font-bold text-on-surface text-center">정밀 수작업 및 최종 검수 현장</h3>
+            <div className="bg-surface-container-low rounded-3xl p-6 md:p-10 border border-outline-variant/20 shadow-md max-w-4xl mx-auto">
+              <div className="rounded-2xl overflow-hidden bg-black border border-outline-variant/30 shadow-lg relative aspect-[16/9] mb-6">
+                <video
+                  controls
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover"
+                  src="https://assets.mixkit.co/videos/preview/mixkit-cutting-fabric-with-scissors-41712-large.mp4"
+                />
+              </div>
+              <p className="text-on-surface-variant text-base leading-relaxed text-center max-w-2xl mx-auto">
+                가위질 한 번, 마감 처리 하나에도 오랜 숙련도를 가진 전문가의 손길이 닿습니다.
+                기계적 가공 단계를 마친 에코백 원단을 정교하게 제단하고 최종 실밥 하나까지 전수 검수하여 완벽한 품질로 전달합니다.
+              </p>
+            </div>
+          </section>
+
           {/* Product Detail Photos (기존 동일 레이아웃) */}
           <section className="space-y-8">
             <h3 className="font-['Space_Grotesk'] text-2xl font-bold text-on-surface text-center">제품 상세 정보</h3>
