@@ -19,6 +19,13 @@ const VIDEOS = [
     badge: '열전사 프린팅',
   },
   {
+    id: 'video-005',
+    title: '고온 압착 열프레스기 작업',
+    desc: '강력한 고온 압착 방식으로 티셔츠, 에코백 등의 원단에 전사 필름을 완벽하고 균일하게 부착하는 전문 열프레스 가공 공정입니다.',
+    src: 'https://assets.mixkit.co/videos/preview/mixkit-industrial-mechanical-press-machinery-34537-large.mp4',
+    badge: '열프레스 가공',
+  },
+  {
     id: 'video-003',
     title: '정밀 수작업 재단 및 가공',
     desc: '숙련된 작업자가 미세한 부분까지 섬세하게 다듬고 최종 검수하는 수작업 마감 작업입니다.',
