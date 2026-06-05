@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
@@ -43,9 +43,10 @@ const VIDEOS = [
 
 const WorkVideoDetail = () => {
   const [currentVideo, setCurrentVideo] = useState(VIDEOS[0]);
+  const navigate = useNavigate();
 
   const handleInquiry = () => {
-    window.location.href = 'mailto:contact@godsdeco.com';
+    navigate('/inquiry');
   };
 
   return (
