@@ -18,12 +18,23 @@ const About = () => {
 
         <section className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-32">
           <div className="space-y-8">
-            <h2 className="font-['Space_Grotesk'] text-3xl font-bold">우리의 철학</h2>
-            <p className="text-on-surface-variant leading-relaxed">
-              우리는 고객의 아이디어가 가장 빛나는 순간을 위해 최고의 소재와 첨단 기술을 결합합니다. 
-              작은 로고 하나에도 수만 번의 세탁을 견디는 내구성과, 보는 각도에 따라 달라지는 신비로운 광택을 담기 위해 노력합니다.
-            </p>
-            <div className="grid grid-cols-2 gap-6">
+            <h2 className="font-['Space_Grotesk'] text-3xl font-bold">대표의 사업 이념 및 비전</h2>
+            <div className="space-y-4">
+              <p className="text-on-surface-variant leading-relaxed text-lg italic font-medium">
+                "고객의 상상력이 현실이 되는 순간, 그 뒤에는 언제나 신의데코프린팅의 변치 않는 정직함과 정밀함이 있습니다."
+              </p>
+              <p className="text-on-surface-variant leading-relaxed">
+                안녕하십니까, 신의데코프린팅 대표 이수종입니다. 저희는 단순한 열전사 인쇄를 넘어, 고객의 소중한 브랜드 가치를 제품에 온전히 담아내는 것을 최우선의 목표로 삼고 있습니다. 단 한 장의 티셔츠, 단 하나의 로고에도 수만 번의 세탁을 견딜 수 있는 진실된 품질을 약속드립니다. 앞으로도 끊임없는 기술 혁신과 신뢰를 바탕으로 업계 최고의 파트너가 되겠습니다.
+              </p>
+              <p className="text-on-surface font-bold text-lg pt-4">
+                대표 이 수 종 올림
+              </p>
+              <div className="inline-flex items-center gap-2 mt-4 px-4 py-2 bg-primary/10 text-primary rounded-xl font-bold">
+                <span className="material-symbols-outlined">call</span>
+                대표 상담 전화 : 010-2058-7121
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-6 pt-4">
               <div className="p-6 bg-surface-container-low rounded-2xl">
                 <span className="text-3xl font-bold text-primary mb-2 block">10+</span>
                 <p className="text-sm font-semibold">숙련된 전문가의 기술</p>
