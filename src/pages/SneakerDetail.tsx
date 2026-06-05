@@ -6,7 +6,7 @@ import Footer from '../components/Footer';
 
 const SneakerDetail = () => {
   const [mainImg, setMainImg] = useState(
-    '/printing-landing/assets/sneaker-run-1.jpg'
+    '/printing-landing/assets/anime-sneaker.png'
   );
 
   // 제작 문의하기 버튼 클릭 시 이메일 연결
@@ -16,7 +16,7 @@ const SneakerDetail = () => {
 
   // 기존 썸네일 이미지들 동일
   const thumbs = [
-    '/printing-landing/assets/sneaker-run-1.jpg',
+    '/printing-landing/assets/anime-sneaker.png',
     '/printing-landing/assets/sneaker-run-2.jpg',
     '/printing-landing/assets/sneaker-run-3.jpg',
     '/printing-landing/assets/sneaker-run-4.jpg',

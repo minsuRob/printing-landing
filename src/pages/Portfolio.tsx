@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 
 const PORTFOLIO_ITEMS = [
   { id: 1, title: '골드 로고 캔버스 에코백', category: '가방', img: '/printing-landing/assets/bag-hologram.png', client: 'Gift Shop C' },
-  { id: 2, title: '네온 홀로그램 커스텀 스니커즈', category: '신발', img: '/printing-landing/assets/sneaker-run-1.jpg', client: 'Individual Order' },
+  { id: 2, title: '네온 홀로그램 커스텀 스니커즈', category: '신발', img: '/printing-landing/assets/anime-sneaker.png', client: 'Individual Order' },
   { id: 3, title: '프리미엄 글리터 로고 볼캡', category: '모자', img: '/printing-landing/assets/cat-hat.jpg', client: 'Street Brand' },
   { id: 4, title: '시그니처 미니멀 홀로그램 티', category: '티셔츠', img: '/printing-landing/assets/tshirt-series-1.jpg', client: 'Minimal Brand B' },
   { id: 5, title: '홀로그램 포인트 마스크', category: '마스크', img: '/printing-landing/assets/cat-mask.jpg', client: 'Fashion Group B' },

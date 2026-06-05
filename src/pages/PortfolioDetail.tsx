@@ -21,7 +21,7 @@ const CATEGORIES = [
     title: '커스텀 스니커즈', 
     description: '신발의 질감을 살린 정밀한 열전사로 세상에 하나뿐인 스니커즈를 제작합니다.',
     items: [
-      { id: 3, img: '/printing-landing/assets/sneaker-run-1.jpg', title: '네온 러닝 커스텀' },
+      { id: 3, img: '/printing-landing/assets/anime-sneaker.png', title: '네온 러닝 커스텀' },
       { id: 4, img: '/printing-landing/assets/sneaker.png', title: '미니멀 포인트 스니커즈' },
     ],
     link: '/sneaker-printing'
