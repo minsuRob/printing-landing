@@ -47,7 +47,7 @@ const Support = () => {
             </div>
             <h3 className="font-bold text-xl mb-3">전화 상담</h3>
             <p className="text-sm text-gray-500 mb-6">전문 상담원과 직접 <br/>통화하여 해결하세요.</p>
-            <p className="text-green-600 font-bold">02-1234-5678</p>
+            <p className="text-green-600 font-bold">010-2058-7121</p>
           </div>
 
           <div className="bg-white p-8 rounded-[32px] shadow-lg shadow-gray-200/50 border border-gray-100 text-center">

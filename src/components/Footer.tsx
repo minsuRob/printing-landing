@@ -7,6 +7,7 @@ const Footer = () => {
         <div>
           <h3 className="font-h3 text-2xl font-bold text-on-surface mb-4">신의데코프린팅</h3>
           <p className="text-sm text-on-surface-variant mb-6 leading-relaxed">
+            대표: 이수종 | 연락처: 010-2058-7121<br/>
             © 2024 신의데코프린팅. 모든 공정에 정밀함을 담습니다.<br/>
             열전사 필름의 새로운 기준, 신의데코와 함께하세요.
           </p>
