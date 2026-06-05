@@ -29,7 +29,7 @@ const VIDEOS = [
     id: 'video-003',
     title: '정밀 수작업 재단 및 가공',
     desc: '숙련된 작업자가 미세한 부분까지 섬세하게 다듬고 최종 검수하는 수작업 마감 작업입니다.',
-    src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4',
+    src: '/printing-landing/assets/precision-hand-finishing.mp4',
     badge: '가공 & 검수',
   },
   {
