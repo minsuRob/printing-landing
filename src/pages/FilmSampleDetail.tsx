@@ -160,7 +160,7 @@ const FilmSampleDetail = () => {
                 모니터 화면과 실제 출력물의 색상이나 질감은 다를 수 있습니다.
                 대량 제작 전 샘플북을 통해 원단 부착성, 색감, 그리고 필름 고유의 텍스처를 미리 경험해 보세요.
               </p>
-              <ul className="space-y-3 inline-block text-left mb-16">
+              <ul className="space-y-3 inline-block text-left">
                 {['정확한 컬러 칩 대조 가능', '세탁 테스트를 통한 내구성 직접 확인', '홀로그램/반사 필름의 실제 광택 확인'].map(t => (
                   <li key={t} className="flex items-center gap-3">
                     <span className="material-symbols-outlined text-primary">science</span>
@@ -168,26 +168,6 @@ const FilmSampleDetail = () => {
                   </li>
                 ))}
               </ul>
-
-              {/* 소품 가공 공정 동영상 신규 추가 */}
-              <div className="border-t border-outline-variant/20 pt-16 max-w-4xl mx-auto text-center">
-                <h3 className="font-['Space_Grotesk'] text-2xl font-bold mb-6">정밀 소품 커팅 스티커 가공</h3>
-                <p className="text-on-surface-variant text-sm mb-8 max-w-xl mx-auto">
-                  복잡하고 섬세한 문양이나 아주 작은 로고 스티커 하나도 깔끔하게 떼어낼 수 있도록 숙련된 컷팅 장비 제어와 탈착 공정을 거칩니다.
-                </p>
-                <div className="rounded-2xl overflow-hidden bg-black border border-outline-variant/30 shadow-lg relative aspect-[16/9]">
-                  <video
-                    controls
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-full object-cover"
-                    src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
-                  />
-                </div>
-              </div>
-
             </div>
           </div>
         </section>

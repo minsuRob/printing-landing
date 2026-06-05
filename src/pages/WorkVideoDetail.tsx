@@ -8,7 +8,7 @@ const VIDEOS = [
     id: 'video-001',
     title: '초정밀 레이저 컷팅 공정',
     desc: '최첨단 레이저 헤드를 활용하여 의류 및 아크릴 소재를 정밀하게 컷팅하는 자동화 설비의 작동 모습입니다.',
-    src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4',
+    src: '/printing-landing/assets/laser-work.mp4',
     badge: '레이저 가공',
   },
   {
