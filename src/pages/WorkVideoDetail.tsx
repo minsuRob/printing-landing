@@ -22,7 +22,7 @@ const VIDEOS = [
     id: 'video-005',
     title: '고온 압착 열프레스기 작업',
     desc: '강력한 고온 압착 방식으로 티셔츠, 에코백 등의 원단에 전사 필름을 완벽하고 균일하게 부착하는 전문 열프레스 가공 공정입니다.',
-    src: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4',
+    src: '/printing-landing/assets/heat-press-work.mp4',
     badge: '열프레스 가공',
   },
   {
